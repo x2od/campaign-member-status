@@ -1,0 +1,50 @@
+{
+	"name": "protected-campaignmember-statuses",
+	"private": true,
+	"version": "1.0.0",
+	"description": "Protected Campaign Member Statuses",
+	"scripts": {
+		"test": "npm run test:unit",
+		"apex:local:start": "node node_modules/prettier-plugin-apex/dist/bin/start-apex-server.js",
+		"apex:local:stop": "node node_modules/prettier-plugin-apex/dist/bin/stop-apex-server.js",
+		"apex:test:local": "rm testresults/* && sfdx force:apex:test:run -l RunLocalTests -d testresults -r human -c",
+		"pmd:scan:csv": "$HOME/pmd/bin/run.sh pmd -d force-app -R pmd/ruleset.xml -f csv -r pmd/pmd.csv --cache .pmdCache --short-names",
+		"pmd:scan:deploy:csv": "$HOME/pmd/bin/run.sh pmd -d force-app -R pmd/deployRules.xml -f csv -r pmd/deploy.csv --cache .pmdCache --short-names",
+		"precommit": "lint-staged",
+		"prepare": "husky install",
+		"prettier:apex": "prettier --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+		"prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+		"prettier:docs": ". doc-assets/docscleanup.sh | prettier --write \"docs/*.html\"",
+		"prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+		"prettier:verify:apex": "prettier --list-different \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+		"prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+		"prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
+		"scratchorg": ". scripts/scratchorg.sh",
+		"updateHighlight": ". scripts/updateHighlight.sh"
+	},
+	"devDependencies": {
+		"@prettier/plugin-xml": "^2.2.0",
+		"eslint": "^8.26.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"husky": "^8.0.1",
+		"lint-staged": "^13.0.3",
+		"prettier": "^2.7.1",
+		"prettier-plugin-apex": "^1.11.0"
+	},
+	"lint-staged": {
+		"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}": [
+			"prettier --write"
+		],
+		"force-app/**/{aura,lwc}/**": [
+			"eslint"
+		],
+		"docs/assets/*.css": [
+			"prettier --write"
+		],
+		"docs/*.html": [
+			"prettier --write --tab-width 2"
+		]
+	}
+}

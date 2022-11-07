@@ -1,0 +1,135 @@
+# Unique name for this workflow
+name: PR Validation
+# Definition when the workflow should run
+on:
+  pull_request:
+    types: [edited, opened, synchronize, reopened, review_requested]
+    paths:
+      - 'force-app/**'
+      - 'pmd/**'
+  workflow_dispatch:
+# Jobs to be executed
+jobs:
+  scratch-org-test:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor != 'dependabot[bot]' }}
+    steps:
+      # Checkout the source code
+      - name: 'Checkout source code'
+        uses: actions/checkout@v3
+
+      - name: 'Use latest PMD version'
+        run: |
+          VERSION=$(curl -s https://api.github.com/repos/pmd/pmd/releases/latest | grep '.tag_name' | sed 's:.*/::' | sed 's:",::')
+          echo $VERSION
+          echo -n $VERSION > pmd/pmd-version.txt
+
+      # Install PMD
+      - name: 'Install PMD'
+        run: |
+          PMD_VERSION=`cat pmd/pmd-version.txt`
+          wget https://github.com/pmd/pmd/releases/download/pmd_releases%2F$PMD_VERSION/pmd-bin-$PMD_VERSION.zip
+          unzip pmd-bin-$PMD_VERSION.zip -d ~
+          mv ~/pmd-bin-$PMD_VERSION ~/pmd
+          ~/pmd/bin/run.sh pmd --version
+
+      # Run PMD scan
+      - name: 'Run PMD scan'
+        run: ~/pmd/bin/run.sh pmd -d force-app -R pmd/deployRules.xml -f text --cache .pmdCache --minimum-priority 2
+
+      # Install Salesforce CLI
+      - name: 'Install Salesforce CLI'
+        run: |
+          wget https://developer.salesforce.com/media/salesforce-cli/sfdx/channels/stable/sfdx-linux-x64.tar.xz
+          mkdir ~/sfdx
+          tar xJf sfdx-linux-x64.tar.xz -C ~/sfdx --strip-components 1
+          echo "$HOME/sfdx/bin" >> $GITHUB_PATH
+          ~/sfdx/bin/sfdx version
+
+      # Store secret for dev hub
+      - name: 'Populate auth file with DEVHUB_SFDX_URL secret'
+        shell: bash
+        run: |
+          echo ${{ secrets.DEVHUB_SFDX_URL}} > ./DEVHUB_SFDX_URL.txt
+          secretFileSize=$(wc -c "./DEVHUB_SFDX_URL.txt" | awk '{print $1}')
+          if [ $secretFileSize == 1 ]; then
+              echo "Missing DEVHUB_SFDX_URL secret. Is this workflow running on a fork?";
+              exit 1;
+          fi
+
+      # Authenticate dev hub
+      - name: 'Authenticate Dev Hub'
+        run: sfdx auth:sfdxurl:store -f ./DEVHUB_SFDX_URL.txt -a devhub -d
+
+        # Add namespace to project config
+      - name: Add namespace to project config
+        run: |
+          sed -i 's,"namespace": "","namespace": "",' sfdx-project.json
+
+      # Create scratch org
+      - name: 'Create scratch org'
+        run: sfdx force:org:create -f config/project-scratch-def.json -a ChangeMe -s -d 1 -w 20 --noancestors
+
+      # Deploy source to scratch org
+      - name: 'Push source to scratch org'
+        run: sfdx force:source:push
+
+      # Assign permissionset
+      - name: 'Assign permissionset to default user'
+        run: sfdx force:user:permset:assign -n Action_Plans_Admin
+
+      # Run Apex tests in scratch org
+      - name: 'Run Apex tests'
+        run: sfdx force:apex:test:run -c -r human -l RunLocalTests -w 20
+
+      # Upload code coverage to Codecov.io
+      - name: 'Upload code coverage for Apex to Codecov.io'
+        uses: codecov/codecov-action@v3
+        with:
+          flags: Apex
+
+      # Housekeeping
+      - name: 'Delete scratch org'
+        if: always()
+        run: sfdx force:org:delete -p -u ChangeMe
+
+      # Remove namespace from project config
+      - name: Remove namespace from project config
+        run: |
+          sed -i 's,"namespace": "","namespace": "",' sfdx-project.json
+    # Auto merge Dependabot PRs for:
+    # - patch updates on prod dependencies
+    # - minor updates on dev dependencies
+    dependabot-auto-merge:
+      # Only run for Dependabot PRs
+      if: ${{ github.actor == 'dependabot[bot]' }}
+      runs-on: ubuntu-latest
+      needs: scratch-org-test
+      permissions:
+        pull-requests: write
+        contents: write
+      steps:
+        - name: 'Fetch Dependabot metadata'
+          id: dependabot
+          uses: dependabot/fetch-metadata@v1
+
+        - name: 'Check auto merge conditions'
+          id: auto-merge
+          if: |
+            (
+              steps.dependabot.outputs.update-type == 'version-update:semver-patch' &&
+              contains('direct:production,indirect:production', steps.dependabot.outputs.dependency-type)
+            ) || (
+              contains('version-update:semver-minor,version-update:semver-patch', steps.dependabot.outputs.update-type) &&
+              contains('direct:development,indirect:development', steps.dependabot.outputs.dependency-type)
+            )
+          run: echo "::notice ::auto-merge conditions satisfied"
+
+        - name: 'Approve and merge PR'
+          if: ${{ steps.auto-merge.conclusion == 'success' }}
+          run: |
+            gh pr review --approve "$PR_URL"
+            gh pr merge --auto --merge "$PR_URL"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            PR_URL: ${{ github.event.pull_request.html_url }}

@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+    "chuckjonas.apex-pmd",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "financialforce.lana",
+    "peterweinberg.apexdox-vs-code",
+    "redhat.vscode-xml",
+    "salesforce.salesforcedx-vscode",
+    "eg2.vscode-npm-script",
+    "matteopieroni.refresh-npm-packages",
+    "subc4i.sublime-mavensmate-monokai-apex",
+    "pkief.material-icon-theme",
+    "wwm.better-align",
+    "aaron-bond.better-comments",
+    "sirtori.indenticator",
+    "oderwat.indent-rainbow"
+  ]
+}
