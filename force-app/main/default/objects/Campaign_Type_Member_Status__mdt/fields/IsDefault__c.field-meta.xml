@@ -4,6 +4,7 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Select this if this Status should be the default (please pick only 1 per Type)</inlineHelpText>
     <label>Is Default</label>
     <type>Checkbox</type>
 </CustomField>

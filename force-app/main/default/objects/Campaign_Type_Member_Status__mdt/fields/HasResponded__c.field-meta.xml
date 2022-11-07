@@ -4,6 +4,7 @@
     <defaultValue>false</defaultValue>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>Select this if this Status should be marked as Responded</inlineHelpText>
     <label>Responded</label>
     <type>Checkbox</type>
 </CustomField>
