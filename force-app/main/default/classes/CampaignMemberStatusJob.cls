@@ -3,6 +3,7 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @group       CampaignMemberStatus
  */
 public class CampaignMemberStatusJob implements Schedulable {
 	private CampaignMemberService sut = CampaignMemberService.getInstance();

@@ -4,6 +4,7 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @group       CampaignMemberStatus
  */
 public virtual without sharing class CampaignMemberService {
 	@TestVisible
@@ -26,10 +27,10 @@ public virtual without sharing class CampaignMemberService {
 		}
 		return instance;
 	}
-
+	/* 
 	protected CampaignMemberService() {
 		System.debug('in CMS constructor');
-	}
+	} */
 
 	public List<Campaign> getCampaignsWithMemberStatuses(Set<Id> campaignIds) {
 		System.debug('Start getCampaignsWithMemberStatuses');

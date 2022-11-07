@@ -3,6 +3,7 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @group       CampaignMemberStatus
  */
 public without sharing class CampaignTriggerHandler {
 	//a little poor-man's dependency injection mixed with Singleton pattern

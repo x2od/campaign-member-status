@@ -3,6 +3,7 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @group       CampaignMemberStatus
  */
 @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
 @isTest
