@@ -28,6 +28,7 @@ engine:
     - '${workspaceFolder}/doc-assets/icon.png'
     - '${workspaceFolder}/doc-assets/index.css'
     - '${workspaceFolder}/doc-assets/highlight.css'
+    - '${workspaceFolder}/doc-assets/styling.css'
     - '${workspaceFolder}/README.md'
     #- '${workspaceFolder}/doc-assets/files/campaignmemberstatushome.html'
     - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-1.png'

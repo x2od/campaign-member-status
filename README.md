@@ -37,7 +37,7 @@ Follow this set of instructions if you want to deploy the solution into your org
 
 1. If you know about and use `git`, clone this repository
 
-   ```
+   ```shell
    git clone https://github.com/dschach/campaign-member-status.git
    cd campaign-member-status
    ```
@@ -48,13 +48,13 @@ Follow this set of instructions if you want to deploy the solution into your org
    1. Extract the contents
    1. Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)
 
-   ```
+   ```shell
    cd Downloads/campaign-member-status-main/campaign-member-status-main
    ```
 
    4. Verify you are in the same directory as the sfdx-project.json file
 
-   ```
+   ```shell
    # mac or Linux
    ls
 
@@ -68,7 +68,7 @@ Follow this set of instructions if you want to deploy the solution into your org
 
 1. Authorize your Salesforce org and provide it with an alias (**myorg** in the commands below)
 
-   ```
+   ```shell
    # Connect SFDX to a Sandbox Org
    sfdx force:auth:web:login -s -a myorg -r https://test.salesforce.com
 
@@ -77,7 +77,7 @@ Follow this set of instructions if you want to deploy the solution into your org
    ```
 
 1. Run this command in a terminal to deploy the reports and dashboards
-   ```
+   ```shell
    sfdx force:source:deploy -p "force-app/main/default" -u myorg
    ```
 1. Continue with [Post-Install Configuration](#post-install-configuration)
@@ -117,13 +117,13 @@ Once you have provided your statuses, you are good to go. Give it a whirl by cre
 
 1. If you haven't already done so, authorize your hub org and provide it with an alias (**myhuborg** in the command below):
 
-   ```
+   ```shell
    sfdx force:auth:web:login -d -a myhuborg
    ```
 
 1. If you know about and use `git`, clone this repository
 
-   ```
+   ```shell
    git clone https://github.com/dschach/campaign-member-status.git
    cd campaign-member-status
    ```
@@ -134,13 +134,13 @@ Once you have provided your statuses, you are good to go. Give it a whirl by cre
    1. Extract the contents
    1. Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)
 
-   ```
+   ```shell
    cd Downloads/campaign-member-status-main/campaign-member-status-main
    ```
 
    1. Verify you are in the same directory as the sfdx-project.json file
 
-   ```
+   ```shell
    # mac or Linux
    ls
 
@@ -150,7 +150,7 @@ Once you have provided your statuses, you are good to go. Give it a whirl by cre
 
 1. Run the included script to create a scratch org and push the metadata
 
-   ```
+   ```shell
    . scripts/scratchorg.sh
    ```
 

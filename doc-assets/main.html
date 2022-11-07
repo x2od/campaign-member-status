@@ -1,3 +1,4 @@
+<link href="assets/styling.css" rel="stylesheet" />
 <h1 id="campaign-type-member-statuses">Campaign Type Member Statuses</h1>
 <p>This Unlocked Package was developed for Marketing Admins who want to enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (<a href="https://github.com/sercante-llc/campaign-member-status">https://github.com/sercante-llc/campaign-member-status</a>).</p>
 <blockquote>
@@ -39,7 +40,7 @@
 <p>Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to deploy into Production.</p>
 <ol>
 <li><p>If you know about and use <code>git</code>, clone this repository</p>
-<pre><code>git clone https://github.com/dschach/campaign-member-status.git
+<pre><code class="language-shell">git clone https://github.com/dschach/campaign-member-status.git
 cd campaign-member-status
 </code></pre>
 <p><strong>or</strong></p>
@@ -48,12 +49,12 @@ cd campaign-member-status
 <li>Extract the contents</li>
 <li>Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)</li>
 </ol>
-<pre><code>cd Downloads/campaign-member-status-main/campaign-member-status-main
+<pre><code class="language-shell">cd Downloads/campaign-member-status-main/campaign-member-status-main
 </code></pre>
 <ol start="4">
 <li>Verify you are in the same directory as the sfdx-project.json file</li>
 </ol>
-<pre><code># mac or Linux
+<pre><code class="language-shell"># mac or Linux
 ls
 
 # windows
@@ -66,7 +67,7 @@ dir
 </ul>
 </li>
 <li><p>Authorize your Salesforce org and provide it with an alias (<strong>myorg</strong> in the commands below)</p>
-<pre><code># Connect SFDX to a Sandbox Org
+<pre><code class="language-shell"># Connect SFDX to a Sandbox Org
 sfdx force:auth:web:login -s -a myorg -r https://test.salesforce.com
 
 # if for some reason you need to specify a specific URL, use this slightly altered command, making the correct adjustments
@@ -74,7 +75,7 @@ sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce
 </code></pre>
 </li>
 <li><p>Run this command in a terminal to deploy the reports and dashboards</p>
-<pre><code>sfdx force:source:deploy -p &quot;force-app/main/default&quot; -u myorg
+<pre><code class="language-shell">sfdx force:source:deploy -p &quot;force-app/main/default&quot; -u myorg
 </code></pre>
 </li>
 <li><p>Continue with <a href="#post-install-configuration">Post-Install Configuration</a></p>
@@ -122,11 +123,11 @@ sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce
 </ul>
 </li>
 <li><p>If you haven&#39;t already done so, authorize your hub org and provide it with an alias (<strong>myhuborg</strong> in the command below):</p>
-<pre><code>sfdx force:auth:web:login -d -a myhuborg
+<pre><code class="language-shell">sfdx force:auth:web:login -d -a myhuborg
 </code></pre>
 </li>
 <li><p>If you know about and use <code>git</code>, clone this repository</p>
-<pre><code>git clone https://github.com/dschach/campaign-member-status.git
+<pre><code class="language-shell">git clone https://github.com/dschach/campaign-member-status.git
 cd campaign-member-status
 </code></pre>
 <p><strong>or</strong></p>
@@ -135,12 +136,12 @@ cd campaign-member-status
 <li>Extract the contents</li>
 <li>Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)</li>
 </ol>
-<pre><code>cd Downloads/campaign-member-status-main/campaign-member-status-main
+<pre><code class="language-shell">cd Downloads/campaign-member-status-main/campaign-member-status-main
 </code></pre>
 <ol>
 <li>Verify you are in the same directory as the sfdx-project.json file</li>
 </ol>
-<pre><code># mac or Linux
+<pre><code class="language-shell"># mac or Linux
 ls
 
 # windows
@@ -148,7 +149,7 @@ dir
 </code></pre>
 </li>
 <li><p>Run the included script to create a scratch org and push the metadata</p>
-<pre><code>. scripts/scratchorg.sh
+<pre><code class="language-shell">. scripts/scratchorg.sh
 </code></pre>
 </li>
 <li><p>Continue with <a href="#post-install-configuration">Post-Install Configuration</a></p>
