@@ -9,7 +9,7 @@ public without sharing class CampaignTriggerHandler {
 	@TestVisible
 	private static CampaignTriggerHandler instance;
 
-	private CampaignMemberService campaignMemberService;
+	private CampaignMemberService cmService;
 
 	public static Boolean bypass = false;
 
@@ -25,7 +25,7 @@ public without sharing class CampaignTriggerHandler {
 	 * @see CampaignMemberService.getInstance
 	 */
 	public CampaignTriggerHandler() {
-		this.CampaignMemberService = CampaignMemberService.getInstance();
+		this.cmService = CampaignMemberService.getInstance();
 	}
 
 	/**
@@ -35,7 +35,7 @@ public without sharing class CampaignTriggerHandler {
 	 * @param service Pass in `CampaignMemberService` when running this trigger handler
 	 */
 	public CampaignTriggerHandler(CampaignMemberService service) {
-		this.CampaignMemberService = service;
+		this.cmService = service;
 	}
 
 	/**
@@ -46,7 +46,7 @@ public without sharing class CampaignTriggerHandler {
 			return;
 		}
 
-		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = CampaignMemberService.getGroupedProtectedStatuses();
+		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 
 		for (Campaign camp : campaigns) {
 			if (camp.isClone()) {
@@ -75,7 +75,7 @@ public without sharing class CampaignTriggerHandler {
 			return;
 		}
 
-		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = CampaignMemberService.getGroupedProtectedStatuses();
+		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 		Set<Id> campaignIdsNeedingStatuses = new Set<Id>();
 		for (Campaign camp : campaigns) {
 			if (camp.Protect_Campaign_Member_Statuses__c) {
@@ -95,7 +95,7 @@ public without sharing class CampaignTriggerHandler {
 		List<CampaignMemberStatus> toDelete = new List<CampaignMemberStatus>();
 
 		//get our Campaigns and CampaignMemberStatuses that Salesforce created
-		List<Campaign> campaignsToProcess = CampaignMemberService.getCampaignsWithMemberStatuses(campaignIdsNeedingStatuses);
+		List<Campaign> campaignsToProcess = cmService.getCampaignsWithMemberStatuses(campaignIdsNeedingStatuses);
 
 		for (Campaign camp : campaignsToProcess) {
 			System.debug('Campaign ' + camp.Name + '\'s type is one that should have Protected statuses');

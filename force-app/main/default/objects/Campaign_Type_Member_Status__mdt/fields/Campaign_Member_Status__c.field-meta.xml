@@ -3,7 +3,8 @@
     <fullName>Campaign_Member_Status__c</fullName>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
-    <label>Protected Status</label>
+    <inlineHelpText>This is the Status value that will become protected</inlineHelpText>
+    <label>Member Status</label>
     <length>255</length>
     <required>true</required>
     <type>Text</type>

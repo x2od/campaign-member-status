@@ -4,6 +4,7 @@
     <description>The Campaign Type (not record type) for this Protected Status</description>
     <externalId>false</externalId>
     <fieldManageability>SubscriberControlled</fieldManageability>
+    <inlineHelpText>This is the actual value for the Campaign&apos;s Type field.</inlineHelpText>
     <label>Campaign Type</label>
     <length>255</length>
     <required>true</required>

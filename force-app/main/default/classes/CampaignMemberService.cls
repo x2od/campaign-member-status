@@ -15,11 +15,7 @@ public virtual without sharing class CampaignMemberService {
 	 * singleton pattern
 	 */
 	@TestVisible
-	private static CampaignMemberRepository repo;
-
-	public CampaignMemberService() {
-		System.debug('in CMS constructor');
-	}
+	private CampaignMemberRepository repo;
 
 	/**
 	 * @description Running getInstance in a static context instantiates this class and its repo
@@ -34,6 +30,10 @@ public virtual without sharing class CampaignMemberService {
 			instance.repo = new CampaignMemberRepository();
 		}
 		return instance;
+	}
+
+	protected CampaignMemberService() {
+		System.debug('in CMS constructor');
 	}
 
 	public List<Campaign> getCampaignsWithMemberStatuses(Set<Id> campaignIds) {
