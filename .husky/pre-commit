@@ -7,7 +7,8 @@ echo $VERSION
 printf '%s' "$VERSION" > pmd/pmd-version.txt
 git add pmd/pmd-version.txt
 
-npx marked -i README.md --gfm >> "doc-assets/main.html" && git add -A .
+npx marked -i README.md --gfm >> "doc-assets/main.html"
 
 npm run updateHighlight
+npm run prettier:docs
 npm run precommit

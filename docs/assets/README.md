@@ -9,7 +9,7 @@ This Unlocked Package was developed for Marketing Admins who want to enforce the
 - [Campaign Type Member Statuses](#campaign-type-member-statuses)
   - [Table of contents](#table-of-contents)
   - [What You Get](#what-you-get)
-  - [Pushing Code to a Sandbox or Scratch org](#pushing-code-to-a-sandbox-or-scratch-org)
+  - [Pushing Code to a Sandbox](#pushing-code-to-a-sandbox)
   - [Post-Install Configuration](#post-install-configuration)
   - [Installing into a Scratch Org](#installing-into-a-scratch-org)
   - [How it Works](#how-it-works)
@@ -31,7 +31,7 @@ When deploying this package to your org, you will get:
 - 5 Production Apex Classes
 - 3 Apex Test Classes
 
-## Pushing Code to a Sandbox or Scratch org
+## Pushing Code to a Sandbox
 
 Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to deploy into Production.
 
@@ -138,7 +138,7 @@ Once you have provided your statuses, you are good to go. Give it a whirl by cre
    cd Downloads/campaign-member-status-main/campaign-member-status-main
    ```
 
-   4. Verify you are in the same directory as the sfdx-project.json file
+   1. Verify you are in the same directory as the sfdx-project.json file
 
    ```
    # mac or Linux

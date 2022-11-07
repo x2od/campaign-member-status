@@ -95,6 +95,244 @@
 				<td class="doc-page">
 					<h2 class="section-title">Home</h2>
 					<h1>Readme homepage</h1>
+					<h1 id="campaign-type-member-statuses">Campaign Type Member Statuses</h1>
+					<p>
+						This Unlocked Package was developed for Marketing Admins who want to enforce the Campaign Member Status options for Campaigns of certain types. It was originally
+						written by Sercante LLC (<a href="https://github.com/sercante-llc/campaign-member-status">https://github.com/sercante-llc/campaign-member-status</a>).
+					</p>
+					<blockquote>
+						<p>This application is designed to run on the Salesforce Platform</p>
+					</blockquote>
+					<h2 id="table-of-contents">Table of contents</h2>
+					<ul>
+						<li>
+							<a href="#campaign-type-member-statuses">Campaign Type Member Statuses</a>
+							<ul>
+								<li><a href="#table-of-contents">Table of contents</a></li>
+								<li><a href="#what-you-get">What You Get</a></li>
+								<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
+								<li><a href="#post-install-configuration">Post-Install Configuration</a></li>
+								<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
+								<li>
+									<a href="#how-it-works">How it Works</a>
+									<ul>
+										<li><a href="#new-campaign-created">New Campaign Created</a></li>
+										<li><a href="#editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</a></li>
+										<li><a href="#removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</a></li>
+									</ul>
+								</li>
+								<li>
+									<a href="#faq">FAQ</a>
+									<ul>
+										<li>
+											<a href="#why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses"
+												>Why Don&#39;t you just prevent people from messing around with Protected Statuses?</a
+											>
+										</li>
+										<li><a href="#i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+					<h2 id="what-you-get">What You Get</h2>
+					<p>When deploying this package to your org, you will get:</p>
+					<ul>
+						<li>1 Custom Metadata Type (and page layout)</li>
+						<li>1 Campaign Custom Field</li>
+						<li>1 ChangeDataCapture configuration</li>
+						<li>2 Apex Triggers</li>
+						<li>5 Production Apex Classes</li>
+						<li>3 Apex Test Classes</li>
+					</ul>
+					<h2 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h2>
+					<p>
+						Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to
+						deploy into Production.
+					</p>
+					<ol>
+						<li>
+							<p>If you know about and use <code>git</code>, clone this repository</p>
+							<pre><code>git clone https://github.com/dschach/campaign-member-status.git
+cd campaign-member-status
+</code></pre>
+							<p><strong>or</strong></p>
+							<ol>
+								<li><a href="https://github.com/dschach/campaign-member-status/archive/main.zip">Download a zip file</a></li>
+								<li>Extract the contents</li>
+								<li>Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)</li>
+							</ol>
+							<pre><code>cd Downloads/campaign-member-status-main/campaign-member-status-main
+</code></pre>
+							<ol start="4">
+								<li>Verify you are in the same directory as the sfdx-project.json file</li>
+							</ol>
+							<pre><code># mac or Linux
+ls
+
+# windows
+dir
+</code></pre>
+						</li>
+						<li>
+							<p>Setup your environment</p>
+							<ul>
+								<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>Authorize your Salesforce org and provide it with an alias (<strong>myorg</strong> in the commands below)</p>
+							<pre><code># Connect SFDX to a Sandbox Org
+sfdx force:auth:web:login -s -a myorg -r https://test.salesforce.com
+
+# if for some reason you need to specify a specific URL, use this slightly altered command, making the correct adjustments
+sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce.com
+</code></pre>
+						</li>
+						<li>
+							<p>Run this command in a terminal to deploy the reports and dashboards</p>
+							<pre><code>sfdx force:source:deploy -p &quot;force-app/main/default&quot; -u myorg
+</code></pre>
+						</li>
+						<li>
+							<p>Continue with <a href="#post-install-configuration">Post-Install Configuration</a></p>
+						</li>
+					</ol>
+					<h2 id="post-install-configuration">Post-Install Configuration</h2>
+					<ol>
+						<li>
+							Once installed, create some Protected Statuses
+							<ol>
+								<li>Log in to Salesforce Lightning, go to Setup</li>
+								<li>Navigate to Custom Metadata Types, click Manage Records for Campaign Type Member Status</li>
+								<li>To create your first ones, click New</li>
+								<li>
+									Fill in the various fields
+									<ol>
+										<li>Label: Used in the List of Campaign Statuses in the Setup view in step 3 above. Recommended convention: TYPE-STATUS</li>
+										<li>Name: This is an API name that can be used by developers. Not required by this package. Recommended: let this autofill after you type in the Label</li>
+										<li>Campaign Type: This is the actual value for the Campaign&#39;s Type field.</li>
+										<li>Protected Status: This is the Status value that will become protected</li>
+										<li>Is Default: Select this if this Status should be the default (please pick only 1 per Type)</li>
+										<li>Is Responded: Select this if this Status should be marked as Responded</li>
+									</ol>
+								</li>
+								<li>Click Save (or Save &amp; New) and repeat a whole bunch</li>
+							</ol>
+						</li>
+						<li>
+							Create a scheduled job to restore deleted protected statuses
+							<ol>
+								<li>Back in Setup, go to Apex Classes and click Schedule Apex</li>
+								<li>
+									Fill in the few fields
+									<ol>
+										<li>Job Name: give this a nice descriptive name so you remember what it is in 3 months</li>
+										<li>Apex Class: CampaignMemberStatusJob</li>
+										<li>Frequency: set this to what works for you. We recommend running this daily during off-peak hours</li>
+										<li>Start: today</li>
+										<li>End: some time in the distant future</li>
+										<li>Preferred Start Time: off peak hours</li>
+									</ol>
+								</li>
+							</ol>
+						</li>
+					</ol>
+					<p>
+						Once you have provided your statuses, you are good to go. Give it a whirl by creating a new Campaign with the Type that you have set up. Then take a look at the
+						Statuses already created.
+					</p>
+					<h2 id="installing-into-a-scratch-org">Installing into a Scratch Org</h2>
+					<ol>
+						<li>
+							<p>Set up your environment. The steps include:</p>
+							<ul>
+								<li>Enable Dev Hub in your org</li>
+								<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></li>
+							</ul>
+						</li>
+						<li>
+							<p>If you haven&#39;t already done so, authorize your hub org and provide it with an alias (<strong>myhuborg</strong> in the command below):</p>
+							<pre><code>sfdx force:auth:web:login -d -a myhuborg
+</code></pre>
+						</li>
+						<li>
+							<p>If you know about and use <code>git</code>, clone this repository</p>
+							<pre><code>git clone https://github.com/dschach/campaign-member-status.git
+cd campaign-member-status
+</code></pre>
+							<p><strong>or</strong></p>
+							<ol>
+								<li><a href="https://github.com/dschach/campaign-member-status/archive/main.zip">Download a zip file</a></li>
+								<li>Extract the contents</li>
+								<li>Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)</li>
+							</ol>
+							<pre><code>cd Downloads/campaign-member-status-main/campaign-member-status-main
+</code></pre>
+							<ol>
+								<li>Verify you are in the same directory as the sfdx-project.json file</li>
+							</ol>
+							<pre><code># mac or Linux
+ls
+
+# windows
+dir
+</code></pre>
+						</li>
+						<li>
+							<p>Run the included script to create a scratch org and push the metadata</p>
+							<pre><code>. scripts/scratchorg.sh
+</code></pre>
+						</li>
+						<li>
+							<p>Continue with <a href="#post-install-configuration">Post-Install Configuration</a></p>
+						</li>
+					</ol>
+					<h2 id="how-it-works">How it Works</h2>
+					<p>Once everything is set up (above), Campaigns should maintain a consistent set of Campaign Member Statuses. Here&#39;s how we accomplish that.</p>
+					<h3 id="new-campaign-created">New Campaign Created</h3>
+					<p>
+						When a new Campaign is created, we check to see if the Type of Campaign is defined in any of the Protected Campaign Member Status records (the Custom Metadata Type that
+						was set up earlier). If there is a match, the solution will:
+					</p>
+					<ol>
+						<li>Automatically add a checkbox to the Campaign Custom Field &quot;Has Campaign Type Member Statuses&quot;.</li>
+						<li>Automatically adjust the CampaignMemberStatus records to match all Protected Campaign Member Statuses expected</li>
+					</ol>
+					<h3 id="editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</h3>
+					<p>
+						For a Campaign that &quot;Has Campaign Type Member Statuses&quot;, when one of the CampaignMemberStatus records is edited we will double check all statuses of that
+						Campaign to make sure that all Protected ones still exist. If there are any missing, they will be recreated almost instantly (you may need to refresh the page for them
+						to show up if there&#39;s a delay).
+					</p>
+					<h3 id="removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</h3>
+					<p>
+						If a user removes a Campaign Type Member Status, the Scheduled Job (that was created as part of <a href="#post-install-configuration">Post-Install Configuration</a>)
+						will search for Campaigns missing a Status and recreate it.
+					</p>
+					<h2 id="faq">FAQ</h2>
+					<h3 id="why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses">
+						Why Don&#39;t you just prevent people from messing around with Protected Statuses?
+					</h3>
+					<p>
+						We really wish we could. A &quot;before update&quot; and &quot;before delete&quot; Apex Trigger would be the simplest way to handle this. Unfortunately, Apex Triggers
+						are not (yet) possible on CampaignMemberStatus records, so we end up having to fix it after-the-fact.
+					</p>
+					<h3 id="i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</h3>
+					<p>
+						If you have Apex tests which set up a Campaign record as part of the test, the functionality in this package will get called and might blow up. This is because how
+						Salesforce internally treats the automatic generation of Campaign Member Status records when a new Campaign is created (it&#39;s weird).
+					</p>
+					<p>You have 2 options:</p>
+					<ol>
+						<li>
+							For the purpose of the test, disable this functionality. You can accomplish this by adding <code>CampaignTriggerHandler.bypass=true;</code> in your Apex Test set up.
+						</li>
+						<li>
+							To actually see the records that Salesforce would create, you would need to have your test <code>@isTest(seeAllData=true)</code>. There are a lot of considerations
+							with this approach, so please use wisely.
+						</li>
+					</ol>
 				</td>
 			</tr>
 			<tr>
