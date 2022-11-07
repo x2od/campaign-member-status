@@ -10,7 +10,7 @@ engine:
   title: Project code documentation
   subtitle: Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/dschach/campaign-member-status">Campaign Member Status</a>
   sortOrder: alpha
-  cleanDir: false
+  cleanDir: true
   showTOCSnippets: true
   scope:
     - global
@@ -29,6 +29,12 @@ engine:
     - '${workspaceFolder}/doc-assets/index.css'
     - '${workspaceFolder}/doc-assets/highlight.css'
     - '${workspaceFolder}/README.md'
+    #- '${workspaceFolder}/doc-assets/files/campaignmemberstatushome.html'
+    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-1.png'
+    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-2.png'
+    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-3.png'
+    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-4.png'
+    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-5.png'
   port: 8088
 docblock:
   alignItems: true

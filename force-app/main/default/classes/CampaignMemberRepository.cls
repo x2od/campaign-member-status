@@ -4,6 +4,7 @@
  * @author      Sercante LLC
  * @since       2022
  * @group       CampaignMemberStatus
+ * @group-content doc-assets/campaignmemberstatushome.html
  */
 public without sharing virtual class CampaignMemberRepository {
 	/**
