@@ -1,19 +1,14 @@
 /**
  * @description Some reusable logic for this solution
+ * <br>(singleton pattern)
  *
  * @author      Sercante LLC
  * @since       2022
  */
 public virtual without sharing class CampaignMemberService {
-	/**
-	 * singleton pattern
-	 */
 	@TestVisible
 	private static CampaignMemberService instance;
 
-	/**
-	 * singleton pattern
-	 */
 	@TestVisible
 	private CampaignMemberRepository repo;
 

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Project code documentation</title>
+		<meta charset="UTF-8" />
+		<script type="module" src="./assets/index.js"></script>
+		<script type="module" src="./assets/search-idx.js"></script>
+		<script type="module" src="./assets/search.js"></script>
+		<script charset="UTF-8" src="./assets/highlight.js"></script>
+		<script charset="UTF-8" src="./assets/mark.js"></script>
+		<script charset="UTF-8" src="./assets/lunr.js"></script>
+		<link rel="stylesheet" href="./assets/highlight.css" />
+		<link rel="stylesheet" type="text/css" href="./assets/index.css" />
+		<link rel="shortcut icon" type="image/png" href="./assets/favicon.png" />
+	</head>
+
+	<body>
+		<div id="side-bar">
+			<div id="logo-container">
+				<div class="title">Project code documentation</div>
+				<img src="assets/logo.png" />
+				<div class="subtitle">
+					Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/dschach/campaign-member-status">Campaign Member Status</a>
+				</div>
+			</div>
+			<div id="search-wrapper">
+				<div class="search-icon"></div>
+				<input id="search-input" type="text" autocomplete="off" placeholder="Search..." />
+			</div>
+			<ul id="search-results" class=""></ul>
+			<div class="navbar">
+				<nav role="navigation">
+					<a class="nav-header" id="home" href="javascript:void(0)" onclick="goToLocation('index.html');"> Home </a>
+					<details id="Miscellaneous" class="group-name">
+						<summary id="header-Miscellaneous" class="nav-header">
+							<span>Miscellaneous</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="CampaignMemberRepository" id="item-CampaignMemberRepository" class="nav-item class public" onclick="goToLocation('CampaignMemberRepository.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberRepository</a>
+							</li>
+							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class public" onclick="goToLocation('CampaignMemberService.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberService</a>
+							</li>
+							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
+							</li>
+							<li
+								title="CampaignMemberStatusEventTriggerHandler"
+								id="item-CampaignMemberStatusEventTriggerHandler"
+								class="nav-item class public"
+								onclick="goToLocation('CampaignMemberStatusEventTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusEventTriggerHandler</a>
+							</li>
+							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class public" onclick="goToLocation('CampaignMemberStatusJob.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJob</a>
+							</li>
+							<li
+								title="CampaignMemberStatusJobTest"
+								id="item-CampaignMemberStatusJobTest"
+								class="nav-item class private"
+								onclick="goToLocation('CampaignMemberStatusJobTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJobTest</a>
+							</li>
+							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
+							</li>
+							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class private" onclick="goToLocation('CampaignTriggerTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerTest</a>
+							</li>
+						</ul>
+					</details>
+				</nav>
+			</div>
+		</div>
+		<table id="content">
+			<tr>
+				<td class="scoping-panel">
+					Show: <input type="checkbox" checked="true" id="cbx-all" onclick="toggleAllScopes(this.checked);" /> <label for="cbx-all">All</label>&nbsp;&nbsp;
+					<input type="checkbox" checked="true" id="cbx-global" onclick="toggleScope('global', this.checked);" />
+					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
+					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
+					<label for="cbx-webservice"> webService </label>&nbsp;&nbsp;<input
+						type="checkbox"
+						checked="true"
+						id="cbx-testmethod"
+						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-testmethod"> testMethod </label>
+				</td>
+			</tr>
+			<tr>
+				<td class="doc-page">
+					<div class="section">
+						<h2 class="class-title top-level-type" id="CampaignMemberService">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L7">
+								CampaignMemberService
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">Some reusable logic for this solution</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">public virtual without sharing class CampaignMemberService</div>
+							<br />Sercante LLC<br />2022
+						</div>
+						<div class="subsection properties CampaignMemberService">
+							<h3 class="subsection-title properties">CampaignMemberService Properties</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+									<th>Annotations</th>
+									<th>Description</th>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L12">
+											instance
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private static CampaignMemberService instance</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@TestVisible</div>
+									</td>
+
+									<td class="attribute-description">singleton pattern</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L18">
+											repo
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private CampaignMemberRepository repo</div>
+									</td>
+									<td>
+										<div class="prop-annotations">@TestVisible</div>
+									</td>
+
+									<td class="attribute-description">singleton pattern</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CampaignMemberService Constructors</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method protected">
+										<a class="methods-toc__entry" href="#CampaignMemberService.CampaignMemberService"> CampaignMemberService () </a>
+									</li>
+								</ul>
+								<div class="method protected">
+									<h4 class="method-title" id="CampaignMemberService.CampaignMemberService">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L35">
+											CampaignMemberService()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">protected CampaignMemberService()</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CampaignMemberService Methods</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberService.enforceProtectedStatusesForCampaigns"> enforceProtectedStatusesForCampaigns (campaignIds) </a>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberService.getCampaignsNeedingToBeFixed"> getCampaignsNeedingToBeFixed () </a>
+
+										<div class="methods-toc__description">TODO: This method needs to be fixed to remove query from loop</div>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberService.getCampaignsWithMemberStatuses"> getCampaignsWithMemberStatuses (campaignIds) </a>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberService.getGroupedProtectedStatuses"> getGroupedProtectedStatuses () </a>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberService.getInstance"> getInstance () </a>
+
+										<div class="methods-toc__description">Running getInstance in a static context instantiates this class and its repo</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberService.enforceProtectedStatusesForCampaigns">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L100">
+											enforceProtectedStatusesForCampaigns(campaignIds)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public virtual void enforceProtectedStatusesForCampaigns(Set&lt;Id&gt; campaignIds)</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberService.getCampaignsNeedingToBeFixed">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L65">
+											getCampaignsNeedingToBeFixed()
+										</a>
+									</h4>
+									<div class="method-description">TODO: This method needs to be fixed to remove query from loop</div>
+									<div class="method-subtitle">Signature</div>
+									<div class="method-annotations">@SuppressWarnings('PMD')</div>
+									<div class="method-signature">public virtual Set&lt;Id&gt; getCampaignsNeedingToBeFixed()</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description"><code class="code-inline">Set&lt;Id&gt;</code> Campaigns with statues not matching Protected count</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberService.getCampaignsWithMemberStatuses">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L39">
+											getCampaignsWithMemberStatuses(campaignIds)
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public List&lt;Campaign&gt; getCampaignsWithMemberStatuses(Set&lt;Id&gt; campaignIds)</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberService.getGroupedProtectedStatuses">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L55">
+											getGroupedProtectedStatuses()
+										</a>
+									</h4>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public virtual Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt; getGroupedProtectedStatuses()</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberService.getInstance">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L26">
+											getInstance()
+										</a>
+									</h4>
+									<div class="method-description">Running getInstance in a static context instantiates this class and its repo</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public static CampaignMemberService getInstance()</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">CampaignMemberService</code>
+									</div>
+									<div class="method-subtitle">See</div>
+									<div class="method-subtitle-description">
+										<span title="A valid link could not be created with this identifier.">CampaignMemberService.repo</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td class="footer">
+					<div>
+						<a href="https://github.com/no-stack-dub-sack/apexdox-vs-code" target="_blank" rel="noopener noreferrer"> Powered By ApexDox VS Code </a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
