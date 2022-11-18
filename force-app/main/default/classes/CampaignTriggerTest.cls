@@ -23,7 +23,7 @@ private class CampaignTriggerTest {
 		System.assert(result.getErrors().size() == 1);
 	}
 
-	@isTest(seeAllData=true)
+	@isTest //(seeAllData=true)
 	static void shouldMakeCampaignProtectedIfItHasTheRightType() {
 		// arrange
 		CampaignMemberService.getInstance().repo = new WebinarMock();

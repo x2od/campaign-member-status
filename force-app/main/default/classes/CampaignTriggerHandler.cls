@@ -3,6 +3,8 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @author      David Schach
+ * @since       2022
  * @group       CampaignMemberStatus
  */
 public without sharing class CampaignTriggerHandler {
@@ -14,6 +16,11 @@ public without sharing class CampaignTriggerHandler {
 
 	public static Boolean bypass = false;
 
+	/**
+	 * @description Lazy load this handler in a singleton
+	 *
+	 * @return      `CampaignTriggerHandler`
+	 */
 	public static CampaignTriggerHandler getInstance() {
 		if (instance == null) {
 			instance = new CampaignTriggerHandler();
@@ -30,17 +37,9 @@ public without sharing class CampaignTriggerHandler {
 	}
 
 	/**
-	 * @description   Constructor that takes `CampaignMemberService` object
-	 * <br>Never called - should be deleted
+	 * @description     Make sure people aren't trying to mess with the value of our Custom Field
 	 *
-	 * @param service Pass in `CampaignMemberService` when running this trigger handler
-	 */
-	public CampaignTriggerHandler(CampaignMemberService service) {
-		this.cmService = service;
-	}
-
-	/**
-	 * Make sure people aren't trying to mess with the value of our Custom Field
+	 * @param campaigns Trigger.new
 	 */
 	public void onBeforeInsert(List<Campaign> campaigns) {
 		if (bypass) {
@@ -69,7 +68,9 @@ public without sharing class CampaignTriggerHandler {
 	}
 
 	/**
-	 * Let's actually go ahead and set up our new Campaign with the correct Statuses
+	 * @description     Let's actually go ahead and set up our new Campaign with the correct Statuses
+	 *
+	 * @param campaigns Trigger.new
 	 */
 	public void onAfterInsert(List<Campaign> campaigns) {
 		if (bypass) {
@@ -188,7 +189,10 @@ public without sharing class CampaignTriggerHandler {
 	}
 
 	/**
-	 * Make sure people aren't messing with our Protect_Campaign_Member_Statuses__c value.
+	 * @description         Make sure people aren't messing with our Protect_Campaign_Member_Statuses__c value.
+	 *
+	 * @param newRecords    Trigger.new
+	 * @param oldRecordsMap Trigger.oldMap
 	 */
 	public void onBeforeUpdate(List<Campaign> newRecords, Map<Id, Campaign> oldRecordsMap) {
 		if (bypass) {
