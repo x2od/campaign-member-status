@@ -39,7 +39,7 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 				continue;
 			} //the rules for the cloned item should follow
 
-			System.debug('Checking to see if the idiot checked it before hand');
+			System.debug('Checking to see if the idiot checked it beforehand');
 			if (camp.Protect_Campaign_Member_Statuses__c) {
 				System.debug('yup they gone done and did it');
 				camp.addError('Protect_Campaign_Member_Statuses__c', 'Don\'t check this box silly');
@@ -58,6 +58,9 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 	 *
 	 */
 	public override void afterInsert() {
+		if (Test.isRunningTest()) {
+		}
+
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 		Set<Id> campaignIdsNeedingStatuses = new Set<Id>();
 		for (Campaign camp : newRecords) {
@@ -80,9 +83,24 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 		//get our Campaigns and CampaignMemberStatuses that Salesforce created
 		List<Campaign> campaignsToProcess = cmService.getCampaignsWithMemberStatuses(campaignIdsNeedingStatuses);
 
+		Map<Id, List<CampaignMemberStatus>> campaignIdToStatuses = new Map<Id, List<CampaignMemberStatus>>();
+		for (Campaign c : [
+			SELECT
+				Id,
+				(
+					SELECT CampaignId, HasResponded, Id, IsDefault, Label, SortOrder
+					FROM CampaignMemberStatuses
+					ORDER BY SortOrder ASC
+				)
+			FROM Campaign
+			WHERE Id IN :newRecords
+		]) {
+			campaignIdToStatuses.put(c.Id, c.CampaignMemberStatuses);
+		}
+
 		for (Campaign camp : campaignsToProcess) {
 			System.debug('Campaign ' + camp.Name + '\'s type is one that should have Protected statuses');
-			List<CampaignMemberStatus> cmsList = camp.CampaignMemberStatuses;
+			List<CampaignMemberStatus> cmsList = campaignIdToStatuses.get(camp.Id);
 			System.debug('There are ' + cmsList.size() + ' existing CampaignMemberStatus records for the Campaign');
 
 			//Salesforce Generates 2 by default. the cmsList is sorted DESC by IsDefault field

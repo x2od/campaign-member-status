@@ -8,6 +8,11 @@
 @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
 @isTest
 private class CampaignTriggerTest {
+	/* @TestSetup
+	static void makeData() {
+		User u = new User(Id = UserInfo.getUserId(), UserPermissionsMarketingUser = true);
+		update u;
+	} */
 	@isTest
 	static void shouldPreventUsersFromMakingCampaignProtected() {
 		// arrange
@@ -23,21 +28,24 @@ private class CampaignTriggerTest {
 		System.assert(result.getErrors().size() == 1);
 	}
 
-	@isTest //(seeAllData=true)
+	@isTest(seeAllData=true)
 	static void shouldMakeCampaignProtectedIfItHasTheRightType() {
-		// arrange
-		CampaignMemberService.getInstance().repo = new WebinarMock();
-		Campaign record = new Campaign(Name = 'MyTest', Type = 'Webinar');
+		User u = new User(Id = UserInfo.getUserId(), UserPermissionsMarketingUser = true);
+		System.runAs(u) {
+			// arrange
+			CampaignMemberService.getInstance().repo = new WebinarMock();
+			Campaign record = new Campaign(Name = 'MyTest', Type = 'Webinar');
 
-		//act
-		Test.startTest();
-		insert record;
-		Test.stopTest();
+			//act
+			Test.startTest();
+			insert record;
+			Test.stopTest();
 
-		//assert
-		Campaign result = [SELECT Name, Type, Protect_Campaign_Member_Statuses__c FROM Campaign WHERE Name = 'MyTest'];
-		System.assertEquals(true, result.Protect_Campaign_Member_Statuses__c);
-		System.assertEquals('Webinar', result.Type);
+			//assert
+			Campaign result = [SELECT Name, Type, Protect_Campaign_Member_Statuses__c FROM Campaign WHERE Name = 'MyTest'];
+			System.assertEquals(true, result.Protect_Campaign_Member_Statuses__c);
+			System.assertEquals('Webinar', result.Type);
+		}
 	}
 
 	@isTest

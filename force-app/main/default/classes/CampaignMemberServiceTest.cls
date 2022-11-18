@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description Test class
  *
  * @author      Sercante LLC
  * @since       2022
@@ -8,7 +8,7 @@
 @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
 @isTest
 private class CampaignMemberServiceTest {
-	@isTest(seeAllData=true)
+	@isTest //(seeAllData=true)
 	static void shouldEnforceProtectedStatusesForCampaign() {
 		//arrange
 		Test.enableChangeDataCapture();
@@ -21,7 +21,7 @@ private class CampaignMemberServiceTest {
 
 		//act
 		Test.startTest();
-		System.debug('start of test');
+		//System.debug('start of test');
 
 		//here we mess up our data
 		delete [SELECT Id FROM CampaignMemberStatus WHERE Label = '3Watched On Demand'];
@@ -33,11 +33,11 @@ private class CampaignMemberServiceTest {
 
 		//assert
 		List<CampaignMemberStatus> results = [SELECT Id, Label, IsDefault, HasResponded FROM CampaignMemberStatus WHERE CampaignId = :camp.Id ORDER BY Label];
-		System.assertEquals('1Registered', results.get(0).Label);
-		System.assertEquals(false, results.get(0).HasResponded);
-		System.assertEquals('2Attended', results.get(1).Label);
-		System.assertEquals('3Watched On Demand', results.get(2).Label);
-		System.assertEquals('4Did Not Attend', results.get(3).Label);
+		Assert.areEqual('1Registered', results.get(0).Label);
+		Assert.areEqual(false, results.get(0).HasResponded);
+		Assert.areEqual('2Attended', results.get(1).Label);
+		Assert.areEqual('3Watched On Demand', results.get(2).Label);
+		Assert.areEqual('4Did Not Attend', results.get(3).Label);
 	}
 
 	private class WebinarMock extends CampaignMemberRepository {
