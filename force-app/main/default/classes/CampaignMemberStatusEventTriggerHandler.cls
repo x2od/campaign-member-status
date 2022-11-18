@@ -5,21 +5,27 @@
  * @since       2022
  * @group       CampaignMemberStatus
  */
-public without sharing class CampaignMemberStatusEventTriggerHandler {
-	private static CampaignMemberStatusEventTriggerHandler instance;
+public without sharing class CampaignMemberStatusEventTriggerHandler extends TriggerHandler {
+	private List<CampaignMemberStatusChangeEvent> newRecords;
 
-	public static CampaignMemberStatusEventTriggerHandler getInstance() {
-		if (instance == null) {
-			instance = new CampaignMemberStatusEventTriggerHandler();
-		}
-		return instance;
+	/**
+	 * @description Constructor for trigger handler
+	 */
+	public CampaignMemberStatusEventTriggerHandler() {
+		super('CampaignMemberStatusEventTriggerHandler');
+		this.newRecords = Trigger.new;
 	}
 
-	public void afterInsert(List<CampaignMemberStatusChangeEvent> events) {
-		System.debug('We are processing ' + events.size() + ' Change events');
+	//private static CampaignMemberStatusEventTriggerHandler instance;
+
+	/**
+	 * @description Execute after inserting (creating) change event records
+	 */
+	public override void afterInsert() {
+		System.debug('We are processing ' + newRecords.size() + ' Change newRecords');
 		Set<Id> campaignMemberIds = new Set<Id>();
 
-		for (CampaignMemberStatusChangeEvent event : events) {
+		for (CampaignMemberStatusChangeEvent event : newRecords) {
 			EventBus.ChangeEventHeader header = event.ChangeEventHeader;
 			System.debug('changeType = ' + header.changetype);
 

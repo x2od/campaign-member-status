@@ -7,48 +7,34 @@
  * @since       2022
  * @group       CampaignMemberStatus
  */
-public without sharing class CampaignTriggerHandler {
-	//a little poor-man's dependency injection mixed with Singleton pattern
-	@TestVisible
-	private static CampaignTriggerHandler instance;
+public without sharing class CampaignTriggerHandler extends TriggerHandler {
+	private List<Campaign> newRecords;
+	private List<Campaign> oldRecords;
+	private Map<Id, Campaign> newRecordsMap;
+	private Map<Id, Campaign> oldRecordsMap;
 
 	private CampaignMemberService cmService;
 
-	public static Boolean bypass = false;
-
 	/**
-	 * @description Lazy load this handler in a singleton
-	 *
-	 * @return      `CampaignTriggerHandler`
-	 */
-	public static CampaignTriggerHandler getInstance() {
-		if (instance == null) {
-			instance = new CampaignTriggerHandler();
-		}
-		return instance;
-	}
-
-	/**
-	 * @description Default constructor. Runs getInstance of CampaignMemberService
-	 * @see CampaignMemberService.getInstance
+	 * @description Constructor for `CampaignMemberTriggerHandler`
 	 */
 	public CampaignTriggerHandler() {
+		super('CampaignTriggerHandler');
+		this.newRecords = Trigger.new;
+		this.oldRecords = Trigger.old;
+		this.newRecordsMap = (Map<Id, Campaign>) Trigger.newMap;
+		this.oldRecordsMap = (Map<Id, Campaign>) Trigger.oldMap;
 		this.cmService = CampaignMemberService.getInstance();
 	}
 
 	/**
 	 * @description     Make sure people aren't trying to mess with the value of our Custom Field
 	 *
-	 * @param campaigns Trigger.new
 	 */
-	public void onBeforeInsert(List<Campaign> campaigns) {
-		if (bypass) {
-			return;
-		}
-
+	public override void beforeInsert() {
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 
-		for (Campaign camp : campaigns) {
+		for (Campaign camp : newRecords) {
 			if (camp.isClone()) {
 				continue;
 			} //the rules for the cloned item should follow
@@ -70,16 +56,11 @@ public without sharing class CampaignTriggerHandler {
 	/**
 	 * @description     Let's actually go ahead and set up our new Campaign with the correct Statuses
 	 *
-	 * @param campaigns Trigger.new
 	 */
-	public void onAfterInsert(List<Campaign> campaigns) {
-		if (bypass) {
-			return;
-		}
-
+	public override void afterInsert() {
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 		Set<Id> campaignIdsNeedingStatuses = new Set<Id>();
-		for (Campaign camp : campaigns) {
+		for (Campaign camp : newRecords) {
 			if (camp.Protect_Campaign_Member_Statuses__c) {
 				campaignIdsNeedingStatuses.add(camp.Id);
 			}
@@ -190,15 +171,8 @@ public without sharing class CampaignTriggerHandler {
 
 	/**
 	 * @description         Make sure people aren't messing with our Protect_Campaign_Member_Statuses__c value.
-	 *
-	 * @param newRecords    Trigger.new
-	 * @param oldRecordsMap Trigger.oldMap
 	 */
-	public void onBeforeUpdate(List<Campaign> newRecords, Map<Id, Campaign> oldRecordsMap) {
-		if (bypass) {
-			return;
-		}
-
+	public override void beforeUpdate() {
 		for (Campaign camp : newRecords) {
 			Campaign oldCamp = oldRecordsMap.get(camp.Id);
 			if (camp.Protect_Campaign_Member_Statuses__c && (camp.Type != oldCamp.Type)) {

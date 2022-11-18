@@ -7,6 +7,9 @@
         {
             "path": "unpackaged",
             "default": false
+        },
+        {
+            "path": "triggerhandler"
         }
     ],
     "name": "campaign-member-statuses",

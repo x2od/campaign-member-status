@@ -27,10 +27,6 @@ public virtual without sharing class CampaignMemberService {
 		}
 		return instance;
 	}
-	/* 
-	protected CampaignMemberService() {
-		System.debug('in CMS constructor');
-	} */
 
 	public List<Campaign> getCampaignsWithMemberStatuses(Set<Id> campaignIds) {
 		System.debug('Start getCampaignsWithMemberStatuses');

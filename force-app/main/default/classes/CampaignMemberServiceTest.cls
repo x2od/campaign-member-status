@@ -28,7 +28,7 @@ private class CampaignMemberServiceTest {
 		CampaignMemberStatus registered = [SELECT Id FROM CampaignMemberStatus WHERE Label = '1Registered'];
 		registered.HasResponded = true;
 		update registered;
-		System.assert(sut.getCampaignsNeedingToBeFixed().contains(camp.Id));
+		System.Assert.isTrue(sut.getCampaignsNeedingToBeFixed().contains(camp.Id));
 		Test.stopTest();
 
 		//assert
