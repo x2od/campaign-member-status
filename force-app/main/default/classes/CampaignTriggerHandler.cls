@@ -58,9 +58,6 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 	 *
 	 */
 	public override void afterInsert() {
-		if (Test.isRunningTest()) {
-		}
-
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 		Set<Id> campaignIdsNeedingStatuses = new Set<Id>();
 		for (Campaign camp : newRecords) {
