@@ -130,23 +130,6 @@ sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce
 <pre><code class="language-shell">git clone https://github.com/dschach/campaign-member-status.git
 cd campaign-member-status
 </code></pre>
-<p><strong>or</strong></p>
-<ol>
-<li><a href="https://github.com/dschach/campaign-member-status/archive/main.zip">Download a zip file</a></li>
-<li>Extract the contents</li>
-<li>Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)</li>
-</ol>
-<pre><code class="language-shell">cd Downloads/campaign-member-status-main/campaign-member-status-main
-</code></pre>
-<ol>
-<li>Verify you are in the same directory as the sfdx-project.json file</li>
-</ol>
-<pre><code class="language-shell"># mac or Linux
-ls
-
-# windows
-dir
-</code></pre>
 </li>
 <li><p>Run the included script to create a scratch org and push the metadata</p>
 <pre><code class="language-shell">. scripts/scratchorg.sh
@@ -174,7 +157,7 @@ dir
 <p>If you have Apex tests which set up a Campaign record as part of the test, the functionality in this package will get called and might blow up. This is because how Salesforce internally treats the automatic generation of Campaign Member Status records when a new Campaign is created (it&#39;s weird).</p>
 <p>You have 2 options:</p>
 <ol>
-<li>For the purpose of the test, disable this functionality. You can accomplish this by adding <code>CampaignTriggerHandler.bypass=true;</code> in your Apex Test set up.</li>
+<li>For the purpose of the test, disable this functionality. You can accomplish this by adding <code>TriggerHandler.bypass(&#39;CampaignTriggerHandler</code> in your Apex Test set up.</li>
 <li>To actually see the records that Salesforce would create, you would need to have your test <code>@isTest(seeAllData=true)</code>. There are a lot of considerations with this approach, so please use wisely.</li>
 </ol>
 
