@@ -7,13 +7,12 @@
             "path": "force-app",
             "default": true,
             "package": "Auto Campaign Member Status",
-            "versionNumber": "0.1.0.NEXT"
+            "versionNumber": "1.0.0.NEXT"
         },
         {
             "path": "unpackaged",
             "default": false
         }
-        
     ],
     "pushPackageDirectoriesSequentially": true,
     "name": "cm-status",

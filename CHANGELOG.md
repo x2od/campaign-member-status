@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.0](https://github.com/dschach/campaign-member-status/compare/v0.1.0...v1.0.0) (2023-02-10)
+
+
+### Features
+
+* best practices ([#29](https://github.com/dschach/campaign-member-status/issues/29)) ([ca47e02](https://github.com/dschach/campaign-member-status/commit/ca47e02470c766c58c0564ebdc5820107d34f1f1))
+* **build:** Dependabot, project file updates ([ca47e02](https://github.com/dschach/campaign-member-status/commit/ca47e02470c766c58c0564ebdc5820107d34f1f1))
+* **build:** scripts cleanup ([ca47e02](https://github.com/dschach/campaign-member-status/commit/ca47e02470c766c58c0564ebdc5820107d34f1f1))
+* **docs:** Highlight 11.7 ([ca47e02](https://github.com/dschach/campaign-member-status/commit/ca47e02470c766c58c0564ebdc5820107d34f1f1))
+
+
+### Miscellaneous Chores
+
+* release 1.0.0 ([39333d5](https://github.com/dschach/campaign-member-status/commit/39333d5172aa44f6bbc0b27773f58acd4d50efd8))
+
 ## 0.1.0 (2023-02-10)
 
 
