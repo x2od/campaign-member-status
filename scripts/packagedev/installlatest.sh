@@ -1,7 +1,7 @@
 # BLANK scratch org
 # Install latest package (may not be released)
 
-npm run labsdevhub
+npm run x2od
 
 echo "Delete old blank org"
 sfdx force:org:delete -p -u PackageInstallTest
@@ -25,11 +25,11 @@ VERSIONNUMBER=$(echo $VERSIONJSON | grep '.MajorVersion' | sed 's|[^0-9]||g').$(
 echo "Installing version $VERSIONNUMBER with package version $PACKAGEVERSIONID"
 sfdx force:package:install --package $PACKAGEVERSIONID -u PackageInstallTest -w 20
 
-echo "Adding unmanaged extension metadata"
-sfdx force:source:deploy -p force-app/unmanagedExtension -u PackageInstallTest
+#echo "Adding unmanaged extension metadata"
+#sfdx force:source:deploy -p force-app/unmanagedExtension -u PackageInstallTest
 
-echo "Install sample data"
-sfdx force:apex:execute -f ./data/sample-data-managed.apex
+#echo "Install sample data"
+#sfdx force:apex:execute -f ./data/sample-data-managed.apex
 
 echo "opening org"
 sfdx force:org:open -u PackageInstallTest

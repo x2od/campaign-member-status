@@ -42,7 +42,7 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 			System.debug('Checking to see if the idiot checked it beforehand');
 			if (camp.Protect_Campaign_Member_Statuses__c) {
 				System.debug('yup they gone done and did it');
-				camp.addError('Protect_Campaign_Member_Statuses__c', 'Don\'t check this box silly');
+				camp.addError('Protect_Campaign_Member_Statuses__c', System.Label.Do_not_check_box_on_Campaign_Create);
 				continue;
 			}
 			System.debug('Checking to see if ' + camp.Name + ' has Protected Member Statuses');
