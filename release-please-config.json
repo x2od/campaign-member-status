@@ -2,10 +2,53 @@
 	"packages": {
 		".": {
 			"changelog-path": "CHANGELOG.md",
+			"bump-minor-pre-major": false,
+			"bump-patch-for-minor-pre-major": false,
 			"release-type": "salesforce",
-			"bump-minor-pre-major": true,
-			"bump-patch-for-minor-pre-major": true,
-			"draft": false
+			"changelog-sections": [
+				{
+					"type": "feat",
+					"section": "Features"
+				},
+				{
+					"type": "build",
+					"section": "Build System"
+				},
+				{
+					"type": "docs",
+					"section": "Documentation"
+				},
+				{
+					"type": "test",
+					"section": "Tests"
+				},
+				{
+					"type": "fix",
+					"section": "Bug Fixes"
+				},
+				{
+					"type": "ci",
+					"section": "Continuous Integration"
+				},
+				{
+					"type": "perf",
+					"section": "Performance Improvements"
+				},
+				{
+					"type": "revert",
+					"section": "Reverts"
+				},
+				{
+					"type": "refactor",
+					"section": "Code Refactoring"
+				},
+				{
+					"type": "style",
+					"section": "Styles"
+				}
+			],
+			"draft": false,
+			"prerelease": false
 		}
 	},
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
@@ -17,16 +60,60 @@
 		}
 	],
 	"changelog-sections": [
-		{ "type": "feat", "section": "Features", "hidden": false },
-		{ "type": "build", "section": "Build System", "hidden": false },
-		{ "type": "docs", "section": "Documentation", "hidden": false },
-		{ "type": "test", "section": "Tests", "hidden": false },
-		{ "type": "fix", "section": "Bug Fixes", "hidden": false },
-		{ "type": "ci", "section": "Continuous Integration", "hidden": false },
-		{ "type": "chore", "section": "Miscellaneous Chores", "hidden": true },
-		{ "type": "perf", "section": "Performance Improvements", "hidden": false },
-		{ "type": "revert", "section": "Reverts", "hidden": false },
-		{ "type": "refactor", "section": "Code Refactoring", "hidden": false },
-		{ "type": "style", "section": "Styles", "hidden": false }
+		{
+			"type": "feat",
+			"section": "Features",
+			"hidden": false
+		},
+		{
+			"type": "build",
+			"section": "Build System",
+			"hidden": false
+		},
+		{
+			"type": "docs",
+			"section": "Documentation",
+			"hidden": false
+		},
+		{
+			"type": "test",
+			"section": "Tests",
+			"hidden": false
+		},
+		{
+			"type": "fix",
+			"section": "Bug Fixes",
+			"hidden": false
+		},
+		{
+			"type": "ci",
+			"section": "Continuous Integration",
+			"hidden": false
+		},
+		{
+			"type": "chore",
+			"section": "Miscellaneous Chores",
+			"hidden": true
+		},
+		{
+			"type": "perf",
+			"section": "Performance Improvements",
+			"hidden": false
+		},
+		{
+			"type": "revert",
+			"section": "Reverts",
+			"hidden": false
+		},
+		{
+			"type": "refactor",
+			"section": "Code Refactoring",
+			"hidden": false
+		},
+		{
+			"type": "style",
+			"section": "Styles",
+			"hidden": false
+		}
 	]
 }
