@@ -13,6 +13,5 @@ npx marked -i README.md --gfm >> "doc-assets/main.html"
 
 npm run updateHighlight
 npm run prettier:docs
-git add -A .
 
 npm run precommit
