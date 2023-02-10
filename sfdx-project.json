@@ -1,18 +1,22 @@
 {
     "packageDirectories": [
         {
+            "path": "triggerhandler"
+        },
+         {
             "path": "force-app",
-            "default": true
+            "default": true,
+            "package": "Auto Campaign Member Status",
+            "versionNumber": "0.1.0.NEXT"
         },
         {
             "path": "unpackaged",
             "default": false
-        },
-        {
-            "path": "triggerhandler"
         }
+        
     ],
-    "name": "campaign-member-statuses",
+    "pushPackageDirectoriesSequentially": true,
+    "name": "cm-status",
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "56.0",
