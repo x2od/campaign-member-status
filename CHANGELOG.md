@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.1.0](https://github.com/dschach/campaign-member-status/compare/v1.0.0...v1.1.0) (2023-02-10)
+
+
+### Features
+
+* Errors to Custom Labels ([21116cc](https://github.com/dschach/campaign-member-status/commit/21116ccb7989ccd6b1c05a53fe57e8f56cbac7bd))
+* **perf:** Remove extra debug statements for performance ([21116cc](https://github.com/dschach/campaign-member-status/commit/21116ccb7989ccd6b1c05a53fe57e8f56cbac7bd))
+* Unpackaged Email list view ([f143317](https://github.com/dschach/campaign-member-status/commit/f14331750a5be9a9b06910a98e4985a8cf2fd11b))
+
+
+### Bug Fixes
+
+* ApexDox icon assets ([2252477](https://github.com/dschach/campaign-member-status/commit/22524774f54e06d73215c0c6a9ee92caa5d455af))
+* ApexDox icon assets ([e7f7de5](https://github.com/dschach/campaign-member-status/commit/e7f7de58d2aba80ab4bc0d7780892432ba463add))
+* ApexDox icons ([2252477](https://github.com/dschach/campaign-member-status/commit/22524774f54e06d73215c0c6a9ee92caa5d455af))
+* ApexDox icons ([daf0b4a](https://github.com/dschach/campaign-member-status/commit/daf0b4adef025add9a6b147c2532ed70d192ab22))
+* Custom label category typo ([f143317](https://github.com/dschach/campaign-member-status/commit/f14331750a5be9a9b06910a98e4985a8cf2fd11b))
+* **docs:** Readme and ApexDox ([42e2ddc](https://github.com/dschach/campaign-member-status/commit/42e2ddc96b8e46750a7f5f8e7067aa4630a9ee45))
+* no longer in prerelease ([c43cf95](https://github.com/dschach/campaign-member-status/commit/c43cf95ddbbcb559102f0d3c1623b499ae9eb928))
+
 ## [1.0.0](https://github.com/dschach/campaign-member-status/compare/v0.1.0...v1.0.0) (2023-02-10)
 
 
