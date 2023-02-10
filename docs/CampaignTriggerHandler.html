@@ -43,9 +43,6 @@
 							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class public" onclick="goToLocation('CampaignMemberService.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberService</a>
 							</li>
-							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
-							</li>
 							<li
 								title="CampaignMemberStatusEventTriggerHandler"
 								id="item-CampaignMemberStatusEventTriggerHandler"
@@ -56,6 +53,20 @@
 							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class public" onclick="goToLocation('CampaignMemberStatusJob.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJob</a>
 							</li>
+							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="CampaignMemberStatusTests" class="group-name">
+						<summary id="header-CampaignMemberStatusTests" class="nav-header">
+							<span>CampaignMemberStatusTests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
+							</li>
 							<li
 								title="CampaignMemberStatusJobTest"
 								id="item-CampaignMemberStatusJobTest"
@@ -63,11 +74,22 @@
 								onclick="goToLocation('CampaignMemberStatusJobTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJobTest</a>
 							</li>
-							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
-							</li>
 							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class private" onclick="goToLocation('CampaignTriggerTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignTriggerTest</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Handler_Framework" class="group-name">
+						<summary id="header-Trigger_Handler_Framework" class="nav-header">
+							<span>Trigger Handler Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="TriggerHandler" id="item-TriggerHandler" class="nav-item class public" onclick="goToLocation('TriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandler</a>
+							</li>
+							<li title="TriggerHandlerTest" id="item-TriggerHandlerTest" class="nav-item class private" onclick="goToLocation('TriggerHandlerTest.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandlerTest</a>
 							</li>
 						</ul>
 					</details>
@@ -100,7 +122,7 @@
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L8">
+								href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L10">
 								CampaignTriggerHandler
 							</a>
 						</h2>
@@ -108,8 +130,19 @@
 							<div class="class-description">This class handles the automation required on Adding/Editing Campaign records</div>
 							<div class="class-subtitle">Signature</div>
 
-							<div class="class-signature">public without sharing class CampaignTriggerHandler</div>
-							<br />Sercante LLC<br />2022
+							<div class="class-signature">public without sharing class CampaignTriggerHandler extends TriggerHandler</div>
+							<div class="class-subtitle">Author</div>
+							<div class="class-subtitle-description">Sercante LLC</div>
+							<div class="class-subtitle">Since</div>
+							<div class="class-subtitle-description">
+								<li>2022</li>
+							</div>
+							<div class="class-subtitle">Author</div>
+							<div class="class-subtitle-description">David Schach</div>
+							<div class="class-subtitle">Since</div>
+							<div class="class-subtitle-description">
+								<li>2022</li>
+							</div>
 						</div>
 						<div class="subsection properties CampaignTriggerHandler">
 							<h3 class="subsection-title properties">CampaignTriggerHandler Properties</h3>
@@ -117,23 +150,6 @@
 								<tr>
 									<th>Name</th>
 									<th>Signature</th>
-									<th>Annotations</th>
-								</tr>
-								<tr class="property public">
-									<td class="attribute-name">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L15">
-											bypass
-										</a>
-									</td>
-									<td>
-										<div class="attribute-signature">public static Boolean bypass</div>
-									</td>
-									<td></td>
 								</tr>
 								<tr class="property private">
 									<td class="attribute-name">
@@ -142,14 +158,13 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L13">
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L16">
 											cmService
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">private CampaignMemberService cmService</div>
 									</td>
-									<td></td>
 								</tr>
 								<tr class="property private">
 									<td class="attribute-name">
@@ -159,14 +174,56 @@
 											title="Go to source"
 											class="source-link"
 											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L11">
-											instance
+											newRecords
 										</a>
 									</td>
 									<td>
-										<div class="attribute-signature">private static CampaignTriggerHandler instance</div>
+										<div class="attribute-signature">private List&lt;Campaign&gt; newRecords</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L13">
+											newRecordsMap
+										</a>
 									</td>
 									<td>
-										<div class="prop-annotations">@TestVisible</div>
+										<div class="attribute-signature">private Map&lt;Id, Campaign&gt; newRecordsMap</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L12">
+											oldRecords
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private List&lt;Campaign&gt; oldRecords</div>
+									</td>
+								</tr>
+								<tr class="property private">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L14">
+											oldRecordsMap
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private Map&lt;Id, Campaign&gt; oldRecordsMap</div>
 									</td>
 								</tr>
 							</table>
@@ -178,14 +235,7 @@
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignTriggerHandler.CampaignTriggerHandler"> CampaignTriggerHandler () </a>
 
-										<div class="methods-toc__description">Default constructor. Runs getInstance of CampaignMemberService</div>
-									</li>
-									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.CampaignTriggerHandler_1"> CampaignTriggerHandler (service) </a>
-
-										<div class="methods-toc__description">
-											Constructor that takes <code class="code-inline">CampaignMemberService</code> object <br />Never called - should be deleted
-										</div>
+										<div class="methods-toc__description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
 									</li>
 								</ul>
 								<div class="method public">
@@ -195,38 +245,14 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L28">
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L21">
 											CampaignTriggerHandler()
 										</a>
 									</h4>
-									<div class="method-description">Default constructor. Runs getInstance of CampaignMemberService</div>
+									<div class="method-description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">public CampaignTriggerHandler()</div>
-									<div class="method-subtitle">See</div>
-									<div class="method-subtitle-description">
-										<a href="javascript:void(0)" onclick="goToLocation('CampaignMemberService.html#CampaignMemberService.getInstance')">CampaignMemberService.getInstance</a>
-									</div>
-								</div>
-								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.CampaignTriggerHandler_1">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L38">
-											CampaignTriggerHandler(service)
-										</a>
-									</h4>
-									<div class="method-description">Constructor that takes <code class="code-inline">CampaignMemberService</code> object <br />Never called - should be deleted</div>
-									<div class="method-subtitle">Signature</div>
-
-									<div class="method-signature">public CampaignTriggerHandler(CampaignMemberService service)</div>
-									<div class="method-subtitle">Parameters</div>
-									<div class="param-name">service</div>
-									<div class="param-type">Type: <code class="code-inline">CampaignMemberService</code></div>
-									<div class="param-description">Pass in <code class="code-inline">CampaignMemberService</code> when running this trigger handler</div>
 								</div>
 							</div>
 						</div>
@@ -235,86 +261,70 @@
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.getInstance"> getInstance () </a>
-									</li>
-									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.onAfterInsert"> onAfterInsert (campaigns) </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHandler.afterInsert"> afterInsert () </a>
 
-										<div class="methods-toc__description">Let&#39;s actually go ahead and set up our new Campaign with the correct Statuses</div>
+										<div class="methods-toc__description">Set up our new Campaign with the correct Statuses</div>
 									</li>
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.onBeforeInsert"> onBeforeInsert (campaigns) </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHandler.beforeInsert"> beforeInsert () </a>
 
 										<div class="methods-toc__description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
 									</li>
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.onBeforeUpdate"> onBeforeUpdate (newRecords, oldRecordsMap) </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHandler.beforeUpdate"> beforeUpdate () </a>
 
-										<div class="methods-toc__description">Make sure people aren&#39;t messing with our Protect_Campaign_Member_Statuses__c value.</div>
+										<div class="methods-toc__description">
+											Make sure people aren&#39;t messing with our <code class="code-inline">Protect_Campaign_Member_Statuses__c</code> value.
+										</div>
 									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.getInstance">
+									<h4 class="method-title" id="CampaignTriggerHandler.afterInsert">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L17">
-											getInstance()
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L60">
+											afterInsert()
 										</a>
 									</h4>
+									<div class="method-description">Set up our new Campaign with the correct Statuses</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public static CampaignTriggerHandler getInstance()</div>
+									<div class="method-signature">public override void afterInsert()</div>
 								</div>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.onAfterInsert">
+									<h4 class="method-title" id="CampaignTriggerHandler.beforeInsert">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L74">
-											onAfterInsert(campaigns)
-										</a>
-									</h4>
-									<div class="method-description">Let&#39;s actually go ahead and set up our new Campaign with the correct Statuses</div>
-									<div class="method-subtitle">Signature</div>
-
-									<div class="method-signature">public void onAfterInsert(List&lt;Campaign&gt; campaigns)</div>
-								</div>
-								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.onBeforeInsert">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L45">
-											onBeforeInsert(campaigns)
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L34">
+											beforeInsert()
 										</a>
 									</h4>
 									<div class="method-description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public void onBeforeInsert(List&lt;Campaign&gt; campaigns)</div>
+									<div class="method-signature">public override void beforeInsert()</div>
 								</div>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.onBeforeUpdate">
+									<h4 class="method-title" id="CampaignTriggerHandler.beforeUpdate">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L193">
-											onBeforeUpdate(newRecords, oldRecordsMap)
+											href="https://github.com/dschach/campaign-member-status/CampaignTriggerHandler.cls#L190">
+											beforeUpdate()
 										</a>
 									</h4>
-									<div class="method-description">Make sure people aren&#39;t messing with our Protect_Campaign_Member_Statuses__c value.</div>
+									<div class="method-description">Make sure people aren&#39;t messing with our <code class="code-inline">Protect_Campaign_Member_Statuses__c</code> value.</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public void onBeforeUpdate(List&lt;Campaign&gt; newRecords, Map&lt;Id, Campaign&gt; oldRecordsMap)</div>
+									<div class="method-signature">public override void beforeUpdate()</div>
 								</div>
 							</div>
 						</div>
