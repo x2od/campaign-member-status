@@ -3,7 +3,7 @@
         {
             "path": "triggerhandler"
         },
-         {
+        {
             "path": "force-app",
             "default": true,
             "package": "Auto Campaign Member Status",
@@ -13,13 +13,11 @@
             "path": "unpackaged",
             "default": false
         }
-        
     ],
     "pushPackageDirectoriesSequentially": true,
     "name": "cm-status",
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "56.0",
-    "packageAliases": {
-    }
+    "packageAliases": {}
 }
