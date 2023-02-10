@@ -17,7 +17,7 @@ public class CampaignMemberStatusJob implements Schedulable {
 	 * @param sc    `SchedulableContext` for running this job daily
 	 */
 	public void execute(SchedulableContext sc) {
-		System.debug('Starting Scheduled Job CampaignMemberStatusJob');
+		//System.debug('Starting Scheduled Job CampaignMemberStatusJob');
 		Set<Id> campaignIdsNeedingFixed = sut.getCampaignsNeedingToBeFixed();
 		sut.enforceProtectedStatusesForCampaigns(campaignIdsNeedingFixed);
 	}

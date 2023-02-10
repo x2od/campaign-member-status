@@ -119,7 +119,7 @@ private class CampaignTriggerTest {
 
 		// assert
 		System.assert(result.isSuccess() == false);
-		System.debug(result.getErrors());
+		//System.debug(result.getErrors());
 		System.assertEquals(1, result.getErrors().size());
 		System.assertEquals('Campaign has Protected Campaign Member Statuses. Don\'t change the type.', result.getErrors().get(0).getMessage());
 	}
@@ -138,7 +138,7 @@ private class CampaignTriggerTest {
 
 		// assert
 		System.assert(result.isSuccess() == false);
-		System.debug(result.getErrors());
+		//System.debug(result.getErrors());
 		System.assertEquals(1, result.getErrors().size());
 		System.assertEquals('Once disabled, cannot be re-enabled.', result.getErrors().get(0).getMessage());
 	}
@@ -154,9 +154,9 @@ private class CampaignTriggerTest {
 		Campaign clone = updatedOriginal.clone();
 
 		Test.startTest();
-		System.debug('**** Start Test');
+		//System.debug('**** Start Test');
 		insert clone;
-		System.debug('**** End Test');
+		//System.debug('**** End Test');
 		Test.stopTest();
 
 		//assert
@@ -170,7 +170,7 @@ private class CampaignTriggerTest {
 
 	private class WebinarMock extends CampaignMemberRepository {
 		public override Map<String, List<Campaign_Type_Member_Status__mdt>> getGroupedProtectedStatuses() {
-			System.debug('overriding actually getting MDTs from Salesforce, using hard coded Webinar MDTs');
+			//System.debug('overriding actually getting MDTs from Salesforce, using hard coded Webinar MDTs');
 			Map<String, List<Campaign_Type_Member_Status__mdt>> response = new Map<String, List<Campaign_Type_Member_Status__mdt>>();
 			List<Campaign_Type_Member_Status__mdt> values = new List<Campaign_Type_Member_Status__mdt>();
 			Campaign_Type_Member_Status__mdt registered = new Campaign_Type_Member_Status__mdt();
@@ -215,7 +215,7 @@ private class CampaignTriggerTest {
 	}
 	private class AdvertisementMock extends CampaignMemberRepository {
 		public override Map<String, List<Campaign_Type_Member_Status__mdt>> getGroupedProtectedStatuses() {
-			System.debug('overriding actually getting MDTs from Salesforce, using hard coded Advertisement MDTs');
+			//System.debug('overriding actually getting MDTs from Salesforce, using hard coded Advertisement MDTs');
 			Map<String, List<Campaign_Type_Member_Status__mdt>> response = new Map<String, List<Campaign_Type_Member_Status__mdt>>();
 			List<Campaign_Type_Member_Status__mdt> values = new List<Campaign_Type_Member_Status__mdt>();
 			Campaign_Type_Member_Status__mdt onlyStatus = new Campaign_Type_Member_Status__mdt();

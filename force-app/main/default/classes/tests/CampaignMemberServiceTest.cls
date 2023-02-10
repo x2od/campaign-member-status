@@ -42,7 +42,7 @@ private class CampaignMemberServiceTest {
 
 	private class WebinarMock extends CampaignMemberRepository {
 		public override Map<String, List<Campaign_Type_Member_Status__mdt>> getGroupedProtectedStatuses() {
-			System.debug('overriding actually getting MDTs from Salesforce, using hard coded Webinar MDTs');
+			//System.debug('overriding actually getting MDTs from Salesforce, using hard coded Webinar MDTs');
 			Map<String, List<Campaign_Type_Member_Status__mdt>> response = new Map<String, List<Campaign_Type_Member_Status__mdt>>();
 			List<Campaign_Type_Member_Status__mdt> values = new List<Campaign_Type_Member_Status__mdt>();
 			Campaign_Type_Member_Status__mdt registered = new Campaign_Type_Member_Status__mdt();
