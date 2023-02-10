@@ -3,12 +3,12 @@
  *
  * @author      Sercante LLC
  * @since       2022
- * @group       CampaignMemberStatus
+ * @group       CampaignMemberStatusTests
  */
 @SuppressWarnings('PMD.ApexUnitTestShouldNotUseSeeAllDataTrue')
 @isTest
 private class CampaignMemberServiceTest {
-	@isTest //(seeAllData=true)
+	@isTest(seeAllData=true)
 	static void shouldEnforceProtectedStatusesForCampaign() {
 		//arrange
 		Test.enableChangeDataCapture();
