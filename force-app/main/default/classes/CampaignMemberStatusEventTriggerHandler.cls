@@ -22,17 +22,17 @@ public without sharing class CampaignMemberStatusEventTriggerHandler extends Tri
 	 * @description Execute after inserting (creating) change event records
 	 */
 	public override void afterInsert() {
-		System.debug('We are processing ' + newRecords.size() + ' Change newRecords');
+		//System.debug('We are processing ' + newRecords.size() + ' Change newRecords');
 		Set<Id> campaignMemberIds = new Set<Id>();
 
 		for (CampaignMemberStatusChangeEvent event : newRecords) {
 			EventBus.ChangeEventHeader header = event.ChangeEventHeader;
-			System.debug('changeType = ' + header.changetype);
+			//System.debug('changeType = ' + header.changetype);
 
 			if (header.changetype == 'UPDATE') {
 				//List<String> changedFields = header.changedfields; // list of fields updated
-				System.debug('Update details: ');
-				System.debug(event);
+				//System.debug('Update details: ');
+				//System.debug(event);
 				for (String recordId : header.getRecordIds()) {
 					campaignMemberIds.add(Id.valueOf(recordId));
 				}

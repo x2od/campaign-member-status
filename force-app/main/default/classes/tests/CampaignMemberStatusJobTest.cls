@@ -28,13 +28,13 @@ private class CampaignMemberStatusJobTest {
 
 	private class MockService extends CampaignMemberService {
 		public override Set<Id> getCampaignsNeedingToBeFixed() {
-			System.debug('called getCampaignsNeedingToBeFixed mock');
+			//System.debug('called getCampaignsNeedingToBeFixed mock');
 			CampaignMemberStatusJobTest.gotProtectedStatuses = true;
 			return new Set<Id>();
 		}
 
 		public override void enforceProtectedStatusesForCampaigns(Set<Id> campaignIds) {
-			System.debug('called enforceProtectedStatusesForCampaigns mock');
+			//System.debug('called enforceProtectedStatusesForCampaigns mock');
 			CampaignMemberStatusJobTest.executed = true;
 		}
 	}

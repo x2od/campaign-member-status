@@ -21,15 +21,21 @@ public virtual without sharing class CampaignMemberService {
 	 */
 	public static CampaignMemberService getInstance() {
 		if (instance == null) {
-			System.debug('creating new instance of CampaignMemberService');
+			//System.debug('creating new instance of CampaignMemberService');
 			instance = new CampaignMemberService();
 			instance.repo = new CampaignMemberRepository();
 		}
 		return instance;
 	}
 
+	/**
+	 * @description       Given a set of Campaign IDs, query the member status records for those Campaigns
+	 *
+	 * @param campaignIds Query `Campaign` records with child `CampaignMemberStatus` records
+	 * @return            `List<Campaign>` `Campaign` records with child `CampaignMemberStatus` records
+	 */
 	public List<Campaign> getCampaignsWithMemberStatuses(Set<Id> campaignIds) {
-		System.debug('Start getCampaignsWithMemberStatuses');
+		//System.debug('Start getCampaignsWithMemberStatuses');
 		return [
 			SELECT
 				ID,
@@ -44,6 +50,12 @@ public virtual without sharing class CampaignMemberService {
 			WHERE Id IN :campaignIds AND Protect_Campaign_Member_Statuses__c = TRUE
 		];
 	}
+
+	/**
+	 * @description Get the CM Statuses for each Type
+	 *
+	 * @return      `Map<String, List<Campaign_Type_Member_Status__mdt>>`
+	 */
 	public virtual Map<String, List<Campaign_Type_Member_Status__mdt>> getGroupedProtectedStatuses() {
 		return repo.getGroupedProtectedStatuses();
 	}
@@ -55,18 +67,18 @@ public virtual without sharing class CampaignMemberService {
 	 */
 	@SuppressWarnings('PMD')
 	public virtual Set<Id> getCampaignsNeedingToBeFixed() {
-		System.debug('looking for Campaigns that might need to be fixed');
+		//System.debug('looking for Campaigns that might need to be fixed');
 		Set<Id> campaignIdsNeedingFixes = new Set<Id>();
 		Map<String, List<Campaign_Type_Member_Status__mdt>> protectedStatuses = repo.getGroupedProtectedStatuses();
 
 		for (String type : protectedStatuses.keySet()) {
-			System.debug('Checking campaigns of type ' + type);
+			//System.debug('Checking campaigns of type ' + type);
 			List<String> expectedLabels = new List<String>();
 			for (Campaign_Type_Member_Status__mdt expectedStatus : protectedStatuses.get(type)) {
 				expectedLabels.add(expectedStatus.Campaign_Member_Status__c);
 			}
 
-			System.debug('expecting ' + expectedLabels.size() + ' specific Statuses');
+			//System.debug('expecting ' + expectedLabels.size() + ' specific Statuses');
 			List<AggregateResult> groupedResults = [
 				SELECT CampaignId, Count(Id)
 				FROM CampaignMemberStatus
@@ -85,19 +97,24 @@ public virtual without sharing class CampaignMemberService {
 				campaignIdsNeedingFixes.add((Id) ar.get('CampaignId'));
 			}
 		}
-		System.debug('found ' + campaignIdsNeedingFixes.size() + ' Campaigns that are missing at least 1 of the mandatory Statuses');
+		//System.debug('found ' + campaignIdsNeedingFixes.size() + ' Campaigns that are missing at least 1 of the mandatory Statuses');
 		return campaignIdsNeedingFixes;
 	}
 
+	/**
+	 * @description       Insert/Update CM Status records as needed
+	 *
+	 * @param campaignIds Campaigns to check
+	 */
 	public virtual void enforceProtectedStatusesForCampaigns(Set<Id> campaignIds) {
-		System.debug('Start enforceProtectedStatusesForCampaigns');
+		//System.debug('Start enforceProtectedStatusesForCampaigns');
 		List<Campaign> existingCampaigns = getCampaignsWithMemberStatuses(campaignIds);
 
-		if (campaignIds.size() != existingCampaigns.size()) {
-			System.debug('There are some Campaigns that are not protected, ignoring those');
-		}
+		//if (campaignIds.size() != existingCampaigns.size()) {
+		//	System.debug('There are some Campaigns that are not protected, ignoring those');
+		//}
 		if (existingCampaigns.isEmpty()) {
-			System.debug('There are no Campaigns to process');
+			//System.debug('There are no Campaigns to process');
 			return;
 		}
 
@@ -106,7 +123,7 @@ public virtual without sharing class CampaignMemberService {
 		List<CampaignMemberStatus> toInsert = new List<CampaignMemberStatus>();
 
 		for (Campaign camp : existingCampaigns) {
-			System.debug('Processing Campaign: ' + camp.Name);
+			//System.debug('Processing Campaign: ' + camp.Name);
 			Boolean changeNeeded = false;
 			List<CampaignMemberStatus> existingStatuses = camp.CampaignMemberStatuses;
 			Map<String, CampaignMemberStatus> statusesByLabel = new Map<String, CampaignMemberStatus>();
@@ -121,22 +138,22 @@ public virtual without sharing class CampaignMemberService {
 			for (Campaign_Type_Member_Status__mdt expected : protectedStatuses.get(camp.Type)) {
 				String expectedStatus = expected.Campaign_Member_Status__c;
 				if (statusesByLabel.containsKey(expectedStatus)) {
-					System.debug('Status of ' + expectedStatus + ' is already there. Checking to see if it has the right checkboxes');
+					//System.debug('Status of ' + expectedStatus + ' is already there. Checking to see if it has the right checkboxes');
 					CampaignMemberStatus realStatus = statusesByLabel.get(expectedStatus);
 					if (realStatus.IsDefault != expected.IsDefault__c) {
-						System.debug('the Default checkbox was not as expected. Setting it now');
+						//System.debug('the Default checkbox was not as expected. Setting it now');
 						changeNeeded = true;
 						realStatus.IsDefault = expected.IsDefault__c;
 						toUpdate.put(realStatus.Id, realStatus);
 					}
 					if (realStatus.HasResponded != expected.HasResponded__c) {
-						System.debug('the Responded checkbox was not as expected. Setting it now');
+						//System.debug('the Responded checkbox was not as expected. Setting it now');
 						changeNeeded = true;
 						realStatus.HasResponded = expected.HasResponded__c;
 						toUpdate.put(realStatus.Id, realStatus);
 					}
 				} else {
-					System.debug('We detected that Status: ' + expectedStatus + ' is missing');
+					//System.debug('We detected that Status: ' + expectedStatus + ' is missing');
 					sortOrder++;
 					CampaignMemberStatus newStatus = new CampaignMemberStatus(
 						CampaignId = camp.Id,
@@ -146,21 +163,21 @@ public virtual without sharing class CampaignMemberService {
 					);
 
 					changeNeeded = true;
-					System.debug(newStatus);
+					//System.debug(newStatus);
 					toInsert.add(newStatus);
 				}
 			}
-			if (!changeNeeded) {
-				System.debug('This camp looks good! No changes needed');
-			}
+			//if (!changeNeeded) {
+			//System.debug('This camp looks good! No changes needed');
+			//}
 		}
 
 		if (!toUpdate.isEmpty()) {
-			System.debug('We are updating ' + toUpdate.size() + ' Status records');
+			//System.debug('We are updating ' + toUpdate.size() + ' Status records');
 			update toUpdate.values();
 		}
 		if (!toInsert.isEmpty()) {
-			System.debug('We are inserting ' + toInsert.size() + ' Status records');
+			//System.debug('We are inserting ' + toInsert.size() + ' Status records');
 			insert toInsert;
 		}
 	}
