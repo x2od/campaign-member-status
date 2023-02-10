@@ -3,7 +3,7 @@
  *
  * @author      Sercante LLC
  * @since       2022
- * @group       CampaignMemberStatus
+ * @group       CampaignMemberStatusTests
  */
 @isTest
 private class CampaignMemberStatusJobTest {

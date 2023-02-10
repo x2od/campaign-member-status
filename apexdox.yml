@@ -2,8 +2,10 @@ engine:
   source:
     - path: '${workspaceFolder}/force-app/main/default/classes'
       sourceUrl: https://github.com/dschach/campaign-member-status
-    #- path: '${workspaceFolder}/force-app/main/default/tests'
-    #  sourceUrl: https://fixthis.com
+    - path: '${workspaceFolder}/force-app/main/default/classes/tests'
+      sourceUrl: https://github.com/dschach/campaign-member-status
+    - path: '${workspaceFolder}/triggerhandler/main/default/classes'
+      sourceUrl: https://github.com/dschach/campaign-member-status
   targetDirectory: '${workspaceFolder}/docs'
   # excludes:
   #   - '*Test.cls'
@@ -28,14 +30,15 @@ engine:
     - '${workspaceFolder}/doc-assets/icon.png'
     - '${workspaceFolder}/doc-assets/index.css'
     - '${workspaceFolder}/doc-assets/highlight.css'
+    - '${workspaceFolder}/doc-assets/highlight.js'
     - '${workspaceFolder}/doc-assets/styling.css'
     - '${workspaceFolder}/README.md'
     #- '${workspaceFolder}/doc-assets/files/campaignmemberstatushome.html'
-    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-1.png'
-    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-2.png'
-    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-3.png'
-    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-4.png'
-    - '${workspaceFolder}/doc-assets/files/Pardot-Protected-Campaign-Member-Statuses-5.png'
+    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-1.png'
+    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-2.png'
+    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-3.png'
+    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-4.png'
+    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png'
   port: 8088
 docblock:
   alignItems: true

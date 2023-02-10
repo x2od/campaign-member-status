@@ -13,6 +13,7 @@
             "path": "unpackaged",
             "default": false
         }
+        
     ],
     "pushPackageDirectoriesSequentially": true,
     "name": "cm-status",

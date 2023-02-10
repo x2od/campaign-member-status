@@ -43,9 +43,6 @@
 							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class public" onclick="goToLocation('CampaignMemberService.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberService</a>
 							</li>
-							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
-							</li>
 							<li
 								title="CampaignMemberStatusEventTriggerHandler"
 								id="item-CampaignMemberStatusEventTriggerHandler"
@@ -56,6 +53,20 @@
 							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class public" onclick="goToLocation('CampaignMemberStatusJob.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJob</a>
 							</li>
+							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="CampaignMemberStatusTests" class="group-name">
+						<summary id="header-CampaignMemberStatusTests" class="nav-header">
+							<span>CampaignMemberStatusTests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
+							</li>
 							<li
 								title="CampaignMemberStatusJobTest"
 								id="item-CampaignMemberStatusJobTest"
@@ -63,11 +74,22 @@
 								onclick="goToLocation('CampaignMemberStatusJobTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJobTest</a>
 							</li>
-							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
-							</li>
 							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class private" onclick="goToLocation('CampaignTriggerTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignTriggerTest</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Handler_Framework" class="group-name">
+						<summary id="header-Trigger_Handler_Framework" class="nav-header">
+							<span>Trigger Handler Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="TriggerHandler" id="item-TriggerHandler" class="nav-item class public" onclick="goToLocation('TriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandler</a>
+							</li>
+							<li title="TriggerHandlerTest" id="item-TriggerHandlerTest" class="nav-item class private" onclick="goToLocation('TriggerHandlerTest.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandlerTest</a>
 							</li>
 						</ul>
 					</details>
@@ -106,7 +128,7 @@
 						</p>
 
 						<p>
-							When a new Salesforce Campaign is created, many people aren’t just happy with the two default statuses of Sent and Responded. This prompts them to create what they
+							When a new Salesforce Campaign is created, many people aren't just happy with the two default statuses of Sent and Responded. This prompts them to create what they
 							think makes the most sense. Though as time goes on and as reporting starts to be needed, everyone making their own Campaign Member Statuses can be a nightmare that
 							prevents you from getting meaningful and actionable intelligence. It would be really nice to take the guesswork out of status reporting and have a standard set of
 							Campaign Member Statuses everyone uses consistently.
@@ -163,7 +185,7 @@
 								<ul>
 									<li>Label: Used in the List of Campaign Statuses in the Setup view in step 3 above. Recommended convention:&nbsp; TYPE-STATUS</li>
 									<li>Name: This is an API name that can be used by developers. Not required by this package. Recommended: let this autofill after you type in the Label.</li>
-									<li>Campaign Type: This is the actual value for the Campaign’s Type field.</li>
+									<li>Campaign Type: This is the actual value for the Campaign's Type field.</li>
 									<li>Protected Status: This is the Status value that will become protected.</li>
 									<li>Is Default: Select this if this Status should be the default (please pick only 1 per Type).</li>
 									<li>Is Responded: Select this if this Status should be marked as Responded.</li>
@@ -209,7 +231,7 @@
 
 						<p>Campaigns with Types not already set up will keep the default two statuses that Salesforce creates.</p>
 
-						<h2 id="that-s-cool-what-s-behind-the-curtain"><strong>That’s cool.</strong> <strong>What’s behind the curtain?</strong></h2>
+						<h2 id="that-s-cool-what-s-behind-the-curtain"><strong>That's cool.</strong> <strong>What's behind the curtain?</strong></h2>
 
 						<p>To accomplish this, we leverage a few cool tools available to us:</p>
 
@@ -220,15 +242,15 @@
 							</li>
 							<li>
 								Campaign Custom Field: Has_Protected_Campaign_Member_Statuses__c is automatically checked by the solution if a Campaign is created and there are Custom Metadata
-								Type records that specify this Campaign’s Type. It is also what allows the rest of the code to keep the statuses intact. You can clear the checkbox for this field
-								to make changes to the statuses if you need to. However, you can’t enable protection afterwards.
+								Type records that specify this Campaign's Type. It is also what allows the rest of the code to keep the statuses intact. You can clear the checkbox for this field
+								to make changes to the statuses if you need to. However, you can't enable protection afterwards.
 							</li>
 							<li>
-								Change Data Capture: We turn this on for CampaignMemberStatus so we can detect edits to statuses and then fix the records after-the-fact. Sadly we can’t (yet?) put
+								Change Data Capture: We turn this on for CampaignMemberStatus so we can detect edits to statuses and then fix the records after-the-fact. Sadly we can't (yet?) put
 								any triggers on CampaignMemberStatus (which would have been ideal).
 							</li>
 							<li>
-								Triggers: We use them to kick off the automation that we’ve built when a Campaign is created. We also use them to watch for Campaign Member Status edits (through
+								Triggers: We use them to kick off the automation that we've built when a Campaign is created. We also use them to watch for Campaign Member Status edits (through
 								the ChangeEvents from Change Data Capture) so we can set things right afterwardsd.
 							</li>
 						</ul>

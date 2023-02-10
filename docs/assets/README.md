@@ -1,6 +1,6 @@
 # Campaign Type Member Statuses
 
-This Unlocked Package was developed for Marketing Admins who want to enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (https://github.com/sercante-llc/campaign-member-status).
+This code was developed for Marketing Admins who want to enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (https://github.com/sercante-llc/campaign-member-status).
 
 > This application is designed to run on the Salesforce Platform
 
@@ -128,26 +128,6 @@ Once you have provided your statuses, you are good to go. Give it a whirl by cre
    cd campaign-member-status
    ```
 
-   **or**
-
-   1. [Download a zip file](https://github.com/dschach/campaign-member-status/archive/main.zip)
-   1. Extract the contents
-   1. Navigate to the directory (sample commands below, though it may be different for you depending where you downlaod things)
-
-   ```shell
-   cd Downloads/campaign-member-status-main/campaign-member-status-main
-   ```
-
-   1. Verify you are in the same directory as the sfdx-project.json file
-
-   ```shell
-   # mac or Linux
-   ls
-
-   # windows
-   dir
-   ```
-
 1. Run the included script to create a scratch org and push the metadata
 
    ```shell
@@ -187,5 +167,5 @@ If you have Apex tests which set up a Campaign record as part of the test, the f
 
 You have 2 options:
 
-1. For the purpose of the test, disable this functionality. You can accomplish this by adding `CampaignTriggerHandler.bypass=true;` in your Apex Test set up.
+1. For the purpose of the test, disable this functionality. You can accomplish this by adding `TriggerHandler.bypass('CampaignTriggerHandler` in your Apex Test set up.
 2. To actually see the records that Salesforce would create, you would need to have your test `@isTest(seeAllData=true)`. There are a lot of considerations with this approach, so please use wisely.

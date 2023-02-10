@@ -43,9 +43,6 @@
 							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class public" onclick="goToLocation('CampaignMemberService.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberService</a>
 							</li>
-							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
-							</li>
 							<li
 								title="CampaignMemberStatusEventTriggerHandler"
 								id="item-CampaignMemberStatusEventTriggerHandler"
@@ -56,6 +53,20 @@
 							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class public" onclick="goToLocation('CampaignMemberStatusJob.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJob</a>
 							</li>
+							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
+							</li>
+						</ul>
+					</details>
+					<details id="CampaignMemberStatusTests" class="group-name">
+						<summary id="header-CampaignMemberStatusTests" class="nav-header">
+							<span>CampaignMemberStatusTests</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
+							</li>
 							<li
 								title="CampaignMemberStatusJobTest"
 								id="item-CampaignMemberStatusJobTest"
@@ -63,11 +74,22 @@
 								onclick="goToLocation('CampaignMemberStatusJobTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJobTest</a>
 							</li>
-							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
-							</li>
 							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class private" onclick="goToLocation('CampaignTriggerTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignTriggerTest</a>
+							</li>
+						</ul>
+					</details>
+					<details id="Trigger_Handler_Framework" class="group-name">
+						<summary id="header-Trigger_Handler_Framework" class="nav-header">
+							<span>Trigger Handler Framework</span>
+						</summary>
+						<ul>
+							<!-- menu items -->
+							<li title="TriggerHandler" id="item-TriggerHandler" class="nav-item class public" onclick="goToLocation('TriggerHandler.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandler</a>
+							</li>
+							<li title="TriggerHandlerTest" id="item-TriggerHandlerTest" class="nav-item class private" onclick="goToLocation('TriggerHandlerTest.html');">
+								<a tabindex="1" href="javascript:void(0)">TriggerHandlerTest</a>
 							</li>
 						</ul>
 					</details>
@@ -107,8 +129,13 @@
 						<div class="class-container">
 							<div class="class-subtitle">Signature</div>
 
-							<div class="class-signature">public without sharing class CampaignMemberStatusEventTriggerHandler</div>
-							<br />Sercante LLC<br />2022
+							<div class="class-signature">public without sharing class CampaignMemberStatusEventTriggerHandler extends TriggerHandler</div>
+							<div class="class-subtitle">Author</div>
+							<div class="class-subtitle-description">Sercante LLC</div>
+							<div class="class-subtitle">Since</div>
+							<div class="class-subtitle-description">
+								<li>2022</li>
+							</div>
 						</div>
 						<div class="subsection properties CampaignMemberStatusEventTriggerHandler">
 							<h3 class="subsection-title properties">CampaignMemberStatusEventTriggerHandler Properties</h3>
@@ -125,24 +152,53 @@
 											title="Go to source"
 											class="source-link"
 											href="https://github.com/dschach/campaign-member-status/CampaignMemberStatusEventTriggerHandler.cls#L9">
-											instance
+											newRecords
 										</a>
 									</td>
 									<td>
-										<div class="attribute-signature">private static CampaignMemberStatusEventTriggerHandler instance</div>
+										<div class="attribute-signature">private List&lt;CampaignMemberStatusChangeEvent&gt; newRecords</div>
 									</td>
 								</tr>
 							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CampaignMemberStatusEventTriggerHandler Constructors</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.CampaignMemberStatusEventTriggerHandler">
+											CampaignMemberStatusEventTriggerHandler ()
+										</a>
+
+										<div class="methods-toc__description">Constructor for trigger handler</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignMemberStatusEventTriggerHandler.CampaignMemberStatusEventTriggerHandler">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberStatusEventTriggerHandler.cls#L14">
+											CampaignMemberStatusEventTriggerHandler()
+										</a>
+									</h4>
+									<div class="method-description">Constructor for trigger handler</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public CampaignMemberStatusEventTriggerHandler()</div>
+								</div>
+							</div>
 						</div>
 						<div class="subsection methods">
 							<h3 class="subsection-title methods">CampaignMemberStatusEventTriggerHandler Methods</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.afterInsert"> afterInsert (events) </a>
-									</li>
-									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.getInstance"> getInstance () </a>
+										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.afterInsert"> afterInsert () </a>
+
+										<div class="methods-toc__description">Execute after inserting (creating) change event records</div>
 									</li>
 								</ul>
 								<div class="method public">
@@ -152,28 +208,14 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberStatusEventTriggerHandler.cls#L18">
-											afterInsert(events)
+											href="https://github.com/dschach/campaign-member-status/CampaignMemberStatusEventTriggerHandler.cls#L24">
+											afterInsert()
 										</a>
 									</h4>
+									<div class="method-description">Execute after inserting (creating) change event records</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public void afterInsert(List&lt;CampaignMemberStatusChangeEvent&gt; events)</div>
-								</div>
-								<div class="method public">
-									<h4 class="method-title" id="CampaignMemberStatusEventTriggerHandler.getInstance">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberStatusEventTriggerHandler.cls#L11">
-											getInstance()
-										</a>
-									</h4>
-									<div class="method-subtitle">Signature</div>
-
-									<div class="method-signature">public static CampaignMemberStatusEventTriggerHandler getInstance()</div>
+									<div class="method-signature">public override void afterInsert()</div>
 								</div>
 							</div>
 						</div>
