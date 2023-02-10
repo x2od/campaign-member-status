@@ -33,7 +33,7 @@
 					<a class="nav-header" id="home" href="javascript:void(0)" onclick="goToLocation('index.html');"> Home </a>
 					<details id="CampaignMemberStatus" class="group-name">
 						<summary id="header-CampaignMemberStatus" class="nav-header">
-							<a href="javascript:void(0)" title="See Class Group info" onclick="goToLocation('campaignmemberstatushome.html');">CampaignMemberStatus</a>
+							<span>CampaignMemberStatus</span>
 						</summary>
 						<ul>
 							<!-- menu items -->
@@ -122,7 +122,7 @@
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L9">
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L9">
 								CampaignMemberService
 							</a>
 						</h2>
@@ -153,7 +153,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L11">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L11">
 											instance
 										</a>
 									</td>
@@ -171,7 +171,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L14">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L14">
 											repo
 										</a>
 									</td>
@@ -190,6 +190,8 @@
 								<ul class="methods-toc">
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberService.enforceProtectedStatusesForCampaigns"> enforceProtectedStatusesForCampaigns (campaignIds) </a>
+
+										<div class="methods-toc__description">Insert/Update CM Status records as needed</div>
 									</li>
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberService.getCampaignsNeedingToBeFixed"> getCampaignsNeedingToBeFixed () </a>
@@ -198,9 +200,13 @@
 									</li>
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberService.getCampaignsWithMemberStatuses"> getCampaignsWithMemberStatuses (campaignIds) </a>
+
+										<div class="methods-toc__description">Given a set of Campaign IDs, query the member status records for those Campaigns</div>
 									</li>
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberService.getGroupedProtectedStatuses"> getGroupedProtectedStatuses () </a>
+
+										<div class="methods-toc__description">Get the CM Statuses for each Type</div>
 									</li>
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberService.getInstance"> getInstance () </a>
@@ -215,13 +221,18 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L92">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L109">
 											enforceProtectedStatusesForCampaigns(campaignIds)
 										</a>
 									</h4>
+									<div class="method-description">Insert/Update CM Status records as needed</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">public virtual void enforceProtectedStatusesForCampaigns(Set&lt;Id&gt; campaignIds)</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">campaignIds</div>
+									<div class="param-type">Type: <code class="code-inline">Set&lt;Id&gt;</code></div>
+									<div class="param-description">Campaigns to check</div>
 								</div>
 								<div class="method public">
 									<h4 class="method-title" id="CampaignMemberService.getCampaignsNeedingToBeFixed">
@@ -230,7 +241,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L57">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L69">
 											getCampaignsNeedingToBeFixed()
 										</a>
 									</h4>
@@ -248,13 +259,25 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L31">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L37">
 											getCampaignsWithMemberStatuses(campaignIds)
 										</a>
 									</h4>
+									<div class="method-description">Given a set of Campaign IDs, query the member status records for those Campaigns</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">public List&lt;Campaign&gt; getCampaignsWithMemberStatuses(Set&lt;Id&gt; campaignIds)</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">campaignIds</div>
+									<div class="param-type">Type: <code class="code-inline">Set&lt;Id&gt;</code></div>
+									<div class="param-description">
+										Query <code class="code-inline">Campaign</code> records with child <code class="code-inline">CampaignMemberStatus</code> records
+									</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">List&lt;Campaign&gt;</code> <code class="code-inline">Campaign</code> records with child
+										<code class="code-inline">CampaignMemberStatus</code> records
+									</div>
 								</div>
 								<div class="method public">
 									<h4 class="method-title" id="CampaignMemberService.getGroupedProtectedStatuses">
@@ -263,13 +286,18 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L47">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L59">
 											getGroupedProtectedStatuses()
 										</a>
 									</h4>
+									<div class="method-description">Get the CM Statuses for each Type</div>
 									<div class="method-subtitle">Signature</div>
 
 									<div class="method-signature">public virtual Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt; getGroupedProtectedStatuses()</div>
+									<div class="method-subtitle">Returns</div>
+									<div class="method-subtitle-description">
+										<code class="code-inline">Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt;</code>
+									</div>
 								</div>
 								<div class="method public">
 									<h4 class="method-title" id="CampaignMemberService.getInstance">
@@ -278,7 +306,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/CampaignMemberService.cls#L22">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberService.cls#L22">
 											getInstance()
 										</a>
 									</h4>

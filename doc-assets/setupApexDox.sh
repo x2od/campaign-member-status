@@ -6,4 +6,6 @@ printf '<link href="assets/styling.css" rel="stylesheet" />' > "doc-assets/main.
 echo >> "doc-assets/main.html"
 npx marked -i README.md --gfm >> "doc-assets/main.html"
 
+sed -i '' 's|src="doc-assets/assets|class="readmeimage" src="./assets|g' doc-assets/main.html
+
 npm run updateHighlight

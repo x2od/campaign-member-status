@@ -8,9 +8,14 @@ pre {
 }
 
 pre code {
-  white-space: pre;
+	white-space: pre;
 }
 
 .hljs {
 	background: #f6f8fa;
+}
+
+.readmeimage {
+	max-width: 800px;
+	width: 100%;
 }
