@@ -1,23 +1,21 @@
 {
-	"packageDirectories": [
-		{
-			"path": "triggerhandler"
-		},
-        
-		{
-			"path": "force-app",
-			"default": true
-		},
+    "packageDirectories": [
         {
-			"path": "unpackaged",
-			"default": false
-		}
-		
-	],
-	"name": "cm-statuses",
-	"pushPackageDirectoriesSequentially": true,
-	"namespace": "",
-	"sfdcLoginUrl": "https://login.salesforce.com",
-	"sourceApiVersion": "56.0",
-	"packageAliases": {}
+            "path": "force-app",
+            "default": true
+        },
+        {
+            "path": "unpackaged",
+            "default": false
+        },
+        {
+            "path": "triggerhandler"
+        }
+    ],
+    "name": "campaign-member-statuses",
+    "namespace": "",
+    "sfdcLoginUrl": "https://login.salesforce.com",
+    "sourceApiVersion": "56.0",
+    "packageAliases": {
+    }
 }

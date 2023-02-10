@@ -5,17 +5,11 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'npm' # See documentation for possible values
-    directory: '/' # Location of package manifests
-    commit-message:
-      prefix: 'build'
-    rebase-strategy: 'auto'
+  - package-ecosystem: "github-actions" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
-      interval: 'daily'
-  - package-ecosystem: 'github-actions' # See documentation for possible values
-    directory: '/' # Location of package manifests
-    commit-message:
-      prefix: 'build'
-    rebase-strategy: 'auto'
+      interval: "weekly"
+  - package-ecosystem: "npm" # See documentation for possible values
+    directory: "/" # Location of package manifests
     schedule:
-      interval: 'daily'
+      interval: "weekly"

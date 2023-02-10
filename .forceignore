@@ -16,5 +16,3 @@ package.xml
 *.profile
 *.settings
 *.standardValueSet
-
-force-app/main/default/layouts/Campaign-Campaign Layout.layout-meta.xml

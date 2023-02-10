@@ -1,7 +1,7 @@
 {
 	"name": "protected-campaignmember-statuses",
 	"private": true,
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Protected Campaign Member Statuses",
 	"scripts": {
 		"test": "npm run test:unit",
@@ -20,19 +20,18 @@
 		"prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
 		"prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
 		"scratchorg": ". scripts/scratchorg.sh",
-		"updateHighlight": ". scripts/updateHighlight.sh",
-		"x2od": "sfdx config:set defaultdevhubusername=x2od"
+		"updateHighlight": ". scripts/updateHighlight.sh"
 	},
 	"devDependencies": {
 		"@prettier/plugin-xml": "^2.2.0",
-		"eslint": "^8.33.0",
-		"eslint-config-prettier": "^8.6.0",
-		"eslint-plugin-import": "^2.27.5",
+		"eslint": "^8.30.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-import": "^2.26.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"husky": "^8.0.3",
-		"lint-staged": "^13.1.1",
-		"marked": "^4.2.12",
-		"prettier": "^2.8.4",
+		"husky": "^8.0.2",
+		"lint-staged": "^13.1.0",
+		"marked": "^4.2.4",
+		"prettier": "^2.8.1",
 		"prettier-plugin-apex": "^1.12.0"
 	},
 	"lint-staged": {
