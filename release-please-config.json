@@ -23,7 +23,7 @@
 		{ "type": "test", "section": "Tests", "hidden": false },
 		{ "type": "fix", "section": "Bug Fixes", "hidden": false },
 		{ "type": "ci", "section": "Continuous Integration", "hidden": false },
-		{ "type": "chore", "section": "Miscellaneous Chores", "hidden": false },
+		{ "type": "chore", "section": "Miscellaneous Chores", "hidden": true },
 		{ "type": "perf", "section": "Performance Improvements", "hidden": false },
 		{ "type": "revert", "section": "Reverts", "hidden": false },
 		{ "type": "refactor", "section": "Code Refactoring", "hidden": false },
