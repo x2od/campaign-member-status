@@ -11,7 +11,6 @@ printf '<link href="assets/styling.css" rel="stylesheet" />' > "doc-assets/main.
 echo >> "doc-assets/main.html"
 npx marked -i README.md --gfm >> "doc-assets/main.html"
 
-npm run updateHighlight
 npm run prettier:docs
 
 npm run precommit
