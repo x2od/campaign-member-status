@@ -22,9 +22,6 @@
 	"editor.insertSpaces": false,
 	"editor.linkedEditing": true,
 	"editor.tabSize": 2,
-	"force.showApexJavadocAuthorTag": true,
-	"force.showApexJavadocContext": true,
-	"force.showApexJavadocDescriptionTag": false,
 	"html.format.maxPreserveNewLines": 2,
 	"prettier.configPath": ".prettierrc",
 	"[visualforce]": {
