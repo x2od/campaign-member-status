@@ -14,7 +14,7 @@
 		"prepare": "husky install",
 		"prettier:apex": "prettier --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
 		"prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
-		"prettier:docs": ". doc-assets/docscleanup.sh | prettier --write \"docs/*.html\"",
+		"prettier:docs": "prettier --write \"docs/*.html\"",
 		"prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
 		"prettier:verify:apex": "prettier --list-different \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
 		"prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
