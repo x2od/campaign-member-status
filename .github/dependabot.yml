@@ -13,7 +13,7 @@ updates:
     schedule:
       interval: 'daily'
   - package-ecosystem: 'github-actions' # See documentation for possible values
-    directory: '/' # Location of package manifests
+    directory: '/'  # Location of package manifests
     commit-message:
       prefix: 'build(actions)'
     rebase-strategy: 'auto'
