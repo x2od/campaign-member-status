@@ -6,6 +6,7 @@
  * @author {@link [David Schach](https://github.com/dschach)}
  * @since 2021
  * @group Trigger Handler Framework
+ * @group-content docs/assets/triggerhandlerdocs.html
  * @see [License](https://github.com/dschach/salesforce-trigger-handler/blob/master/LICENSE)
  * @see [GitHub](https://github.com/dschach/salesforce-trigger-handler)
  * @see TriggerHandlerTest
