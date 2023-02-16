@@ -1,16 +1,13 @@
 {
 	"packages": {
-		".": {
-			"changelog-path": "CHANGELOG.md",
-			"draft": false,
-			"prerelease": false
-		},
-		"force-app": { "changelog-path": "CHANGELOG.md", "prerelease": false },
-		"triggerhandler": { "changelog-path": "CHANGELOG.md", "prerelease": true, "draft": true },
-		"unpackaged": { "changelog-path": "CHANGELOG.md", "prerelease": false }
+		".": { "release-type": "salesforce" },
+		"force-app": { "release-type": "salesforce" },
+		"triggerhandler": { "release-type": "salesforce" },
+		"unpackaged": { "release-type": "salesforce" }
 	},
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
 	"release-type": "salesforce",
+	"changelog-path": "CHANGELOG.md",
 	"bump-minor-pre-major": false,
 	"bump-patch-for-minor-pre-major": false,
 	"extra-files": [
