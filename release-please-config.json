@@ -1,12 +1,11 @@
 {
 	"packages": {
 		".": { "release-type": "salesforce" },
-		"force-app": { "release-type": "simple" },
-		"triggerhandler": { "release-type": "simple" },
-		"unpackaged": { "release-type": "simple" }
+		"force-app": {},
+		"triggerhandler": {},
+		"unpackaged": {}
 	},
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
-	"release-type": "salesforce",
 	"changelog-path": "CHANGELOG.md",
 	"bump-minor-pre-major": false,
 	"bump-patch-for-minor-pre-major": false,
