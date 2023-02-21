@@ -12,7 +12,7 @@
 		"pmd:scan:deploy:csv": "$HOME/pmd/bin/run.sh pmd -d force-app -R pmd/deployRules.xml -f csv -r pmd/deploy.csv --cache .pmdCache --short-names",
 		"precommit": "lint-staged",
 		"prepare": "husky install",
-		"prettier:apex": "prettier --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
+		"prettier:apex": "prettier --write \"force-app/**/*.cls\"",
 		"prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
 		"prettier:docs": "prettier --write \"docs/*.html\"",
 		"prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",

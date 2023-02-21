@@ -4,13 +4,16 @@
 
 **/staticresources/**
 .localdevserver
+.sf
 .sfdx
 .vscode
+.github/**/*.md
 
 scripts/soql/**
 node_modules/
 
 coverage/
+doc-assets/*.js
 docs/assets/*
 !docs/*
 *-meta.xml

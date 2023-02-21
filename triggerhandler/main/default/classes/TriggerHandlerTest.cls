@@ -162,10 +162,7 @@ private class TriggerHandlerTest {
 		// bypass everything
 		TriggerHandler.bypassAll();
 		handler.run();
-		System.assert(
-			TriggerHandler.bypassSet().contains(TriggerHandler.BYPASS_ALL_ALIAS),
-			'When global bypass is true, put an item in the bypassed set'
-		);
+		System.assert(TriggerHandler.bypassSet().contains(TriggerHandler.BYPASS_ALL_ALIAS), 'When global bypass is true, put an item in the bypassed set');
 		System.assert(TriggerHandler.bypassedHandlers.isEmpty(), 'on bypass all, just set global variable to true and leave list empty');
 		System.assert(TriggerHandler.globalBypass, 'bypassing all should set global bypass to true');
 		resetTest();
@@ -173,10 +170,7 @@ private class TriggerHandlerTest {
 		TriggerHandler.bypassAll();
 		handler.run();
 		System.assertEquals(true, TriggerHandler.isBypassed('TestHandler'), 'test handler should be bypassed');
-		System.assert(
-			TriggerHandler.bypassList().contains(TriggerHandler.BYPASS_ALL_ALIAS),
-			'When global bypass is true, put an item in the bypassed list'
-		);
+		System.assert(TriggerHandler.bypassList().contains(TriggerHandler.BYPASS_ALL_ALIAS), 'When global bypass is true, put an item in the bypassed list');
 		TriggerHandler.clearAllBypasses();
 		System.assert(TriggerHandler.bypassList().isEmpty(), 'all bypassed handlers should be cleared');
 
@@ -263,10 +257,7 @@ private class TriggerHandlerTest {
 		TriggerHandler.showDebug();
 
 		handler.run();
-		System.assert(
-			TriggerHandler.loopCountMap.get('TestHandler').getCount() > TriggerHandler.loopCountMap.get('TestHandler').getMax(),
-			'We should have exceeded the max count'
-		);
+		System.assert(TriggerHandler.loopCountMap.get('TestHandler').getCount() > TriggerHandler.loopCountMap.get('TestHandler').getMax(), 'We should have exceeded the max count');
 
 		// clear the tests
 		resetTest();
