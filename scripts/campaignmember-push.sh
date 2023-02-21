@@ -6,7 +6,7 @@ echo "Clearing namespace"
 # For use with developer edition or playground
 echo "Pushing source..."
 sfdx force:source:deploy -p triggerhandler --tracksource
-sfdx force:source:deploy -p force-app
+sfdx force:source:deploy -p force-app --tracksource
 sfdx force:source:deploy -p unpackaged --tracksource
 
 echo "opening org..."
