@@ -121,7 +121,7 @@ private class CampaignTriggerTest {
 		System.assert(result.isSuccess() == false);
 		//System.debug(result.getErrors());
 		System.assertEquals(1, result.getErrors().size());
-		System.assertEquals('Campaign has Protected Campaign Member Statuses. Don\'t change the type.', result.getErrors().get(0).getMessage());
+		System.assert(result.getErrors().get(0).getMessage().contains(System.Label.CMS_Do_Not_Change_Type));
 	}
 
 	@isTest(seeAllData=true)
@@ -140,7 +140,8 @@ private class CampaignTriggerTest {
 		System.assert(result.isSuccess() == false);
 		//System.debug(result.getErrors());
 		System.assertEquals(1, result.getErrors().size());
-		System.assertEquals('Once disabled, cannot be re-enabled.', result.getErrors().get(0).getMessage());
+		System.debug(result.getErrors().get(0).getMessage());
+		System.assert(result.getErrors().get(0).getMessage().contains(System.Label.CMS_Cannot_Re_enable));
 	}
 
 	@isTest(seeAllData=true)
