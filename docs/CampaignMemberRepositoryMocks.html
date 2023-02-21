@@ -119,20 +119,21 @@
 			<tr>
 				<td class="doc-page">
 					<div class="section">
-						<h2 class="class-title top-level-type" id="CampaignMemberStatusEventTriggerHandler">
+						<h2 class="class-title top-level-type" id="CampaignMemberRepositoryMocks">
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L8">
-								CampaignMemberStatusEventTriggerHandler
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/tests/CampaignMemberRepositoryMocks.cls#L9">
+								CampaignMemberRepositoryMocks
 							</a>
 						</h2>
 						<div class="class-container">
+							<div class="class-description">Mock classes for responses to be used across multiple Apex tests</div>
 							<div class="class-subtitle">Signature</div>
-
-							<div class="class-signature">public without sharing class CampaignMemberStatusEventTriggerHandler extends TriggerHandler</div>
+							<div class="class-annotations">@isTest</div>
+							<div class="class-signature">public without sharing class CampaignMemberRepositoryMocks</div>
 							<div class="class-subtitle">Author</div>
 							<div class="class-subtitle-description">Sercante LLC</div>
 							<div class="class-subtitle">Since</div>
@@ -140,85 +141,91 @@
 								<li>2022</li>
 							</div>
 						</div>
-						<div class="subsection properties CampaignMemberStatusEventTriggerHandler">
-							<h3 class="subsection-title properties">CampaignMemberStatusEventTriggerHandler Properties</h3>
-							<table class="attributes-table properties">
-								<tr>
-									<th>Name</th>
-									<th>Signature</th>
-								</tr>
-								<tr class="property">
-									<td class="attribute-name">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L9">
-											newRecords
-										</a>
-									</td>
-									<td>
-										<div class="attribute-signature">private List&lt;CampaignMemberStatusChangeEvent&gt; newRecords</div>
-									</td>
-								</tr>
-							</table>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="CampaignMemberRepositoryMocks.AdvertisementMock">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/tests/CampaignMemberRepositoryMocks.cls#L62">
+								CampaignMemberRepositoryMocks.AdvertisementMock
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">Mock class for Advertisement Campaign Type Member Status Value (only one status)</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">public class AdvertisementMock extends CampaignMemberRepository</div>
 						</div>
 						<div class="subsection methods">
-							<h3 class="subsection-title methods">CampaignMemberStatusEventTriggerHandler Constructors</h3>
+							<h3 class="subsection-title methods">CampaignMemberRepositoryMocks.AdvertisementMock Methods</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.CampaignMemberStatusEventTriggerHandler">
-											CampaignMemberStatusEventTriggerHandler ()
-										</a>
-
-										<div class="methods-toc__description">Constructor for trigger handler</div>
+										<a class="methods-toc__entry" href="#CampaignMemberRepositoryMocks.AdvertisementMock.getGroupedProtectedStatuses"> getGroupedProtectedStatuses () </a>
 									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignMemberStatusEventTriggerHandler.CampaignMemberStatusEventTriggerHandler">
+									<h4 class="method-title" id="CampaignMemberRepositoryMocks.AdvertisementMock.getGroupedProtectedStatuses">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L14">
-											CampaignMemberStatusEventTriggerHandler()
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/tests/CampaignMemberRepositoryMocks.cls#L63">
+											getGroupedProtectedStatuses()
 										</a>
 									</h4>
-									<div class="method-description">Constructor for trigger handler</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public CampaignMemberStatusEventTriggerHandler()</div>
+									<div class="method-signature">public override Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt; getGroupedProtectedStatuses()</div>
 								</div>
 							</div>
 						</div>
+					</div>
+
+					<div class="section">
+						<h2 class="class-title" id="CampaignMemberRepositoryMocks.WebinarMock">
+							<a
+								target="_blank"
+								rel="noopener noreferrer"
+								title="Go to source"
+								class="source-link"
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/tests/CampaignMemberRepositoryMocks.cls#L13">
+								CampaignMemberRepositoryMocks.WebinarMock
+							</a>
+						</h2>
+						<div class="class-container">
+							<div class="class-description">Mock class for Campaign Type Member Status values for Webinar Campaign Type</div>
+							<div class="class-subtitle">Signature</div>
+
+							<div class="class-signature">public class WebinarMock extends CampaignMemberRepository</div>
+						</div>
 						<div class="subsection methods">
-							<h3 class="subsection-title methods">CampaignMemberStatusEventTriggerHandler Methods</h3>
+							<h3 class="subsection-title methods">CampaignMemberRepositoryMocks.WebinarMock Methods</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.afterInsert"> afterInsert () </a>
-
-										<div class="methods-toc__description">Execute after inserting (creating) change event records</div>
+										<a class="methods-toc__entry" href="#CampaignMemberRepositoryMocks.WebinarMock.getGroupedProtectedStatuses"> getGroupedProtectedStatuses () </a>
 									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignMemberStatusEventTriggerHandler.afterInsert">
+									<h4 class="method-title" id="CampaignMemberRepositoryMocks.WebinarMock.getGroupedProtectedStatuses">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L24">
-											afterInsert()
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/tests/CampaignMemberRepositoryMocks.cls#L14">
+											getGroupedProtectedStatuses()
 										</a>
 									</h4>
-									<div class="method-description">Execute after inserting (creating) change event records</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public override void afterInsert()</div>
+									<div class="method-signature">public override Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt; getGroupedProtectedStatuses()</div>
 								</div>
 							</div>
 						</div>
