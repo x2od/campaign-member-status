@@ -19,7 +19,7 @@ private class TriggerHandlerTest {
 		handler.isTriggerExecuting = true;
 	}
 
-	// contexts tests
+	// context tests
 
 	@isTest
 	private static void testBeforeInsert() {

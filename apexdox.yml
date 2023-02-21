@@ -40,6 +40,7 @@ engine:
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png'
     - '${workspaceFolder}/doc-assets/assets/CMStatuses.png'
     - '${workspaceFolder}/doc-assets/assets/triggerhandlerdocs.html'
+    - '${workspaceFolder}/doc-assets/assets/changelog.html'
   port: 9099
 docblock:
   alignItems: true

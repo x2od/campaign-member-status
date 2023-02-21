@@ -8,7 +8,7 @@ sf org delete scratch --no-prompt --target-org CampaignMemberStatus
 
 echo "Creating new scratch org"
 #sfdx force:org:create --definitionfile config/project-scratch-def.json --setalias CampaignMemberStatus --nonamespace --setdefaultusername --noancestors --durationdays 14 -w 20
-sf env create scratch --definition-file config/project-scratch-def.json --alias CampaignMemberStatus --no-namespace --set-default --duration-days 3 --track-source --wait 20
+sf org create scratch --definition-file config/project-scratch-def.json --alias CampaignMemberStatus --no-namespace --set-default --duration-days 3 --track-source --wait 20
 
 # For use with namespaced scratch org in package development process
 echo "Deploying metadata"

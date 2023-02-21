@@ -13,4 +13,9 @@ printf '<link href="assets/styling.css" rel="stylesheet" />' > "doc-assets/asset
 echo >> "doc-assets/assets/triggerhandlerdocs.html"
 npx marked -i doc-assets/assets/triggerhandlerdocs.md --gfm >> "doc-assets/assets/triggerhandlerdocs.html"
 
+echo "Changelog to Dox page"
+printf '<link href="assets/styling.css" rel="stylesheet" />' > "doc-assets/assets/changelog.html"
+echo >> "doc-assets/assets/changelog.html"
+npx marked -i changelog.md --gfm >> "doc-assets/assets/changelog.html"
+
 npm run updateHighlight
