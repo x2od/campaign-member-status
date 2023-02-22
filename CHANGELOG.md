@@ -1,5 +1,73 @@
 # Changelog
 
+## [1.1.0](https://github.com/dschach/campaign-member-status/compare/v1.0.0...v1.1.0) (2023-02-22)
+
+
+### Features
+
+* Errors to Custom Labels ([21116cc](https://github.com/dschach/campaign-member-status/commit/21116ccb7989ccd6b1c05a53fe57e8f56cbac7bd))
+* **perf:** Remove extra debug statements for performance ([21116cc](https://github.com/dschach/campaign-member-status/commit/21116ccb7989ccd6b1c05a53fe57e8f56cbac7bd))
+* **release-please:** Configure Release-Please ([#39](https://github.com/dschach/campaign-member-status/issues/39)) ([6c65f47](https://github.com/dschach/campaign-member-status/commit/6c65f47afeb5513ae9c0670c5f95dc5aae740ef9))
+* Unpackaged Email list view ([f143317](https://github.com/dschach/campaign-member-status/commit/f14331750a5be9a9b06910a98e4985a8cf2fd11b))
+
+
+### Bug Fixes
+
+* ApexDox icon assets ([2252477](https://github.com/dschach/campaign-member-status/commit/22524774f54e06d73215c0c6a9ee92caa5d455af))
+* ApexDox icon assets ([e7f7de5](https://github.com/dschach/campaign-member-status/commit/e7f7de58d2aba80ab4bc0d7780892432ba463add))
+* ApexDox icons ([2252477](https://github.com/dschach/campaign-member-status/commit/22524774f54e06d73215c0c6a9ee92caa5d455af))
+* ApexDox icons ([daf0b4a](https://github.com/dschach/campaign-member-status/commit/daf0b4adef025add9a6b147c2532ed70d192ab22))
+* Bump eslint from 8.33.0 to 8.34.0 ([04b2166](https://github.com/dschach/campaign-member-status/commit/04b2166264ca72e1abb8b9a487df85f488fd0f6c))
+* Custom label category typo ([f143317](https://github.com/dschach/campaign-member-status/commit/f14331750a5be9a9b06910a98e4985a8cf2fd11b))
+* **docs:** Readme and ApexDox ([42e2ddc](https://github.com/dschach/campaign-member-status/commit/42e2ddc96b8e46750a7f5f8e7067aa4630a9ee45))
+* **release-please:** Single directory (top level) ([c2a7dc2](https://github.com/dschach/campaign-member-status/commit/c2a7dc2364e55d8b551b1eb798e29504dd05b14c))
+* **release-please:** Update config ([0bc480f](https://github.com/dschach/campaign-member-status/commit/0bc480f69699a7ac2af57b3f8c925b86bbf6a3ea))
+
+
+### Code Refactoring
+
+* Move errors to custom labels ([0b08f93](https://github.com/dschach/campaign-member-status/commit/0b08f93a654bd84f26e49919c7f02b6b2362ca51))
+* Run updateHighlight less often ([9fb8352](https://github.com/dschach/campaign-member-status/commit/9fb835214ba120ee7dcc336ee3ded44497f36363))
+* Setup scripts, husky ([d8e6ea5](https://github.com/dschach/campaign-member-status/commit/d8e6ea56fd63bbe3edd66e821ac3dca4b07b5a88))
+
+
+### Miscellaneous Chores
+
+* Add all changelog sections ([53f3346](https://github.com/dschach/campaign-member-status/commit/53f3346a39ac3295019196594bd2cbdf33b16c35))
+* **main:** Release cm-status 1.0.0 ([#31](https://github.com/dschach/campaign-member-status/issues/31)) ([05631ae](https://github.com/dschach/campaign-member-status/commit/05631ae2371a1aea93f57e7bea55c6f77adc4565))
+* **style:** Run prettier ([2ee551e](https://github.com/dschach/campaign-member-status/commit/2ee551e5a3b8fd699e9c49de678a6b719e329bdc))
+
+
+### Continuous Integration
+
+* Add sections to changelog ([97d8ca7](https://github.com/dschach/campaign-member-status/commit/97d8ca7e309d7dd95e2665d3e332deb552908ff8))
+* Change dependabot bumps to build type ([2fb2b4c](https://github.com/dschach/campaign-member-status/commit/2fb2b4c74b1d82fdae1e0156435e5ce1d6b72340))
+* **ci:** Cease using Prettier Apex local ([991d99f](https://github.com/dschach/campaign-member-status/commit/991d99f7fd0b1bf31e4afbf4694e748d189c5cdf))
+* Create codeowners file ([edbfc92](https://github.com/dschach/campaign-member-status/commit/edbfc92a7783dc729a544e2f509689dc4ec9a33b))
+* GitHub PR workflow try docker ([4ae23e4](https://github.com/dschach/campaign-member-status/commit/4ae23e4131c07d334d025f201fffa2cead1df44c))
+* Hide chore section in release notes ([854b383](https://github.com/dschach/campaign-member-status/commit/854b3836587f2b060f26a7020c4d2b066b140606))
+* **pmd:** Latest PMD in GitHub actions - no updatePMD needed ([35a67f6](https://github.com/dschach/campaign-member-status/commit/35a67f6805ff863c3542763705c7465f28d0b50b))
+* **tests:** Apex test output to codecov ([35a67f6](https://github.com/dschach/campaign-member-status/commit/35a67f6805ff863c3542763705c7465f28d0b50b))
+
+
+### Build System
+
+* **ApexDox:** Use new index.js ([4c91542](https://github.com/dschach/campaign-member-status/commit/4c91542f89f2628b709951bb5a2ff46d79e614dd))
+* Bootstrap releases for path: . ([07b7902](https://github.com/dschach/campaign-member-status/commit/07b7902c26afbb56af7ce29fa5b7582991cf0313))
+* Bump lint-staged from 13.1.1 to 13.1.2 ([#36](https://github.com/dschach/campaign-member-status/issues/36)) ([6e0532b](https://github.com/dschach/campaign-member-status/commit/6e0532bfab28ef6a92804f3fc1ace9518a9e0bca))
+* **dependabot:** Dependabot commit prefixes ([737774f](https://github.com/dschach/campaign-member-status/commit/737774f3ba06ec8fc673b64915d05ed0225a1339))
+* **dependabot:** Dependabot commit prefixes ([396056e](https://github.com/dschach/campaign-member-status/commit/396056e0b4570769b034ea0f83af0cf28fac486a))
+* **dependabot:** Include scope ([b5e7a5d](https://github.com/dschach/campaign-member-status/commit/b5e7a5d336c6e8c327d45f5398245602d7fca6e8))
+* Project name in sfdx-project ([1538f35](https://github.com/dschach/campaign-member-status/commit/1538f35009285f358cadb9aef0d94bd8b8c6f557))
+* Release-please specify showing sections ([ab27b4d](https://github.com/dschach/campaign-member-status/commit/ab27b4d77a459dad65af89baabacffc8bfe8e3e5))
+* **release-please:** Run r-p on every push ([f672ccc](https://github.com/dschach/campaign-member-status/commit/f672ccc0cfdc249cb3a708337fa3ebfe84584071))
+
+
+### Documentation
+
+* **ApexDox:** Include changelog ([a970d15](https://github.com/dschach/campaign-member-status/commit/a970d15750f01f5ff77b0d090dcc7b0c4bc633c9))
+* **ApexDox:** TriggerHandler docs group content ([#37](https://github.com/dschach/campaign-member-status/issues/37)) ([ef8478a](https://github.com/dschach/campaign-member-status/commit/ef8478a401e962fefbdb851f3f4395658b1a1964))
+
 ## 1.0.0 (2023-02-21)
 
 
