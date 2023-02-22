@@ -1,64 +1,29 @@
 {
 	"packages": {
-		".": { "release-type": "salesforce" }
+		".": { "release-type": "salesforce", "package-name": "" }
 	},
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
 	"changelog-path": "CHANGELOG.md",
-	"changelog-sections": [
+	"include-v-in-tag": true,
+	"extra-files": [
 		{
-			"type": "feat",
-			"section": "Features",
-			"hidden": false
-		},
-		{
-			"type": "build",
-			"section": "Build System",
-			"hidden": false
-		},
-		{
-			"type": "docs",
-			"section": "Documentation",
-			"hidden": false
-		},
-		{
-			"type": "test",
-			"section": "Tests",
-			"hidden": false
-		},
-		{
-			"type": "fix",
-			"section": "Bug Fixes",
-			"hidden": false
-		},
-		{
-			"type": "ci",
-			"section": "Continuous Integration",
-			"hidden": false
-		},
-		{
-			"type": "chore",
-			"section": "Miscellaneous Chores",
-			"hidden": true
-		},
-		{
-			"type": "perf",
-			"section": "Performance Improvements",
-			"hidden": false
-		},
-		{
-			"type": "revert",
-			"section": "Reverts",
-			"hidden": false
-		},
-		{
-			"type": "refactor",
-			"section": "Code Refactoring",
-			"hidden": false
-		},
-		{
-			"type": "style",
-			"section": "Styles",
-			"hidden": false
+			"type": "json",
+			"path": "package.json",
+			"jsonpath": "$.version"
 		}
+	],
+	"plugins": [{ "type": "sentence-case" }],
+	"changelog-sections": [
+		{ "type": "feat", "section": "Features", "hidden": false },
+		{ "type": "fix", "section": "Bug Fixes", "hidden": false },
+		{ "type": "test", "section": "Tests", "hidden": false },
+		{ "type": "perf", "section": "Performance Improvements", "hidden": false },
+		{ "type": "revert", "section": "Reverts", "hidden": false },
+		{ "type": "refactor", "section": "Code Refactoring", "hidden": false },
+		{ "type": "style", "section": "Styles", "hidden": false },
+		{ "type": "docs", "section": "Documentation", "hidden": false },
+		{ "type": "build", "section": "Build System", "hidden": false },
+		{ "type": "ci", "section": "Continuous Integration", "hidden": false },
+		{ "type": "chore", "section": "Miscellaneous Chores", "hidden": false }
 	]
 }
