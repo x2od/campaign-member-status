@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.1](https://github.com/dschach/campaign-member-status/compare/cm-status-v1.0.0...cm-status-v1.0.1) (2023-02-22)
+
+
+### Build System
+
+* **release-please:** run r-p on every push ([f672ccc](https://github.com/dschach/campaign-member-status/commit/f672ccc0cfdc249cb3a708337fa3ebfe84584071))
+
+
+### Continuous Integration
+
+* create codeowners file ([edbfc92](https://github.com/dschach/campaign-member-status/commit/edbfc92a7783dc729a544e2f509689dc4ec9a33b))
+* **pmd:** latest PMD in GitHub actions - no updatePMD needed ([35a67f6](https://github.com/dschach/campaign-member-status/commit/35a67f6805ff863c3542763705c7465f28d0b50b))
+* **tests:** Apex test output to codecov ([35a67f6](https://github.com/dschach/campaign-member-status/commit/35a67f6805ff863c3542763705c7465f28d0b50b))
+
 ## 1.0.0 (2023-02-21)
 
 
