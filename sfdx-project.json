@@ -15,7 +15,7 @@
         }
     ],
     "pushPackageDirectoriesSequentially": true,
-    "name": "cm-status",
+    "name": "Auto Campaign Member Status",
     "namespace": "",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "56.0",
