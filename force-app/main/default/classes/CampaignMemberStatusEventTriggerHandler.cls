@@ -10,9 +10,10 @@ public without sharing class CampaignMemberStatusEventTriggerHandler extends Tri
 
 	/**
 	 * @description Constructor for trigger handler
+	 * @param handlerName Pass in the name of the handler for better performance
 	 */
-	public CampaignMemberStatusEventTriggerHandler() {
-		super('CampaignMemberStatusEventTriggerHandler');
+	public CampaignMemberStatusEventTriggerHandler(String handlerName) {
+		//super('CampaignMemberStatusEventTriggerHandler');
 		this.newRecords = Trigger.new;
 	}
 

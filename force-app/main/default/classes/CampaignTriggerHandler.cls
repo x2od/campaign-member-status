@@ -17,9 +17,10 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 
 	/**
 	 * @description Constructor for `CampaignMemberTriggerHandler`
+	 * @param handlerName Pass in the name of the handler for better performance
 	 */
-	public CampaignTriggerHandler() {
-		super('CampaignTriggerHandler');
+	public CampaignTriggerHandler(String handlerName) {
+		//super('CampaignTriggerHandler');
 		this.newRecords = Trigger.new;
 		this.oldRecords = Trigger.old;
 		this.newRecordsMap = (Map<Id, Campaign>) Trigger.newMap;

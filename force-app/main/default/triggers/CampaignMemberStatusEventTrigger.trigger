@@ -1,3 +1,3 @@
 trigger CampaignMemberStatusEventTrigger on CampaignMemberStatusChangeEvent(after insert) {
-	new CampaignMemberStatusEventTriggerHandler().run();
+	new CampaignMemberStatusEventTriggerHandler('CampaignMemberStatusEventTriggerHandler').run();
 }
