@@ -111,12 +111,7 @@
 					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
 					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
 					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
-					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
-					<label for="cbx-webservice"> webService </label>&nbsp;&nbsp;<input
-						type="checkbox"
-						checked="true"
-						id="cbx-testmethod"
-						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-testmethod" onclick="toggleScope('testmethod', this.checked);" />
 					<label for="cbx-testmethod"> testMethod </label>
 				</td>
 			</tr>
@@ -174,7 +169,7 @@
 								<ul class="methods-toc">
 									<li class="method public">
 										<a class="methods-toc__entry" href="#CampaignMemberStatusEventTriggerHandler.CampaignMemberStatusEventTriggerHandler">
-											CampaignMemberStatusEventTriggerHandler ()
+											CampaignMemberStatusEventTriggerHandler (handlerName)
 										</a>
 
 										<div class="methods-toc__description">Constructor for trigger handler</div>
@@ -187,14 +182,18 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L14">
-											CampaignMemberStatusEventTriggerHandler()
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L15">
+											CampaignMemberStatusEventTriggerHandler(handlerName)
 										</a>
 									</h4>
 									<div class="method-description">Constructor for trigger handler</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public CampaignMemberStatusEventTriggerHandler()</div>
+									<div class="method-signature">public CampaignMemberStatusEventTriggerHandler(String handlerName)</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">handlerName</div>
+									<div class="param-type">Type: <code class="code-inline">String</code></div>
+									<div class="param-description">Pass in the name of the handler for better performance</div>
 								</div>
 							</div>
 						</div>
@@ -215,7 +214,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L24">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberStatusEventTriggerHandler.cls#L25">
 											afterInsert()
 										</a>
 									</h4>

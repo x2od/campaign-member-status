@@ -19,7 +19,7 @@ engine:
     - public
     - protected
     - private
-    - webService
+    #- webService
     - testMethod
   homePagePath: '${workspaceFolder}/doc-assets/main.html'
   #pages:
