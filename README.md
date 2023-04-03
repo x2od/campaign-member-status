@@ -205,7 +205,7 @@ Follow this set of instructions if you want to deploy the solution into your org
 1. Or just run one command to push all three parts in sequence
 
    ```shell
-   sfdx force:source:push
+   sf deploy metadata
    ```
 
 1. You'll need a custom permission set to access the Campaign field, or just add it to an existing permission set and delete this one
