@@ -20,10 +20,9 @@ sfdx force:source:push
 
 sf org assign permset --name Campaign_Type_Member_Status_Admin --target-org CampaignMemberStatus
 
-sfdx force:apex:test:run -l RunLocalTests -r human -w 20
+sf apex run test --test-level RunLocalTests -r human -w 20
 
 echo "opening org"
-sfdx force:org:open
-#sf env open
+$ sf org open
 
 echo "Org is set up"

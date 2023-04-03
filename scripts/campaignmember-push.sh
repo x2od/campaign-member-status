@@ -1,13 +1,8 @@
-# UNMANAGED for use with developer edition or playground
-
-echo "Clearing namespace"
-#sed -i "" "s|\"namespace\": \"\"|\"namespace\": \"\"|" sfdx-project.json
-
 # For use with developer edition or playground
 echo "Pushing source..."
-sfdx force:source:deploy -p triggerhandler --tracksource
-sfdx force:source:deploy -p force-app --tracksource
-sfdx force:source:deploy -p unpackaged --tracksource
+sf deploy metadata  --source-dir triggerhandler
+sf deploy metadata  --source-dir force-app
+sf deploy metadata  --source-dir unpackaged
 
 echo "opening org..."
-sfdx force:org:open
+sf org open
