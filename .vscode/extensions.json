@@ -13,6 +13,7 @@
     "aaron-bond.better-comments",
     "sirtori.indenticator",
     "oderwat.indent-rainbow",
-    "chouzz.vscode-better-align"
+    "chouzz.vscode-better-align",
+    "wwm.better-align"
   ]
 }
