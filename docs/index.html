@@ -109,14 +109,8 @@
 					Show: <input type="checkbox" checked="true" id="cbx-all" onclick="toggleAllScopes(this.checked);" /> <label for="cbx-all">All</label>&nbsp;&nbsp;
 					<input type="checkbox" checked="true" id="cbx-global" onclick="toggleScope('global', this.checked);" />
 					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
-					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
-					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
-					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
-					<label for="cbx-webservice"> webService </label>&nbsp;&nbsp;<input
-						type="checkbox"
-						checked="true"
-						id="cbx-testmethod"
-						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-testmethod" onclick="toggleScope('testmethod', this.checked);" />
 					<label for="cbx-testmethod"> testMethod </label>
 				</td>
 			</tr>
@@ -124,6 +118,18 @@
 				<td class="doc-page">
 					<h2 class="section-title">Home</h2>
 					<link href="assets/styling.css" rel="stylesheet" />
+					<p>
+						<img src="https://img.shields.io/codecov/c/github/dschach/campaign-member-status?logo=codecov" alt="Codecov" />
+						<a href="https://github.com/dschach/campaign-member-status/actions/workflows/pr.yml"
+							><img src="https://github.com/dschach/campaign-member-status/actions/workflows/pr.yml/badge.svg" alt="PR Validation"
+						/></a>
+						<a href="https://github.com/dschach/campaign-member-status/actions/workflows/ci.yml"
+							><img src="https://github.com/dschach/campaign-member-status/actions/workflows/ci.yml/badge.svg" alt="On Push"
+						/></a>
+						<a href="https://github.com/dschach/campaign-member-status/actions/workflows/release-please.yml"
+							><img src="https://github.com/dschach/campaign-member-status/actions/workflows/release-please.yml/badge.svg" alt="release-please"
+						/></a>
+					</p>
 					<h1 id="campaign-type-member-statuses">Campaign Type Member Statuses</h1>
 					<p>
 						This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally
@@ -133,45 +139,15 @@
 						<p>This application is designed to run on the Salesforce Platform</p>
 					</blockquote>
 					<ul>
+						<li><a href="#campaign-type-member-statuses">Campaign Type Member Statuses</a></li>
 						<li>
-							<a href="#campaign-type-member-statuses">Campaign Type Member Statuses</a>
+							<a href="#a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use"
+								>A solution for Protected Campaign Member Statuses and step-by-step instructions for use.</a
+							>
 							<ul>
-								<li>
-									<a href="#a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use"
-										>A solution for Protected Campaign Member Statuses and step-by-step instructions for use.</a
-									>
-									<ul>
-										<li><a href="#originally-written-by-adam-erstelle">Originally written by Adam Erstelle</a></li>
-									</ul>
-								</li>
+								<li><a href="#originally-written-by-adam-erstelle">Originally written by Adam Erstelle</a></li>
 								<li>
 									<a href="#protected-campaign-member-statuses"><strong>Protected Campaign Member Statuses</strong></a>
-									<ul>
-										<li><a href="#get-started">Get started</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></a>
-								</li>
-								<li>
-									<a href="#how-it-works">How it Works</a>
-									<ul>
-										<li><a href="#new-campaign-created">New Campaign Created</a></li>
-										<li><a href="#editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</a></li>
-										<li><a href="#removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</a></li>
-									</ul>
-								</li>
-								<li>
-									<a href="#faq">FAQ</a>
-									<ul>
-										<li><a href="#do-you-have-any-suggested-statuses">Do you have any suggested statuses?</a></li>
-										<li>
-											<a href="#why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses"
-												>Why Don&#39;t you just prevent people from messing around with Protected Statuses?</a
-											>
-										</li>
-										<li><a href="#i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</a></li>
-									</ul>
 								</li>
 							</ul>
 						</li>
@@ -179,15 +155,39 @@
 							<a href="#installation-instructions">Installation Instructions</a>
 							<ul>
 								<li><a href="#what-you-get">What You Get</a></li>
-								<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
-								<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
+								<li><a href="#get-started">Get started</a></li>
 							</ul>
 						</li>
+						<li>
+							<a href="#thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></a>
+						</li>
+						<li>
+							<a href="#how-it-works">How it Works</a>
+							<ul>
+								<li><a href="#new-campaign-created">New Campaign Created</a></li>
+								<li><a href="#editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</a></li>
+								<li><a href="#removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</a></li>
+							</ul>
+						</li>
+						<li>
+							<a href="#faq">FAQ</a>
+							<ul>
+								<li><a href="#do-you-have-any-suggested-statuses">Do you have any suggested statuses?</a></li>
+								<li>
+									<a href="#why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses"
+										>Why Don&#39;t you just prevent people from messing around with Protected Statuses?</a
+									>
+								</li>
+								<li><a href="#i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</a></li>
+							</ul>
+						</li>
+						<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
+						<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
 					</ul>
-					<h2 id="a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use">
+					<h1 id="a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use">
 						A solution for Protected Campaign Member Statuses and step-by-step instructions for use.
-					</h2>
-					<h3 id="originally-written-by-adam-erstelle">Originally written by <a href="https://thespotforpardot.com/author/adamsercante-com/">Adam Erstelle</a></h3>
+					</h1>
+					<h2 id="originally-written-by-adam-erstelle">Originally written by <a href="https://thespotforpardot.com/author/adamsercante-com/">Adam Erstelle</a></h2>
 					<p>
 						We go through all the effort of setting up beautiful Salesforce Campaigns, naming standards and maybe even a hierarchy. The next challenge in completing your beautiful
 						work of campaign art is getting a hold on your Campaign Member Statuses for each campaign.
@@ -219,7 +219,22 @@
 						<li>Create additional Statuses for specific reasons.</li>
 						<li>Override by authorized users on a per-Campaign basis.</li>
 					</ol>
-					<h3 id="get-started">Get started</h3>
+					<h1 id="installation-instructions">Installation Instructions</h1>
+					<ul>
+						<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
+						<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
+					</ul>
+					<h2 id="what-you-get">What You Get</h2>
+					<p>When deploying this package to your org, you will get:</p>
+					<ul>
+						<li>1 Custom Metadata Type (and page layout)</li>
+						<li>1 Campaign Custom Field</li>
+						<li>1 ChangeDataCapture configuration</li>
+						<li>2 Apex Triggers</li>
+						<li>5 Production Apex Classes</li>
+						<li>3 Apex Test Classes</li>
+					</ul>
+					<h2 id="get-started">Get started</h2>
 					<p>Once installed, you need to define your Protected Statuses. This is done with Custom Metadata Types.</p>
 					<ol>
 						<li>Login to Salesforce Lightning, and go to Setup.</li>
@@ -285,7 +300,7 @@
 						already created.
 					</p>
 					<p>Campaigns with Types not already set up will keep the default two statuses that Salesforce creates.</p>
-					<h2 id="thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></h2>
+					<h1 id="thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></h1>
 					<p>To accomplish this, we leverage a few cool tools available to us:</p>
 					<ul>
 						<li>
@@ -293,9 +308,9 @@
 							insert devops tool here)
 						</li>
 						<li>
-							Campaign Custom Field: Campaign.Has_Protected_Campaign_Member_Statuses__c is automatically checked by the solution if a Campaign is created and there are Custom
-							Metadata Type records that specify this Campaign&#39;s Type. It is also what allows the rest of the code to keep the statuses intact. You can clear the checkbox for
-							this field to make changes to the statuses if you need to. However, you can&#39;t enable protection afterwards.
+							Campaign Custom Field: <code>Campaign.Has_Protected_Campaign_Member_Statuses__c</code> is automatically checked by the solution if a Campaign is created and there are
+							Custom Metadata Type records that specify this Campaign&#39;s Type. It is also what allows the rest of the code to keep the statuses intact. You can clear the
+							checkbox for this field to make changes to the statuses if you need to. However, you can&#39;t enable protection afterwards.
 						</li>
 						<li>
 							Change Data Capture: We turn this on for CampaignMemberStatus so we can detect edits to statuses and then fix the records after-the-fact. Sadly we can&#39;t (yet?)
@@ -310,9 +325,9 @@
 						If you want even more details, check out the <a href="https://github.com/sercante-llc/protected-campaign-statuses">original Github project</a> where you can see all the
 						inner workings of what is going on.
 					</p>
-					<h2 id="how-it-works">How it Works</h2>
+					<h1 id="how-it-works">How it Works</h1>
 					<p>Once everything is set up, Campaigns should maintain a consistent set of Campaign Member Statuses. Here&#39;s how we accomplish that.</p>
-					<h3 id="new-campaign-created">New Campaign Created</h3>
+					<h2 id="new-campaign-created">New Campaign Created</h2>
 					<p>
 						When a new Campaign is created, we check to see if the Type of Campaign is defined in any of the Protected Campaign Member Status records (the Custom Metadata Type that
 						was set up earlier). If there is a match, the solution will:
@@ -321,28 +336,29 @@
 						<li>Automatically add a checkbox to the Campaign Custom Field &quot;Has Campaign Type Member Statuses&quot;.</li>
 						<li>Automatically adjust the CampaignMemberStatus records to match all Protected Campaign Member Statuses expected</li>
 					</ol>
-					<h3 id="editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</h3>
+					<h2 id="editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</h2>
 					<p>
 						For a Campaign that &quot;Has Campaign Type Member Statuses&quot;, when one of the CampaignMemberStatus records is edited we will double check all statuses of that
 						Campaign to make sure that all Protected ones still exist. If there are any missing, they will be recreated almost instantly (you may need to refresh the page for them
 						to show up if there&#39;s a delay).
 					</p>
-					<h3 id="removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</h3>
+					<h2 id="removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</h2>
 					<p>
 						If a user removes a Campaign Type Member Status, the Scheduled Job (that was created as part of <a href="#installation-instructions">Post-Install Configuration</a>)
 						will search for Campaigns missing a Status and recreate it.
 					</p>
-					<h2 id="faq">FAQ</h2>
-					<h3 id="do-you-have-any-suggested-statuses">Do you have any suggested statuses?</h3>
-					<p>Of course! Here are a few to get your creative juices flowing. <img class="readmeimage" src="./assets/CMStatuses.png" alt="Suggested Campaign Member Statuses" /></p>
-					<h3 id="why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses">
+					<h1 id="faq">FAQ</h1>
+					<h2 id="do-you-have-any-suggested-statuses">Do you have any suggested statuses?</h2>
+					<p>Of course! Here are a few to get your creative juices flowing.</p>
+					<p><img class="readmeimage" src="./assets/CMStatuses.png" alt="Suggested Campaign Member Statuses" /></p>
+					<h2 id="why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses">
 						Why Don&#39;t you just prevent people from messing around with Protected Statuses?
-					</h3>
+					</h2>
 					<p>
 						We really wish we could. A &quot;before update&quot; and &quot;before delete&quot; Apex Trigger would be the simplest way to handle this. Unfortunately, Apex Triggers
 						are not (yet) possible on CampaignMemberStatus records, so we end up having to fix it after-the-fact.
 					</p>
-					<h3 id="i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</h3>
+					<h2 id="i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</h2>
 					<p>
 						If you have Apex tests which set up a Campaign record as part of the test, the functionality in this package will get called and might blow up. This is because how
 						Salesforce internally treats the automatic generation of Campaign Member Status records when a new Campaign is created (it&#39;s weird).
@@ -358,18 +374,7 @@
 							with this approach, so please use wisely.
 						</li>
 					</ol>
-					<h1 id="installation-instructions">Installation Instructions</h1>
-					<h2 id="what-you-get">What You Get</h2>
-					<p>When deploying this package to your org, you will get:</p>
-					<ul>
-						<li>1 Custom Metadata Type (and page layout)</li>
-						<li>1 Campaign Custom Field</li>
-						<li>1 ChangeDataCapture configuration</li>
-						<li>2 Apex Triggers</li>
-						<li>5 Production Apex Classes</li>
-						<li>3 Apex Test Classes</li>
-					</ul>
-					<h2 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h2>
+					<h1 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h1>
 					<p>
 						Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to
 						deploy into Production.
@@ -390,17 +395,18 @@ cd campaign-member-status
 								<li>
 									<p>or <a href="https://www.npmjs.com/package/sfdx-cli">install from npm</a></p>
 									<pre><code class="language-shell">npm install --global sfdx-cli
+npm install @salesforce/cli --global
 </code></pre>
 								</li>
 							</ul>
 						</li>
 						<li>
 							<p>Authorize your Salesforce org and provide it with an alias (<strong>myorg</strong> in the commands below)</p>
-							<pre><code class="language-shell"># Connect SFDX to a Sandbox Org
-sfdx force:auth:web:login -s -a myorg -r https://test.salesforce.com
+							<pre><code class="language-shell"># Connect your project to a Sandbox Org
+sf org login web --set-default --alias myorg --instance-url https://test.salesforce.com
 
-# if for some reason you need to specify a specific URL, use this slightly altered command, making the correct adjustments
-sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce.com
+# if you need to specify a specific URL, use this slightly altered command, making the correct adjustments
+sf org login web --set-default --alias myorg --instance-url https://mucustomdomain.my.salesforce.com
 </code></pre>
 						</li>
 						<li>
@@ -412,35 +418,35 @@ sfdx force:auth:web:login -s -a myorg -r https://mycompanyloginurl.my.salesforce
 								<a href="https://dschach.github.io/salesforce-trigger-framework">https://dschach.github.io/salesforce-trigger-framework</a>.
 							</p>
 							<p>Or run this command in a terminal to deploy the required trigger handler</p>
-							<pre><code class="language-shell">sfdx force:source:deploy -p triggerhandler --tracksource
+							<pre><code class="language-shell">sf project deploy start --source-dir triggerhandler --tracksource
 </code></pre>
 							<p>Run this command in a terminal to deploy the main code</p>
-							<pre><code class="language-shell">sfdx force:source:deploy -p force-app --tracksource -u myorg
+							<pre><code class="language-shell">sf project deploy start --source-dir force-app --alias myorg
 </code></pre>
 							<p>Run this command in a terminal to deploy the bundled sample custom metadata</p>
-							<pre><code class="language-shell">sfdx force:source:deploy -p unpackaged --tracksource -u myorg
+							<pre><code class="language-shell">sf project deploy start --source-dir unpackaged --alias myorg
 </code></pre>
 						</li>
 						<li>
 							<p>Or just run one command to push all three parts in sequence</p>
-							<pre><code class="language-shell">sfdx force:source:push
+							<pre><code class="language-shell">sf project deploy start
 </code></pre>
 						</li>
 						<li>
 							<p>You&#39;ll need a custom permission set to access the Campaign field, or just add it to an existing permission set and delete this one</p>
-							<pre><code class="language-shell">sfdx force:user:permset:assign -n Campaign_Type_Member_Status_Admin
+							<pre><code class="language-shell">sf org assign permset --name Campaign_Type_Member_Status_Admin --target-org myorg
 </code></pre>
 						</li>
 						<li>
-							<p>Continue with <a href="#installation-instructions">Post-Install Configuration</a></p>
+							<p>Continue with <a href="#get-started">Post-Install Configuration</a>)</p>
 						</li>
 					</ol>
-					<h2 id="installing-into-a-scratch-org">Installing into a Scratch Org</h2>
+					<h1 id="installing-into-a-scratch-org">Installing into a Scratch Org</h1>
 					<ol>
 						<li>
 							<p>Set up your environment. The steps include:</p>
 							<ul>
-								<li>Enable Dev Hub in your org</li>
+								<li>Enable Dev Hub in your main org</li>
 								<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></li>
 							</ul>
 						</li>
@@ -457,11 +463,11 @@ cd campaign-member-status
 						</li>
 						<li>
 							<p>Run the included script to create a scratch org and push the metadata</p>
-							<pre><code class="language-shell">. scripts/scratchorg.sh
+							<pre><code class="language-shell">. scripts/campaignmember-scratchorg.sh
 </code></pre>
 						</li>
 						<li>
-							<p>Continue with <a href="#installation-instructions">Post-Install Configuration</a></p>
+							<p>Continue with <a href="#get-started">Post-Install Configuration</a>)</p>
 						</li>
 					</ol>
 				</td>
