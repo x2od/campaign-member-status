@@ -18,7 +18,7 @@ on:
       - 'unpackaged/**'
       - 'pmd/**'
       - 'config/**'
-      - '.github/workflows'
+      - '**/workflows/**'
 
 # Jobs to be executed
 jobs:

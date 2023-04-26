@@ -10,7 +10,7 @@ on:
       - 'unpackaged/**'
       - 'pmd/**'
       - 'config/**'
-      - '.github/workflows'
+      - '**/workflows/**'
   workflow_dispatch:
 # Jobs to be executed
 jobs:
