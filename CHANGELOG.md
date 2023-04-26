@@ -1,5 +1,58 @@
 # Changelog
 
+## [1.2.0](https://github.com/dschach/campaign-member-status/compare/v1.1.0...v1.2.0) (2023-04-26)
+
+
+### Features
+
+* **triggerHandler:** Pass class name param ([09eff4c](https://github.com/dschach/campaign-member-status/commit/09eff4c96855102530b4dc18d200495ead0e9136))
+* **triggerHandler:** Pass class name param ([#44](https://github.com/dschach/campaign-member-status/issues/44)) ([bfdf0bd](https://github.com/dschach/campaign-member-status/commit/bfdf0bd90dc4715e7ba953f4d594dddef5da9650))
+
+
+### Miscellaneous Chores
+
+* **api:** Update to Spring '23 API 57.0 ([24ce8eb](https://github.com/dschach/campaign-member-status/commit/24ce8eb03d423a15a2931eeb50faadc794df3809))
+* **api:** Update to Spring '23 API 57.0 ([97dbc24](https://github.com/dschach/campaign-member-status/commit/97dbc2492ebedd89931707731f64ef64fa3dd2b5))
+
+
+### Continuous Integration
+
+* **Actions:** Rename GitHub actions ([#63](https://github.com/dschach/campaign-member-status/issues/63)) ([12293b8](https://github.com/dschach/campaign-member-status/commit/12293b86a9e4e484e10834d8c774f001b54f9d97))
+* **codecov:** Include token in action ([198af8f](https://github.com/dschach/campaign-member-status/commit/198af8fad802a8d83a4daaa77f1de9c9955a6245))
+
+
+### Build System
+
+* **api:** Update project API to 57.0 ([92b6508](https://github.com/dschach/campaign-member-status/commit/92b650822044e8382643e0bb0ab9270feb72c307))
+* **deps-dev:** Bump eslint from 8.34.0 to 8.35.0 ([8a51b58](https://github.com/dschach/campaign-member-status/commit/8a51b58cd92b0d50d4bee922c2b66ac21d9e6d3f))
+* **deps-dev:** Bump eslint from 8.34.0 to 8.35.0 ([#45](https://github.com/dschach/campaign-member-status/issues/45)) ([fbbdd8b](https://github.com/dschach/campaign-member-status/commit/fbbdd8b308c4553b3e04565e195f6f105137f897))
+* **deps-dev:** Bump eslint from 8.35.0 to 8.36.0 ([#48](https://github.com/dschach/campaign-member-status/issues/48)) ([dc72aa4](https://github.com/dschach/campaign-member-status/commit/dc72aa4bdb2f4ed0bab909c5e611cfcf17212580))
+* **deps-dev:** Bump eslint from 8.36.0 to 8.37.0 ([#54](https://github.com/dschach/campaign-member-status/issues/54)) ([14d98ab](https://github.com/dschach/campaign-member-status/commit/14d98ab2138be995e52f535fca34515670f54080))
+* **deps-dev:** Bump eslint from 8.37.0 to 8.38.0 ([#57](https://github.com/dschach/campaign-member-status/issues/57)) ([1c28fb8](https://github.com/dschach/campaign-member-status/commit/1c28fb8e335907f8678115e5f972812014ef5ebd))
+* **deps-dev:** Bump eslint from 8.38.0 to 8.39.0 ([#58](https://github.com/dschach/campaign-member-status/issues/58)) ([645e816](https://github.com/dschach/campaign-member-status/commit/645e816ed54b674019f079de0b9d412551919a17))
+* **deps-dev:** Bump eslint-config-prettier from 8.6.0 to 8.7.0 ([f73cb4f](https://github.com/dschach/campaign-member-status/commit/f73cb4f12d14809cfab684b8956d653fc5ddc64c))
+* **deps-dev:** Bump eslint-config-prettier from 8.6.0 to 8.7.0 ([#46](https://github.com/dschach/campaign-member-status/issues/46)) ([59e9208](https://github.com/dschach/campaign-member-status/commit/59e92083148eb0fc4a0b2f7a6ed54e4bb53a5123))
+* **deps-dev:** Bump eslint-config-prettier from 8.7.0 to 8.8.0 ([#50](https://github.com/dschach/campaign-member-status/issues/50)) ([23aa844](https://github.com/dschach/campaign-member-status/commit/23aa844e88c90f4da23c0b7d5c01c2fe94dacae1))
+* **deps-dev:** Bump lint-staged from 13.1.2 to 13.2.0 ([#47](https://github.com/dschach/campaign-member-status/issues/47)) ([efc137e](https://github.com/dschach/campaign-member-status/commit/efc137e09640960042b059daa870cf43006e81a9))
+* **deps-dev:** Bump lint-staged from 13.2.0 to 13.2.1 ([#56](https://github.com/dschach/campaign-member-status/issues/56)) ([d1e54da](https://github.com/dschach/campaign-member-status/commit/d1e54da895851fcc39a9ff44bdace91d94e6e071))
+* **deps-dev:** Bump marked from 4.2.12 to 4.3.0 ([#52](https://github.com/dschach/campaign-member-status/issues/52)) ([1bed2e1](https://github.com/dschach/campaign-member-status/commit/1bed2e1d155681dae7bcf79b107db7cd018429d8))
+* **deps-dev:** Bump prettier from 2.8.4 to 2.8.5 ([#49](https://github.com/dschach/campaign-member-status/issues/49)) ([d3d53c0](https://github.com/dschach/campaign-member-status/commit/d3d53c0dd56a1d4106ffe7ebf62bb698765c4002))
+* **deps-dev:** Bump prettier from 2.8.5 to 2.8.6 ([#51](https://github.com/dschach/campaign-member-status/issues/51)) ([dc30872](https://github.com/dschach/campaign-member-status/commit/dc308728f44d9bafb5f0a7ddeae63ec68f9625ba))
+* **deps-dev:** Bump prettier from 2.8.6 to 2.8.7 ([#53](https://github.com/dschach/campaign-member-status/issues/53)) ([daff212](https://github.com/dschach/campaign-member-status/commit/daff212ce09ee7e97c83a338560c3b1b072023b2))
+* **deps-dev:** Bump prettier from 2.8.7 to 2.8.8 ([#60](https://github.com/dschach/campaign-member-status/issues/60)) ([c2f2b2b](https://github.com/dschach/campaign-member-status/commit/c2f2b2b380472188dd65f7e1667d1635d7780ed3))
+* **deps-dev:** Bump prettier-plugin-apex from 1.12.0 to 1.13.0 ([#59](https://github.com/dschach/campaign-member-status/issues/59)) ([2e79b1a](https://github.com/dschach/campaign-member-status/commit/2e79b1a4d4b720c7be5c61022d41727e110a7089))
+* **deps:** Bump yaml from 2.2.1 to 2.2.2 ([#61](https://github.com/dschach/campaign-member-status/issues/61)) ([b8ac3c8](https://github.com/dschach/campaign-member-status/commit/b8ac3c868153fa9a5c3d89b8dfe41c7ab53c765d))
+* **GitHub:** Update workflows ([#62](https://github.com/dschach/campaign-member-status/issues/62)) ([e999d96](https://github.com/dschach/campaign-member-status/commit/e999d9698d7c9c7f3e44b8b17c3f5bd684d84511))
+* Remove Better-Align (deprecated) ([e9c0092](https://github.com/dschach/campaign-member-status/commit/e9c009219442d8308669d7427c5d5b8e01b4712a))
+* **sfdx:** Update cli commands to sf ([#64](https://github.com/dschach/campaign-member-status/issues/64)) ([3dc233c](https://github.com/dschach/campaign-member-status/commit/3dc233c9672b954fafc1e5b771e8cc705c629df9))
+
+
+### Documentation
+
+* **ApexDox:** Update ApexDox ([243e28c](https://github.com/dschach/campaign-member-status/commit/243e28c8f4478e036cdc486cbe2e4bc8d247de34))
+* Codecov badge ([71a8a47](https://github.com/dschach/campaign-member-status/commit/71a8a47b942e2d1f0ed390c667701ff7926e83cd))
+* Update ApexDox ([#65](https://github.com/dschach/campaign-member-status/issues/65)) ([8aa3553](https://github.com/dschach/campaign-member-status/commit/8aa35530c18400ec1d8677c1be056b23a561fecc))
+
 ## [1.1.0](https://github.com/dschach/campaign-member-status/compare/v1.0.0...v1.1.0) (2023-02-22)
 
 
