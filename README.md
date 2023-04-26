@@ -1,4 +1,7 @@
 ![Codecov](https://img.shields.io/codecov/c/github/dschach/campaign-member-status?logo=codecov)
+[![PR Validation](https://github.com/dschach/campaign-member-status/actions/workflows/pr.yml/badge.svg)](https://github.com/dschach/campaign-member-status/actions/workflows/pr.yml)
+[![On Push](https://github.com/dschach/campaign-member-status/actions/workflows/ci.yml/badge.svg)](https://github.com/dschach/campaign-member-status/actions/workflows/ci.yml)
+[![release-please](https://github.com/dschach/campaign-member-status/actions/workflows/release-please.yml/badge.svg)](https://github.com/dschach/campaign-member-status/actions/workflows/release-please.yml)
 
 # Campaign Type Member Statuses
 
