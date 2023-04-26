@@ -1,5 +1,5 @@
 # Unique name for this workflow
-name: PR Validation
+name: Pull Request Validation
 # Definition when the workflow should run
 on:
   pull_request:
