@@ -109,14 +109,8 @@
 					Show: <input type="checkbox" checked="true" id="cbx-all" onclick="toggleAllScopes(this.checked);" /> <label for="cbx-all">All</label>&nbsp;&nbsp;
 					<input type="checkbox" checked="true" id="cbx-global" onclick="toggleScope('global', this.checked);" />
 					<label for="cbx-global"> global </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-public" onclick="toggleScope('public', this.checked);" />
-					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-protected" onclick="toggleScope('protected', this.checked);" />
-					<label for="cbx-protected"> protected </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
-					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-webservice" onclick="toggleScope('webservice', this.checked);" />
-					<label for="cbx-webservice"> webService </label>&nbsp;&nbsp;<input
-						type="checkbox"
-						checked="true"
-						id="cbx-testmethod"
-						onclick="toggleScope('testmethod', this.checked);" />
+					<label for="cbx-public"> public </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-private" onclick="toggleScope('private', this.checked);" />
+					<label for="cbx-private"> private </label>&nbsp;&nbsp;<input type="checkbox" checked="true" id="cbx-testmethod" onclick="toggleScope('testmethod', this.checked);" />
 					<label for="cbx-testmethod"> testMethod </label>
 				</td>
 			</tr>
@@ -240,7 +234,7 @@
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.CampaignTriggerHandler"> CampaignTriggerHandler () </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHandler.CampaignTriggerHandler"> CampaignTriggerHandler (handlerName) </a>
 
 										<div class="methods-toc__description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
 									</li>
@@ -252,14 +246,18 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L21">
-											CampaignTriggerHandler()
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L22">
+											CampaignTriggerHandler(handlerName)
 										</a>
 									</h4>
 									<div class="method-description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public CampaignTriggerHandler()</div>
+									<div class="method-signature">public CampaignTriggerHandler(String handlerName)</div>
+									<div class="method-subtitle">Parameters</div>
+									<div class="param-name">handlerName</div>
+									<div class="param-type">Type: <code class="code-inline">String</code></div>
+									<div class="param-description">Pass in the name of the handler for better performance</div>
 								</div>
 							</div>
 						</div>
@@ -292,7 +290,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L60">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L61">
 											afterInsert()
 										</a>
 									</h4>
@@ -308,7 +306,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L34">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L35">
 											beforeInsert()
 										</a>
 									</h4>
@@ -324,7 +322,7 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L190">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L191">
 											beforeUpdate()
 										</a>
 									</h4>
