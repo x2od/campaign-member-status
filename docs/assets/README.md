@@ -169,9 +169,8 @@ Follow this set of instructions if you want to deploy the solution into your org
 
    - [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
 
-   - or [install from npm](https://www.npmjs.com/package/sfdx-cli)
+   - or [install from npm](https://www.npmjs.com/package/@salesforce/cli)
      ```shell
-     npm install --global sfdx-cli
      npm install @salesforce/cli --global
      ```
 

@@ -171,7 +171,6 @@ Follow this set of instructions if you want to deploy the solution into your org
 
    - or [install from npm](https://www.npmjs.com/package/sfdx-cli)
      ```shell
-     npm install --global sfdx-cli
      npm install @salesforce/cli --global
      ```
 
