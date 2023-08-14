@@ -12,6 +12,9 @@ on:
       - 'config/**'
       - '**/workflows/**'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pr.yml'
 # Jobs to be executed
 jobs:
   format-check:
@@ -84,16 +87,11 @@ jobs:
         uses: actions/checkout@v3
 
       # Install Salesforce CLI
-      - name: 'Install Salesforce sfdx CLI'
-        run: |
-          npm install sfdx-cli --location=global
-          nodeInstallPath=$(npm config get prefix)
-          echo "$nodeInstallPath/bin" >> $GITHUB_PATH
-          sfdx --version
-
       - name: 'Install Salesforce sf CLI'
         run: |
           npm install @salesforce/cli --global
+          nodeInstallPath=$(npm config get prefix)
+          echo "$nodeInstallPath/bin" >> $GITHUB_PATH
           sf --version
 
       # Store secret for dev hub
