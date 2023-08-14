@@ -20,8 +20,8 @@ engine:
     #- webService
     - testMethod
   homePagePath: '${workspaceFolder}/doc-assets/main.html'
-  #pages:
-  #- '${workspaceFolder}/doc-assets/Installation.html'
+  pages:
+    - '${workspaceFolder}/doc-assets/assets/changes.html'
   assets:
     - '${workspaceFolder}/doc-assets/logo.png'
     - '${workspaceFolder}/doc-assets/favicon.png'
@@ -32,14 +32,14 @@ engine:
     - '${workspaceFolder}/doc-assets/index.js'
     - '${workspaceFolder}/doc-assets/styling.css'
     #- '${workspaceFolder}/README.md'
-    - '${workspaceFolder}/doc-assets/assets/changes.html'
+    #- '${workspaceFolder}/doc-assets/assets/changes.html'
+    - '${workspaceFolder}/doc-assets/assets/triggerhandlerdocs.html'
     - '${workspaceFolder}/doc-assets/assets/CMStatuses.png'
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-1.png'
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-2.png'
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-3.png'
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-4.png'
     - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png'
-    - '${workspaceFolder}/doc-assets/assets/triggerhandlerdocs.html'
   port: 9099
 docblock:
   alignItems: true

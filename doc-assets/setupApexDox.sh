@@ -7,7 +7,7 @@ echo >> "doc-assets/main.html"
 npx marked -i README.md --gfm >> "doc-assets/main.html"
 
 sed -i '' 's|src="doc-assets/assets|class="readmeimage" src="./assets|g' doc-assets/main.html
-sed -i '' 's|CHANGELOG.md|assets/changes.html|g' doc-assets/main.html
+sed -i '' 's|CHANGELOG.md|changes.html|g' doc-assets/main.html
 
 echo "TH docs to Dox page"
 printf '<link href="assets/styling.css" rel="stylesheet" />' > "doc-assets/assets/triggerhandlerdocs.html"
