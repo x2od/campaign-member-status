@@ -4,18 +4,12 @@
 	"version": "1.2.0",
 	"description": "Protected Campaign Member Statuses",
 	"scripts": {
-		"test": "npm run test:unit",
-		"apex:local:start": "node node_modules/prettier-plugin-apex/dist/bin/start-apex-server.js",
-		"apex:local:stop": "node node_modules/prettier-plugin-apex/dist/bin/stop-apex-server.js",
-		"apex:test:local": "rm testresults/* && sf apex run test --test-level RunLocalTests --output-dir testresults --result-format human --code-coverage",
 		"pmd:scan:csv": "$HOME/pmd/bin/check --dir force-app --rulesets pmd/ruleset.xml --format csv --rulesets pmd/pmd.csv --cache .pmdCache --short-names",
 		"pmd:scan:deploy:csv": "$HOME/pmd/bin/check --dir force-app --rulesets pmd/deployRules.xml --format csv --rulesets pmd/deploy.csv --cache .pmdCache --short-names",
 		"precommit": "lint-staged",
 		"prepare": "husky install",
 		"prettier:apex": "prettier --write \"force-app/**/*.cls\"",
-		"prettier:apex:local": "prettier --apex-standalone-parser built-in --write \"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}\"",
-		"prettier:docs": "prettier --write \"docs/*.html\"",
-		"prettier:verify:apex:local": "prettier --apex-standalone-parser built-in --list-different \"force-app/**/*.{cls,cmp,component,page,trigger}\"",
+		"prettier:docs": "prettier --write \"docs/**/*.html\"",
 		"prettier:verify:apex": "prettier --list-different \"force-app/**/*.{cls,cmp,component,page,trigger}\"",
 		"prettier:verify": "prettier --list-different \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
 		"prettier": "prettier --write \"**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,xml,yaml,yml}\"",
@@ -24,10 +18,6 @@
 	},
 	"devDependencies": {
 		"@prettier/plugin-xml": "^3.2.0",
-		"eslint": "^8.47.0",
-		"eslint-config-prettier": "^9.0.0",
-		"eslint-plugin-import": "^2.28.0",
-		"eslint-plugin-prettier": "^5.0.0",
 		"husky": "^8.0.3",
 		"lint-staged": "^14.0.0",
 		"marked": "^7.0.2",
@@ -38,14 +28,11 @@
 		"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}": [
 			"prettier --write"
 		],
-		"force-app/**/{aura,lwc}/**": [
-			"eslint"
-		],
 		"docs/assets/*.css": [
 			"prettier --write"
 		],
-		"docs/*.html": [
-			"prettier --write --tab-width 2"
+		"docs/**/*.html": [
+			"prettier --write"
 		]
 	}
 }

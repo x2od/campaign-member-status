@@ -13,8 +13,9 @@ scripts/soql/**
 node_modules/
 
 coverage/
-doc-assets/*.js
-docs/assets/*
+#doc-assets/*.js
+#docs/assets/*.js
+*.js
 !docs/*
 *-meta.xml
 data/

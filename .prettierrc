@@ -15,6 +15,10 @@
 		{
 			"files": "*.{cmp,page,component}",
 			"options": { "parser": "html" }
+		},
+		{
+			"files": "docs/**/*.html",
+			"options": { "tabWidth": 2 }
 		}
 	]
 }
