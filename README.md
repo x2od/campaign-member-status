@@ -5,6 +5,8 @@
 
 # Campaign Type Member Statuses
 
+**[Changelog](CHANGELOG.md)**
+
 This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by [Sercante LLC](https://github.com/sercante-llc/campaign-member-status).
 
 > This application is designed to run on the Salesforce Platform
