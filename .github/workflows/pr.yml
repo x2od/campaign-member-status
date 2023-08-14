@@ -12,6 +12,9 @@ on:
       - 'config/**'
       - '**/workflows/**'
   workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/pr.yml'
 # Jobs to be executed
 jobs:
   format-check:
