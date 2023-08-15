@@ -20,5 +20,6 @@
 			"files": "docs/**/*.html",
 			"options": { "tabWidth": 2 }
 		}
-	]
+	],
+	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"]
 }
