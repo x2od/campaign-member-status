@@ -3,7 +3,7 @@ engine:
     - path: '${workspaceFolder}/force-app/main/default/classes'
       sourceUrl: https://github.com/dschach/campaign-member-status/blob/main
     - path: '${workspaceFolder}/triggerhandler/main/default/classes'
-      sourceUrl: https://github.com/dschach/campaign-member-status/blob/main/triggerhandler/main/default/classes
+      sourceUrl: https://github.com/dschach/campaign-member-status/blob/main
   targetDirectory: '${workspaceFolder}/docs'
   # excludes:
   #   - '*Test.cls'
