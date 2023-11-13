@@ -10,7 +10,6 @@ updates:
     commit-message:
       prefix: 'deps' # packaged dependencies
       prefix-development: 'build' # dev-dependencies
-      #include: 'scope'
     rebase-strategy: 'auto'
     schedule:
       interval: 'daily'
@@ -18,8 +17,6 @@ updates:
     directory: '/' # Location of package manifests
     commit-message:
       prefix: 'ci'
-      #prefix: 'ci(github-actions)'
-      #include: 'scope'
     rebase-strategy: 'auto'
     schedule:
       interval: 'daily'
