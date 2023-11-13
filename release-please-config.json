@@ -1,6 +1,6 @@
 {
 	"packages": {
-		".": { "release-type": "salesforce", "package-name": "" }
+		".": { "release-type": "sfdx", "package-name": "" }
 	},
 	"$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
 	"changelog-path": "CHANGELOG.md",
