@@ -7,23 +7,22 @@
  * @since       2022
  * @group       CampaignMemberStatus
  */
-public without sharing class CampaignTriggerHandler extends TriggerHandler {
+public without sharing class CMS_CampaignTriggerHandler {
 	private List<Campaign> newRecords;
-	private List<Campaign> oldRecords;
-	private Map<Id, Campaign> newRecordsMap;
+	//private List<Campaign> oldRecords;
+	//private Map<Id, Campaign> newRecordsMap;
 	private Map<Id, Campaign> oldRecordsMap;
 
 	private CampaignMemberService cmService;
 
 	/**
 	 * @description Constructor for `CampaignMemberTriggerHandler`
-	 * @param handlerName Pass in the name of the handler for better performance
 	 */
-	public CampaignTriggerHandler(String handlerName) {
+	public CMS_CampaignTriggerHandler() {
 		//super('CampaignTriggerHandler');
 		this.newRecords = Trigger.new;
-		this.oldRecords = Trigger.old;
-		this.newRecordsMap = (Map<Id, Campaign>) Trigger.newMap;
+		//this.oldRecords = Trigger.old;
+		//this.newRecordsMap = (Map<Id, Campaign>) Trigger.newMap;
 		this.oldRecordsMap = (Map<Id, Campaign>) Trigger.oldMap;
 		this.cmService = CampaignMemberService.getInstance();
 	}
@@ -32,7 +31,7 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 	 * @description     Make sure people aren't trying to mess with the value of our Custom Field
 	 *
 	 */
-	public override void beforeInsert() {
+	public void beforeInsert() {
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 
 		for (Campaign camp : newRecords) {
@@ -58,7 +57,7 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 	 * @description     Set up our new Campaign with the correct Statuses
 	 *
 	 */
-	public override void afterInsert() {
+	public void afterInsert() {
 		Map<String, List<Campaign_Type_Member_Status__mdt>> groupedProtectedStatuses = cmService.getGroupedProtectedStatuses();
 		Set<Id> campaignIdsNeedingStatuses = new Set<Id>();
 		for (Campaign camp : newRecords) {
@@ -188,7 +187,7 @@ public without sharing class CampaignTriggerHandler extends TriggerHandler {
 	/**
 	 * @description         Make sure people aren't messing with our `Protect_Campaign_Member_Statuses__c` value.
 	 */
-	public override void beforeUpdate() {
+	public void beforeUpdate() {
 		for (Campaign camp : newRecords) {
 			Campaign oldCamp = oldRecordsMap.get(camp.Id);
 			if (camp.Protect_Campaign_Member_Statuses__c && (camp.Type != oldCamp.Type)) {

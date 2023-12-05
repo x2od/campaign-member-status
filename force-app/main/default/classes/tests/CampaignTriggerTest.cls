@@ -152,11 +152,11 @@ private class CampaignTriggerTest {
 		insert original;
 
 		Campaign updatedOriginal = [SELECT Name, Type, Protect_Campaign_Member_Statuses__c FROM Campaign WHERE Id = :original.Id];
-		Campaign clone = updatedOriginal.clone();
+		Campaign clonedCampaign = updatedOriginal.clone();
 
 		Test.startTest();
 		//System.debug('**** Start Test');
-		insert clone;
+		insert clonedCampaign;
 		//System.debug('**** End Test');
 		Test.stopTest();
 
@@ -164,7 +164,7 @@ private class CampaignTriggerTest {
 		List<CampaignMemberStatus> results = [
 			SELECT Id, Label, CampaignId, HasResponded, IsDefault, SortOrder
 			FROM CampaignMemberStatus
-			WHERE CampaignId = :clone.Id
+			WHERE CampaignId = :clonedCampaign.Id
 		];
 		System.assertEquals(4, results.size());
 	}

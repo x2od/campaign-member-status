@@ -22,8 +22,8 @@ private class CampaignMemberStatusJobTest {
 		Test.stopTest();
 
 		//assert
-		System.Assert.isTrue(gotProtectedStatuses);
-		System.Assert.isTrue(executed);
+		Assert.isTrue(gotProtectedStatuses);
+		Assert.isTrue(executed);
 	}
 
 	private class MockService extends CampaignMemberService {

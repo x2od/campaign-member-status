@@ -7,7 +7,7 @@
 
 **[Changelog](CHANGELOG.md)**
 
-This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by [Sercante LLC](https://github.com/sercante-llc/campaign-member-status).
+This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by [Sercante LLC](https://github.com/sercante-llc/protected-campaign-statuses).
 
 > This application is designed to run on the Salesforce Platform
 
@@ -42,7 +42,7 @@ Jenna Molby posted a [fantastic solution](https://jennamolby.com/how-to-automati
 
 Another thing that could be a problem comes later when other people might make changes to your carefully crafted structure. What happens if someone edits or even removes these statuses?
 
-This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (https://github.com/sercante-llc/campaign-member-status).
+This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (https://github.com/sercante-llc/protected-campaign-statuses).
 
 ## **Protected Campaign Member Statuses**
 
@@ -71,12 +71,23 @@ When deploying this package to your org, you will get:
 
 ## Get started
 
-Once installed, you need to define your Protected Statuses. This is done with Custom Metadata Types.
+If you install only the core code, then you will not have any triggers installed.
+
+You need to update your existing handlers or create new ones for the following objects and contexts:
+
+1. CampaignMemberStatusChangeEvent
+   - `afterInsert` run `new CMS_MemberStatusEventTriggerHandler().afterInsert();`
+2. Campaign
+   - `beforeInsert` run `new CMS_CampaignTriggerHandler().beforeInsert();`
+   - `afterInsert` run `new CMS_CampaignTriggerHandler().afterInsert();`
+   - `beforeUpdate` run `new CMS_CampaignTriggerHandler().beforeUpdate();`
+
+Next, you need to define your Protected Statuses. This is done with Custom Metadata Types.
 
 1.  Login to Salesforce Lightning, and go to Setup.
-2.  Navigate to Custom Metadata Types, and click Manage Records for Protected Campaign Status.  
+2.  Navigate to Custom Metadata Types, and click Manage Records for Protected Campaign Status.
     ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-1.png)
-3.  To create your first ones, click New  
+3.  To create your first ones, click New
     ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-2.png)
 4.  Fill in the various fields.
     - `Label`: Used in the List of Campaign Statuses in the Setup view in step 3 above. Recommended convention:  TYPE-STATUS
@@ -85,11 +96,11 @@ Once installed, you need to define your Protected Statuses. This is done with Cu
     - `Protected Status`: This is the Status value that will become protected.
     - `Is Default`: Select this if this Status should be the default (please pick only 1 per Type).
     - `Is Responded`: Select this if this Status should be marked as Responded.
-    - When complete, your screen may look something like this:  
+    - When complete, your screen may look something like this:
       ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-3.png)
 5.  Click `Save` (or `Save & New`) and repeat a whole bunch.
 6.  Lastly, time to set up a scheduled job to restore deleted protected statuses.
-7.  Back in Setup, go to Apex Classes and click `Schedule Apex`.  
+7.  Back in Setup, go to Apex Classes and click `Schedule Apex`.
     ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-4.png)
 8.  Fill in the few fields.
     - `Job Name`: give this a nice descriptive name so you remember what it is in 3 months.
@@ -98,7 +109,7 @@ Once installed, you need to define your Protected Statuses. This is done with Cu
     - `Start`: today
     - `End`: some time in the distant future
     - `Preferred Start Time`: off peak hours
-    - When complete, your screen may look something like this:  
+    - When complete, your screen may look something like this:
       ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png)
 
 You are good to go once you have provided your statuses. Give it a whirl by creating a new Campaign with the Type you have set up. Then take a look at the statuses already created.
@@ -153,7 +164,7 @@ If you have Apex tests which set up a Campaign record as part of the test, the f
 
 You have 2 options:
 
-1. For the purpose of the test, disable this functionality. You can accomplish this by adding `TriggerHandler.bypass('CampaignTriggerHandler` in your Apex Test set up.
+1. For the purpose of the test, disable this functionality. You can accomplish this by adding `TriggerHandler.bypass('CampaignTriggerHandler` in your Apex Test set up IF you're using the unpackaged (but available in this repository) trigger handler framework
 1. To actually see the records that Salesforce would create, you would need to have your test `@isTest(seeAllData=true)`. There are a lot of considerations with this approach, so please use wisely.
 
 # Pushing Code to a Sandbox

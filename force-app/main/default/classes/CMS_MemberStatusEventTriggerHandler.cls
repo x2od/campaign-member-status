@@ -3,26 +3,24 @@
  *
  * @author      Sercante LLC
  * @since       2022
+ * @author      David Schach
+ * @since       2023
  * @group       CampaignMemberStatus
  */
-public without sharing class CampaignMemberStatusEventTriggerHandler extends TriggerHandler {
+public without sharing class CMS_MemberStatusEventTriggerHandler {
 	private List<CampaignMemberStatusChangeEvent> newRecords;
 
 	/**
 	 * @description Constructor for trigger handler
-	 * @param handlerName Pass in the name of the handler for better performance
 	 */
-	public CampaignMemberStatusEventTriggerHandler(String handlerName) {
-		//super('CampaignMemberStatusEventTriggerHandler');
+	public CMS_MemberStatusEventTriggerHandler() {
 		this.newRecords = Trigger.new;
 	}
-
-	//private static CampaignMemberStatusEventTriggerHandler instance;
 
 	/**
 	 * @description Execute after inserting (creating) change event records
 	 */
-	public override void afterInsert() {
+	public void afterInsert() {
 		//System.debug('We are processing ' + newRecords.size() + ' Change newRecords');
 		Set<Id> campaignMemberIds = new Set<Id>();
 

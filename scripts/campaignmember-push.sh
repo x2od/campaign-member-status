@@ -5,9 +5,7 @@
 
 # For use with developer edition or playground
 echo "Pushing source..."
-sf project deploy start --source-dir triggerhandler
-sf project deploy start --source-dir force-app
-sf project deploy start --source-dir unpackaged
+sf project deploy start 
 
 echo "opening org..."
 sf org open

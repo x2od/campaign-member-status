@@ -11,9 +11,7 @@ sf org create scratch --definition-file config/project-scratch-def.json --alias 
 
 # For use with namespaced scratch org in package development process
 echo "Deploying metadata"
-sf project deploy start --source-dir triggerhandler
-sf project deploy start --source-dir force-app
-sf project deploy start --source-dir unpackaged
+sf project deploy start
 
 sf org assign permset --name Campaign_Type_Member_Status_Admin --target-org CampaignMemberStatus
 
