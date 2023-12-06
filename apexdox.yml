@@ -5,8 +5,8 @@ engine:
   targetDirectory: '${workspaceFolder}/docs'
   # excludes:
   #   - '*Test.cls'
-  title: Project code documentation
-  subtitle: Documentation for <a target="_blank" rel="noopener noreferrer" href="https://github.com/dschach/campaign-member-status">Campaign Member Status</a>
+  title: Project Code Documentation
+  subtitle: for <a target="_blank" rel="noopener noreferrer" href="https://github.com/dschach/campaign-member-status">Campaign Member Status</a>
   sortOrder: alpha
   cleanDir: true
   showTOCSnippets: true
