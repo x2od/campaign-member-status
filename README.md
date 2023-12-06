@@ -12,9 +12,9 @@ This code was developed for Marketing Admins who want to automate and enforce th
 > This application is designed to run on the Salesforce Platform
 
 - [Campaign Type Member Statuses](#campaign-type-member-statuses)
-- [A solution for Protected Campaign Member Statuses and step-by-step instructions for use.](#a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use)
+- [A solution for Campaign Type Member Statuses and step-by-step instructions for use.](#a-solution-for-campaign-type-member-statuses-and-step-by-step-instructions-for-use)
   - [Originally written by Adam Erstelle](#originally-written-by-adam-erstelle)
-  - [**Protected Campaign Member Statuses**](#protected-campaign-member-statuses)
+  - [**Campaign Type Member Statuses**](#campaign-type-member-statuses-1)
 - [Installation Instructions](#installation-instructions)
   - [What You Get](#what-you-get)
   - [Get started](#get-started)
@@ -30,7 +30,7 @@ This code was developed for Marketing Admins who want to automate and enforce th
 - [Pushing Code to a Sandbox](#pushing-code-to-a-sandbox)
 - [Installing into a Scratch Org](#installing-into-a-scratch-org)
 
-# A solution for Protected Campaign Member Statuses and step-by-step instructions for use.
+# A solution for Campaign Type Member Statuses and step-by-step instructions for use.
 
 ## Originally written by [Adam Erstelle](https://thespotforpardot.com/author/adamsercante-com/)
 
@@ -44,9 +44,9 @@ Another thing that could be a problem comes later when other people might make c
 
 This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally written by Sercante LLC (https://github.com/sercante-llc/protected-campaign-statuses).
 
-## **Protected Campaign Member Statuses**
+## **Campaign Type Member Statuses**
 
-Protected Campaign Member Statuses is a solution to solve this problem of automating (and enforcing) Campaign Member Statuses by Type. It allows you to:
+Campaign Type Member Statuses is a solution to solve this problem of automating (and enforcing) Campaign Member Statuses by Type. It allows you to:
 
 1.  Define the Campaign Member Statuses that should always be present on given Campaign Types.
 2.  Restore the Protected Statuses on Active Campaigns should someone make changes.
@@ -67,29 +67,44 @@ When deploying this package to your org, you will get:
 - 1 ChangeDataCapture configuration
 - 2 Apex Triggers
 - 5 Production Apex Classes
-- 3 Apex Test Classes
+- 4 Apex Test Classes
 
 ## Get started
 
-If you install only the core code, then you will not have any triggers installed.
+If you install only the core code or the unlocked package, then you will not have any triggers installed.
 
-You need to update your existing handlers or create new ones for the following objects and contexts:
+1.  Deploy the main directory
 
-1. CampaignMemberStatusChangeEvent
-   - `afterInsert` run `new CMS_MemberStatusEventTriggerHandler().afterInsert();`
-2. Campaign
-   - `beforeInsert` run `new CMS_CampaignTriggerHandler().beforeInsert();`
-   - `afterInsert` run `new CMS_CampaignTriggerHandler().afterInsert();`
-   - `beforeUpdate` run `new CMS_CampaignTriggerHandler().beforeUpdate();`
+    ```bash
+    sf project deploy start --source-dir force-app
+    ```
+
+2.  You need to update your existing handlers or create new ones for the following objects and contexts.
+
+    Log in to Salesforce, and go to Setup. Or create/update the triggers with the IDE of your choice:
+
+    | **Object**                      | **Context**   | **Apex code**                                              |
+    | ------------------------------- | ------------- | ---------------------------------------------------------- |
+    | CampaignMemberStatusChangeEvent | after insert  | `new CMS_MemberStatusEventTriggerHandler().afterInsert();` |
+    | Campaign                        | before insert | `new CMS_CampaignTriggerHandler().beforeInsert();`         |
+    | Campaign                        | after insert  | `new CMS_CampaignTriggerHandler().afterInsert();`          |
+    | Campaign                        | before update | `new CMS_CampaignTriggerHandler().beforeUpdate();`         |
+
+Sample code is included in [unpackaged/triggers-sample/triggers](https://github.com/dschach/campaign-member-status/unpackaged/triggers-sample/triggers)
 
 Next, you need to define your Protected Statuses. This is done with Custom Metadata Types.
 
-1.  Login to Salesforce Lightning, and go to Setup.
-2.  Navigate to Custom Metadata Types, and click Manage Records for Protected Campaign Status.
-    ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-1.png)
+1.  Log in to Salesforce, and go to Setup.
+2.  Navigate to Custom Metadata Types, and click Manage Records for Campaign Type Member Status.
+
+    ![Campaign Type Member Status](doc-assets/assets/Campaign-Member-Statuses-1.png)
+
 3.  To create your first ones, click New
-    ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-2.png)
+
+    ![Campaign Type Member Status](doc-assets/assets/Campaign-Member-Statuses-2.png)
+
 4.  Fill in the various fields.
+
     - `Label`: Used in the List of Campaign Statuses in the Setup view in step 3 above. Recommended convention:  TYPE-STATUS
     - `Name`: This is an API name that can be used by developers. Not required by this package. Recommended: let this autofill after you type in the Label.
     - `Campaign Type`: This is the actual value for the Campaign's Type field.
@@ -97,12 +112,17 @@ Next, you need to define your Protected Statuses. This is done with Custom Metad
     - `Is Default`: Select this if this Status should be the default (please pick only 1 per Type).
     - `Is Responded`: Select this if this Status should be marked as Responded.
     - When complete, your screen may look something like this:
-      ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-3.png)
+
+      ![Campaign Type Member Statuses](doc-assets/assets/Campaign-Member-Statuses-3.png)
+
 5.  Click `Save` (or `Save & New`) and repeat a whole bunch.
 6.  Lastly, time to set up a scheduled job to restore deleted protected statuses.
 7.  Back in Setup, go to Apex Classes and click `Schedule Apex`.
-    ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-4.png)
+
+    ![Campaign Type Member Statuses](doc-assets/assets/Campaign-Member-Statuses-4.png)
+
 8.  Fill in the few fields.
+
     - `Job Name`: give this a nice descriptive name so you remember what it is in 3 months.
     - `Apex Class`: CampaignMemberStatusJob
     - `Frequency`: set this to what works for you. We recommend running this daily during off-peak hours.
@@ -110,11 +130,14 @@ Next, you need to define your Protected Statuses. This is done with Custom Metad
     - `End`: some time in the distant future
     - `Preferred Start Time`: off peak hours
     - When complete, your screen may look something like this:
-      ![Protected Campaign Member Statuses](doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png)
+
+      ![Campaign Type Member Statuses](doc-assets/assets/Campaign-Member-Statuses-5.png)
 
 You are good to go once you have provided your statuses. Give it a whirl by creating a new Campaign with the Type you have set up. Then take a look at the statuses already created.
 
 Campaigns with Types not already set up will keep the default two statuses that Salesforce creates.
+
+There's no need to add the new checkbox field on Campaign to page layouts, but if you want to, it's best to make it read-only.
 
 # **That's cool.** **What's behind the curtain?**
 
@@ -136,7 +159,7 @@ Once everything is set up, Campaigns should maintain a consistent set of Campaig
 When a new Campaign is created, we check to see if the Type of Campaign is defined in any of the Protected Campaign Member Status records (the Custom Metadata Type that was set up earlier). If there is a match, the solution will:
 
 1. Automatically add a checkbox to the Campaign Custom Field "Has Campaign Type Member Statuses".
-1. Automatically adjust the CampaignMemberStatus records to match all Protected Campaign Member Statuses expected
+1. Automatically adjust the CampaignMemberStatus records to match all Campaign Type Member Statuses expected
 
 ## Editing a Campaign Type Member Status
 
@@ -164,7 +187,7 @@ If you have Apex tests which set up a Campaign record as part of the test, the f
 
 You have 2 options:
 
-1. For the purpose of the test, disable this functionality. You can accomplish this by adding `TriggerHandler.bypass('CampaignTriggerHandler` in your Apex Test set up IF you're using the unpackaged (but available in this repository) trigger handler framework
+1. Use your trigger framework to bypass your Campaign Trigger Handler
 1. To actually see the records that Salesforce would create, you would need to have your test `@isTest(seeAllData=true)`. There are a lot of considerations with this approach, so please use wisely.
 
 # Pushing Code to a Sandbox
@@ -173,65 +196,63 @@ Follow this set of instructions if you want to deploy the solution into your org
 
 1. If you know about and use `git`, clone this repository
 
-   ```shell
+   ```bash
    git clone https://github.com/dschach/campaign-member-status.git
    cd campaign-member-status
    ```
 
-1. Setup your environment
+1. Set up your environment
 
    - [Install Salesforce CLI](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm)
 
    - or [install from npm](https://www.npmjs.com/package/sfdx-cli)
-     ```shell
+     ```bash
      npm install @salesforce/cli --global
      ```
 
 1. Authorize your Salesforce org and provide it with an alias (**myorg** in the commands below)
 
-   ```shell
+   ```
    # Connect your project to a Sandbox Org
    sf org login web --set-default --alias myorg --instance-url https://test.salesforce.com
 
-   # if you need to specify a specific URL, use this slightly altered command, making the correct adjustments
+   # with orgs that require a specific MyDomain URL, use this slightly altered command, making the correct adjustments
    sf org login web --set-default --alias myorg --instance-url https://mucustomdomain.my.salesforce.com
    ```
 
 1. Run a series of commands to deploy each of the three parts, or skip to the next item to push them all at once
 
-   Please install the Trigger Handler from the [triggerHandler](https://github.com/dschach/campaign-member-status/tree/main/triggerhandler/main/default/classes) directory or from its [original repository](https://github.com/dschach/salesforce-trigger-framework). Documentation for that is found in that repo's pages: [https://dschach.github.io/salesforce-trigger-framework](https://dschach.github.io/salesforce-trigger-framework).
+   Run this command in a terminal to deploy just the main code
 
-   Or run this command in a terminal to deploy the required trigger handler
-
-   ```shell
-   sf project deploy start --source-dir triggerhandler --tracksource
+   ```bash
+   sf project deploy start --source-dir force-app
    ```
 
-   Run this command in a terminal to deploy the main code
+   Run this command in a terminal to deploy the included sample triggers
 
-   ```shell
-   sf project deploy start --source-dir force-app --alias myorg
+   ```bash
+   sf project deploy start --source-dir unpackaged/triggers-sample
    ```
 
    Run this command in a terminal to deploy the bundled sample custom metadata
 
-   ```shell
-   sf project deploy start --source-dir unpackaged --alias myorg
+   ```bash
+   sf project deploy start --source-dir unpackaged/email-sample
    ```
 
-1. Or just run one command to push all three parts in sequence
+1. Or just run one command to push all three parts together
 
-   ```shell
+   ```bash
    sf project deploy start
    ```
 
 1. You'll need a custom permission set to access the Campaign field, or just add it to an existing permission set and delete this one
 
-   ```shell
-   sf org assign permset --name Campaign_Type_Member_Status_Admin --target-org myorg
+   ```bash
+   sf org assign permset --name Campaign_Type_Member_Status_Admin
    ```
 
-1. Continue with [Post-Install Configuration](#get-started))
+1. Continue with [Post-Install Configuration](#get-started)
 
 # Installing into a Scratch Org
 
@@ -242,21 +263,21 @@ Follow this set of instructions if you want to deploy the solution into your org
 
 1. If you haven't already done so, authorize your hub org and provide it with an alias (**myhuborg** in the command below):
 
-   ```shell
+   ```bash
    sf login org --set-default-dev-hub --alias myhuborg
    ```
 
-1. If you know about and use `git`, clone this repository
+1. If you know about and use git, clone this repository
 
-   ```shell
+   ```bash
    git clone https://github.com/dschach/campaign-member-status.git
    cd campaign-member-status
    ```
 
 1. Run the included script to create a scratch org and push the metadata
 
-   ```shell
+   ```bash
    . scripts/campaignmember-scratchorg.sh
    ```
 
-1. Continue with [Post-Install Configuration](#get-started))
+1. Continue with [Post-Install Configuration](#get-started)

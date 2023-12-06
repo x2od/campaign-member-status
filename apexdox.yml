@@ -2,8 +2,6 @@ engine:
   source:
     - path: '${workspaceFolder}/force-app/main/default/classes'
       sourceUrl: https://github.com/dschach/campaign-member-status/blob/main
-    - path: '${workspaceFolder}/triggerhandler/main/default/classes'
-      sourceUrl: https://github.com/dschach/campaign-member-status/blob/main
   targetDirectory: '${workspaceFolder}/docs'
   # excludes:
   #   - '*Test.cls'
@@ -33,13 +31,13 @@ engine:
     - '${workspaceFolder}/doc-assets/styling.css'
     #- '${workspaceFolder}/README.md'
     #- '${workspaceFolder}/doc-assets/assets/changes.html'
-    - '${workspaceFolder}/doc-assets/assets/triggerhandlerdocs.html'
+    #- '${workspaceFolder}/doc-assets/assets/triggerhandlerdocs.html'
     - '${workspaceFolder}/doc-assets/assets/CMStatuses.png'
-    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-1.png'
-    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-2.png'
-    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-3.png'
-    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-4.png'
-    - '${workspaceFolder}/doc-assets/assets/Pardot-Protected-Campaign-Member-Statuses-5.png'
+    - '${workspaceFolder}/doc-assets/assets/Campaign-Member-Statuses-1.png'
+    - '${workspaceFolder}/doc-assets/assets/Campaign-Member-Statuses-2.png'
+    - '${workspaceFolder}/doc-assets/assets/Campaign-Member-Statuses-3.png'
+    - '${workspaceFolder}/doc-assets/assets/Campaign-Member-Statuses-4.png'
+    - '${workspaceFolder}/doc-assets/assets/Campaign-Member-Statuses-5.png'
   port: 9099
 docblock:
   alignItems: true

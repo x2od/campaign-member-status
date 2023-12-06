@@ -1,8 +1,7 @@
-//@SuppressWarnings('PMD')
 /**
  * @description  Trigger on `Campaign` to illustrate methods to call
  */
-trigger CampaignTrigger on Campaign(before insert, after insert, before update) {
+trigger CampaignTrigger on Campaign(before insert, after insert, before update) { //NOPMD
 	System.TriggerOperation triggerEvent = Trigger.operationType;
 	switch on triggerEvent {
 		when AFTER_INSERT {

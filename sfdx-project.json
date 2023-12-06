@@ -12,11 +12,11 @@
 			}
 		},
 		{
-			"path": "unpackaged/core",
+			"path": "unpackaged/email-sample",
 			"default": false
 		},
 		{
-			"path": "unpackaged/triggerhandler/",
+			"path": "unpackaged/triggers-sample",
 			"default": false
 		}
 	],

@@ -9,12 +9,12 @@
 @isTest
 private class CampaignTriggerTest {
 	/* @TestSetup
-	static void makeData() {
+	private static void makeData() {
 		User u = new User(Id = UserInfo.getUserId(), UserPermissionsMarketingUser = true);
 		update u;
 	} */
 	@isTest
-	static void shouldPreventUsersFromMakingCampaignProtected() {
+	private static void shouldPreventUsersFromMakingCampaignProtected() {
 		// arrange
 		Campaign record = new Campaign(Name = 'MyTest', Protect_Campaign_Member_Statuses__c = true);
 
@@ -29,7 +29,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldMakeCampaignProtectedIfItHasTheRightType() {
+	private static void shouldMakeCampaignProtectedIfItHasTheRightType() {
 		User u = new User(Id = UserInfo.getUserId(), UserPermissionsMarketingUser = true);
 		System.runAs(u) {
 			// arrange
@@ -49,7 +49,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest
-	static void shouldAlowNewCampaignWithoutProtectedType() {
+	private static void shouldAlowNewCampaignWithoutProtectedType() {
 		// arrange
 		Campaign record = new Campaign(Name = 'MyTest', Type = 'Who Knows');
 
@@ -65,7 +65,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldCreateAllTheRightStatusesForSpecifiedType() {
+	private static void shouldCreateAllTheRightStatusesForSpecifiedType() {
 		// arrange
 		CampaignMemberService.getInstance().repo = new CampaignMemberRepositoryMocks.WebinarMock();
 		Campaign record = new Campaign(Name = 'MyTest', Type = 'Webinar');
@@ -85,7 +85,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldCreateAllTheRightStatusesInSingleStatusType() {
+	private static void shouldCreateAllTheRightStatusesInSingleStatusType() {
 		// arrange
 		CampaignMemberService.getInstance().repo = new CampaignMemberRepositoryMocks.AdvertisementMock();
 		Campaign record = new Campaign(Name = 'MyTest', Type = 'Advertisement');
@@ -105,7 +105,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldPreventChangingTypeForCampaignMember() {
+	private static void shouldPreventChangingTypeForCampaignMember() {
 		//arrange
 		CampaignMemberService.getInstance().repo = new CampaignMemberRepositoryMocks.AdvertisementMock();
 		Campaign record = new Campaign(Name = 'MyTest', Type = 'Advertisement');
@@ -125,7 +125,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldPreventEnablingProtectedStatusAfterTheFact() {
+	private static void shouldPreventEnablingProtectedStatusAfterTheFact() {
 		//arrange
 		Campaign record = new Campaign(Name = 'MyTest', Type = 'Who Cares');
 		insert record;
@@ -145,7 +145,7 @@ private class CampaignTriggerTest {
 	}
 
 	@isTest(seeAllData=true)
-	static void shouldCreateStatusesForClonedCampaign() {
+	private static void shouldCreateStatusesForClonedCampaign() {
 		// arrange
 		CampaignMemberService.getInstance().repo = new CampaignMemberRepositoryMocks.WebinarMock();
 		Campaign original = new Campaign(Name = 'MyTest Original', Type = 'Webinar');

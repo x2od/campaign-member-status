@@ -7,9 +7,9 @@
  */
 public class CampaignMemberStatusJob implements Schedulable {
 	/**
-	 * @description Instantiate the `CampaignMemberService` class using getInstance so we also instantiate its `repo` variable
+	 * @description Instantiate the `CampaignMemberService` class using `getInstance()` so we also instantiate its `repo` variable
 	 */
-	private CampaignMemberService sut = CampaignMemberService.getInstance();
+	private CampaignMemberService cmservice = CampaignMemberService.getInstance();
 
 	/**
 	 * @description Execute the scheduled job
@@ -18,7 +18,7 @@ public class CampaignMemberStatusJob implements Schedulable {
 	 */
 	public void execute(SchedulableContext sc) {
 		//System.debug('Starting Scheduled Job CampaignMemberStatusJob');
-		Set<Id> campaignIdsNeedingFixed = sut.getCampaignsNeedingToBeFixed();
-		sut.enforceProtectedStatusesForCampaigns(campaignIdsNeedingFixed);
+		Set<Id> campaignIdsNeedingFixed = cmservice.getCampaignsNeedingToBeFixed();
+		cmservice.enforceProtectedStatusesForCampaigns(campaignIdsNeedingFixed);
 	}
 }

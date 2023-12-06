@@ -9,7 +9,7 @@
 @isTest
 private class CampaignMemberServiceTest {
 	@isTest(seeAllData=true)
-	static void shouldEnforceProtectedStatusesForCampaign() {
+	private static void shouldEnforceProtectedStatusesForCampaign() {
 		//arrange
 		Test.enableChangeDataCapture();
 		CampaignMemberService cmservice = CampaignMemberService.getInstance();

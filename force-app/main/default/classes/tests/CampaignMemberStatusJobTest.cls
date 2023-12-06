@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description Test the daily campaign status job
  *
  * @author      Sercante LLC
  * @since       2022
@@ -11,7 +11,7 @@ private class CampaignMemberStatusJobTest {
 	public static Boolean executed = false;
 
 	@isTest
-	static void shouldWork() {
+	private static void shouldWork() {
 		//arrange
 		MockService mock = new MockService();
 		CampaignMemberService.instance = mock;

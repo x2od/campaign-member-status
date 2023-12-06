@@ -137,67 +137,197 @@
 			<tr>
 				<td class="doc-page">
 					<div class="section">
-						<h2 class="class-title top-level-type" id="CampaignMemberRepository">
+						<h2 class="class-title top-level-type" id="CMS_CampaignTriggerHandler">
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberRepository.cls#L8">
-								CampaignMemberRepository
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L10">
+								CMS_CampaignTriggerHandler
 							</a>
 						</h2>
 						<div class="class-container">
-							<div class="class-description">Utility class to return statuses by Campaign Type</div>
+							<div class="class-description">This class handles the automation required on Adding/Editing Campaign records</div>
 							<div class="class-subtitle">Signature</div>
 
-							<div class="class-signature">public without sharing virtual class CampaignMemberRepository</div>
+							<div class="class-signature">public without sharing class CMS_CampaignTriggerHandler</div>
 							<div class="class-subtitle">Author</div>
 							<div class="class-subtitle-description">Sercante LLC</div>
 							<div class="class-subtitle">Since</div>
 							<div class="class-subtitle-description">
 								<li>2022</li>
 							</div>
+							<div class="class-subtitle">Author</div>
+							<div class="class-subtitle-description">David Schach</div>
+							<div class="class-subtitle">Since</div>
+							<div class="class-subtitle-description">
+								<li>2022</li>
+							</div>
 						</div>
-						<div class="subsection methods">
-							<h3 class="subsection-title methods">CampaignMemberRepository Methods</h3>
-							<div class="methods-container">
-								<ul class="methods-toc">
-									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignMemberRepository.getGroupedProtectedStatuses">getGroupedProtectedStatuses ()</a>
-
-										<div class="methods-toc__description">
-											Return
-											<code class="code-inline">Campaign Type Member Status</code>
-											CMDT records by Campaign Type
-										</div>
-									</li>
-								</ul>
-								<div class="method public">
-									<h4 class="method-title" id="CampaignMemberRepository.getGroupedProtectedStatuses">
+						<div class="subsection properties CMS_CampaignTriggerHandler">
+							<h3 class="subsection-title properties">CMS_CampaignTriggerHandler Properties</h3>
+							<table class="attributes-table properties">
+								<tr>
+									<th>Name</th>
+									<th>Signature</th>
+								</tr>
+								<tr class="property">
+									<td class="attribute-name">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignMemberRepository.cls#L14">
-											getGroupedProtectedStatuses()
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L16">
+											cmService
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private CampaignMemberService cmService</div>
+									</td>
+								</tr>
+								<tr class="property">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L11">
+											newRecords
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private List&lt;Campaign&gt; newRecords</div>
+									</td>
+								</tr>
+								<tr class="property">
+									<td class="attribute-name">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L14">
+											oldRecordsMap
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private Map&lt;Id, Campaign&gt; oldRecordsMap</div>
+									</td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CMS_CampaignTriggerHandler Constructors</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CMS_CampaignTriggerHandler.CMS_CampaignTriggerHandler">CMS_CampaignTriggerHandler ()</a>
+
+										<div class="methods-toc__description">
+											Constructor for
+											<code class="code-inline">CampaignMemberTriggerHandler</code>
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="CMS_CampaignTriggerHandler.CMS_CampaignTriggerHandler">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L21">
+											CMS_CampaignTriggerHandler()
 										</a>
 									</h4>
 									<div class="method-description">
-										Return
-										<code class="code-inline">Campaign Type Member Status</code>
-										CMDT records by Campaign Type
+										Constructor for
+										<code class="code-inline">CampaignMemberTriggerHandler</code>
 									</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">
-										public virtual Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt; getGroupedProtectedStatuses()
+									<div class="method-signature">public CMS_CampaignTriggerHandler()</div>
+								</div>
+							</div>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CMS_CampaignTriggerHandler Methods</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CMS_CampaignTriggerHandler.afterInsert">afterInsert ()</a>
+
+										<div class="methods-toc__description">Set up our new Campaign with the correct Statuses</div>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CMS_CampaignTriggerHandler.beforeInsert">beforeInsert ()</a>
+
+										<div class="methods-toc__description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
+									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CMS_CampaignTriggerHandler.beforeUpdate">beforeUpdate ()</a>
+
+										<div class="methods-toc__description">
+											Make sure people aren&#39;t messing with our
+											<code class="code-inline">Protect_Campaign_Member_Statuses__c</code>
+											value.
+										</div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="CMS_CampaignTriggerHandler.afterInsert">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L60">
+											afterInsert()
+										</a>
+									</h4>
+									<div class="method-description">Set up our new Campaign with the correct Statuses</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public void afterInsert()</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CMS_CampaignTriggerHandler.beforeInsert">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L34">
+											beforeInsert()
+										</a>
+									</h4>
+									<div class="method-description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public void beforeInsert()</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CMS_CampaignTriggerHandler.beforeUpdate">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CMS_CampaignTriggerHandler.cls#L190">
+											beforeUpdate()
+										</a>
+									</h4>
+									<div class="method-description">
+										Make sure people aren&#39;t messing with our
+										<code class="code-inline">Protect_Campaign_Member_Statuses__c</code>
+										value.
 									</div>
-									<div class="method-subtitle">Returns</div>
-									<div class="method-subtitle-description">
-										<code class="code-inline">Map&lt;String, List&lt;Campaign_Type_Member_Status__mdt&gt;&gt;</code>
-									</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public void beforeUpdate()</div>
 								</div>
 							</div>
 						</div>
