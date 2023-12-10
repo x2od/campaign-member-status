@@ -1,7 +1,7 @@
 {
 	"name": "protected-campaignmember-statuses",
 	"private": true,
-	"version": "1.2.0",
+	"version": "1.3.0",
 	"description": "Protected Campaign Member Statuses",
 	"scripts": {
 		"apex:test": "rm testresults/* && sf apex run test --test-level RunLocalTests --output-dir testresults --result-format human --code-coverage",
