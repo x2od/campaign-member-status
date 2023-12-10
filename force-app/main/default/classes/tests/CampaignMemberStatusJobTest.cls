@@ -1,5 +1,5 @@
 /**
- * @description
+ * @description Test the daily campaign status job
  *
  * @author      Sercante LLC
  * @since       2022
@@ -11,7 +11,7 @@ private class CampaignMemberStatusJobTest {
 	public static Boolean executed = false;
 
 	@isTest
-	static void shouldWork() {
+	private static void shouldWork() {
 		//arrange
 		MockService mock = new MockService();
 		CampaignMemberService.instance = mock;
@@ -22,8 +22,8 @@ private class CampaignMemberStatusJobTest {
 		Test.stopTest();
 
 		//assert
-		System.Assert.isTrue(gotProtectedStatuses);
-		System.Assert.isTrue(executed);
+		Assert.isTrue(gotProtectedStatuses);
+		Assert.isTrue(executed);
 	}
 
 	private class MockService extends CampaignMemberService {

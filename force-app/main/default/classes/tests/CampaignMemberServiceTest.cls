@@ -9,11 +9,11 @@
 @isTest
 private class CampaignMemberServiceTest {
 	@isTest(seeAllData=true)
-	static void shouldEnforceProtectedStatusesForCampaign() {
+	private static void shouldEnforceProtectedStatusesForCampaign() {
 		//arrange
 		Test.enableChangeDataCapture();
-		CampaignMemberService sut = CampaignMemberService.getInstance();
-		sut.repo = new CampaignMemberRepositoryMocks.WebinarMock();
+		CampaignMemberService cmservice = CampaignMemberService.getInstance();
+		cmservice.repo = new CampaignMemberRepositoryMocks.WebinarMock();
 
 		Campaign camp = new Campaign(Name = 'MyTest', Type = 'Webinar', IsActive = true);
 		insert camp;
@@ -28,7 +28,7 @@ private class CampaignMemberServiceTest {
 		CampaignMemberStatus registered = [SELECT Id FROM CampaignMemberStatus WHERE Label = '1Registered'];
 		registered.HasResponded = true;
 		update registered;
-		System.Assert.isTrue(sut.getCampaignsNeedingToBeFixed().contains(camp.Id));
+		Assert.isTrue(cmservice.getCampaignsNeedingToBeFixed().contains(camp.Id));
 		Test.stopTest();
 
 		//assert

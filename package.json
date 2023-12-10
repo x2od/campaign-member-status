@@ -8,6 +8,7 @@
 		"audittrail": "sf data query --query \"SELECT Id,Action,Section,CreatedDate,CreatedBy.Name,Display FROM SetupAuditTrail ORDER BY CreatedDate DESC\" --resultformat csv > logs/SetupAuditTrail.csv",
 		"cpd": "$HOME/pmd/bin/pmd cpd --dir force-app --language apex --minimum-tokens 100 --format vs",
 		"devhub-x2od": "sf config set target-dev-hub=x2od",
+		"docs:setup": ". doc-assets/setupApexDox.sh",
 		"initialize": ". scripts/initialize.sh",
 		"lint:aura": "eslint --no-error-on-unmatched-pattern **/aura/**/*.js",
 		"lint:lwc": "eslint --no-error-on-unmatched-pattern **/lwc/**/*.js",

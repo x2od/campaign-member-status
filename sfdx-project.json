@@ -1,24 +1,25 @@
 {
-    "packageDirectories": [
-        {
-            "path": "triggerhandler",
-            "default": false
-        },
-        {
-            "path": "force-app",
-            "default": true,
-            "package": "Auto Campaign Member Status",
-            "versionNumber": "1.2.0.NEXT"
-        },
-        {
-            "path": "unpackaged",
-            "default": false
-        }
-    ],
-    "pushPackageDirectoriesSequentially": true,
-    "name": "Auto Campaign Member Status",
-    "namespace": "",
-    "sfdcLoginUrl": "https://login.salesforce.com",
-    "sourceApiVersion": "57.0",
-    "packageAliases": {}
+	"packageDirectories": [
+		{
+			"path": "force-app",
+			"default": true,
+			"package": "Auto Campaign Member Status",
+			"versionDescription": "Auto-create and maintain campaign status member values for campaign types. Requires separate trigger implementation.",
+			"versionNumber": "1.2.0.NEXT",
+			"postInstallUrl": "https://dschach.github.io/campaign-member-status/",
+			"releaseNotesUrl": "https://dschach.github.io/campaign-member-status/",
+			"apexTestAccess": {
+				"permissionSets": ["Campaign_Type_Member_Status_Admin"]
+			},
+			"unpackagedMetadata": {
+				"path": "unpackaged/triggers-sample"
+			}
+		},
+		{ "path": "unpackaged/email-sample" }
+	],
+	"name": "Auto Campaign Member Status",
+	"namespace": "",
+	"sfdcLoginUrl": "https://login.salesforce.com",
+	"sourceApiVersion": "59.0",
+	"packageAliases": {}
 }

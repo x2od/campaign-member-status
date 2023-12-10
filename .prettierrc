@@ -1,12 +1,15 @@
 {
-	"trailingComma": "none",
-	"singleQuote": true,
-	"tabWidth": 2,
-	"printWidth": 180,
-	"useTabs": true,
-	"bracketSpacing": true,
 	"apexInsertFinalNewline": false,
 	"bracketSameLine": true,
+	"bracketSpacing": true,
+	"endOfLine": "lf",
+	"printWidth": 180,
+	"singleAttributePerLine": false,
+	"singleQuote": true,
+	"tabWidth": 2,
+	"trailingComma": "none",
+	"useTabs": true,
+	"xmlSelfClosingSpace": true,
 	"overrides": [
 		{
 			"files": "**/lwc/**/*.html",
@@ -17,9 +20,17 @@
 			"options": { "parser": "html" }
 		},
 		{
-			"files": "docs/**/*.html",
-			"options": { "tabWidth": 2 }
+			"files": "doc*/**/*.html",
+			"options": {
+				"parser": "html",
+				"useTabs": true,
+				"tabWidth": 2,
+				"printWidth": 150,
+				"htmlWhitespaceSensitivity": "ignore",
+				"singleQuote": false
+			}
 		}
 	],
-	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"]
+	"plugins": ["prettier-plugin-apex", "@prettier/plugin-xml"],
+	"$schema": "https://json.schemastore.org/prettierrc"
 }
