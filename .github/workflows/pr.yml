@@ -112,7 +112,9 @@ jobs:
 
       # Deploy source to scratch org
       - name: 'Push source to scratch org'
-        run: sf project deploy start
+        run: |
+          sf project deploy start
+          sf project deploy start --source-dir unpackaged
 
       # Run Apex tests in scratch org
       - name: 'Run Apex tests'
