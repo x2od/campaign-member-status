@@ -6,7 +6,6 @@ on:
     types: [edited, opened, synchronize, reopened, review_requested]
     paths:
       - 'force-app/**'
-      - 'triggerhandler/**'
       - 'unpackaged/**'
       - 'pmd/**'
       - 'config/**'

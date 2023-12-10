@@ -1,5 +1,5 @@
 /**
- * @description  Trigger on `Campaign` to illustrate methods to call
+ * @description  Trigger on `Campaign` with methods to call
  */
 trigger CampaignTrigger on Campaign(before insert, after insert, before update) { //NOPMD
 	System.TriggerOperation triggerEvent = Trigger.operationType;

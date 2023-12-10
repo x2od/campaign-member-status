@@ -19,6 +19,9 @@
 <li><a href="#installation-instructions">Installation Instructions</a><ul>
 <li><a href="#what-you-get">What You Get</a></li>
 <li><a href="#get-started">Get started</a></li>
+<li><a href="#quick-install">Quick Install</a></li>
+<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
+<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
 </ul>
 </li>
 <li><a href="#thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></a></li>
@@ -34,8 +37,6 @@
 <li><a href="#i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</a></li>
 </ul>
 </li>
-<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
-<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
 </ul>
 <h1 id="a-solution-for-campaign-type-member-statuses-and-step-by-step-instructions-for-use">A solution for Campaign Type Member Statuses and step-by-step instructions for use.</h1>
 <h2 id="originally-written-by-adam-erstelle">Originally written by <a href="https://thespotforpardot.com/author/adamsercante-com/">Adam Erstelle</a></h2>
@@ -53,10 +54,6 @@
 <li>Override by authorized users on a per-Campaign basis.</li>
 </ol>
 <h1 id="installation-instructions">Installation Instructions</h1>
-<ul>
-<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
-<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
-</ul>
 <h2 id="what-you-get">What You Get</h2>
 <p>When deploying this package to your org, you will get:</p>
 <ul>
@@ -68,9 +65,9 @@
 <li>4 Apex Test Classes</li>
 </ul>
 <h2 id="get-started">Get started</h2>
-<p>If you install only the core code or the unlocked package, then you will not have any triggers installed.</p>
+<p>If you install only the core code via install button or the package, then you will not have any triggers installed.</p>
 <ol>
-<li><p>Deploy the main directory</p>
+<li><p>Deploy the main directory if you install from this repository. AppExchange installations (on roadmap) skip to step 2.</p>
 <pre><code class="language-bash">sf project deploy start --source-dir force-app
 </code></pre>
 </li>
@@ -108,6 +105,33 @@
 </li>
 </ol>
 <p>Sample code is included in <a href="https://github.com/dschach/campaign-member-status/unpackaged/triggers-sample/triggers">unpackaged/triggers-sample/triggers</a></p>
+<p>Campaign trigger</p>
+<pre><code class="language-Apex">/**
+ * @description  Trigger on `Campaign` with methods to call - change this to avoid logic in the trigger
+ */
+trigger CampaignTrigger on Campaign(before insert, after insert, before update) { //NOPMD
+    System.TriggerOperation triggerEvent = Trigger.operationType;
+    switch on triggerEvent {
+        when AFTER_INSERT {
+            new CMS_CampaignTriggerHandler().afterInsert();
+        }
+        when BEFORE_INSERT {
+            new CMS_CampaignTriggerHandler().beforeInsert();
+        }
+        when BEFORE_UPDATE {
+            new CMS_CampaignTriggerHandler().beforeUpdate();
+        }
+    }
+}
+</code></pre>
+<p>CampaignMemberStatusEvent trigger</p>
+<pre><code class="language-Apex">/**
+ * @description  Trigger on `CampaignMemberStatusChangeEvent` with methods to call
+ */
+trigger CampaignMemberStatusEventTrigger on CampaignMemberStatusChangeEvent(after insert) {
+    new CMS_MemberStatusEventTriggerHandler().afterInsert();
+}
+</code></pre>
 <p>Next, you need to define your Protected Statuses. This is done with Custom Metadata Types.</p>
 <ol>
 <li><p>Log in to Salesforce, and go to Setup.</p>
@@ -167,15 +191,93 @@
 <p>You are good to go once you have provided your statuses. Give it a whirl by creating a new Campaign with the Type you have set up. Then take a look at the statuses already created.</p>
 <p>Campaigns with Types not already set up will keep the default two statuses that Salesforce creates.</p>
 <p>There&#39;s no need to add the new checkbox field on Campaign to page layouts, but if you want to, it&#39;s best to make it read-only.</p>
+<h2 id="quick-install">Quick Install</h2>
+<p>Deploy this repository metadata directly to your org, avoiding the need to use the command line:</p>
+<a href="https://githubsfdeploy.herokuapp.com?owner=dschach&repo=campaign-member-status">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
+<h2 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h2>
+<p>Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to deploy into Production.</p>
+<ol>
+<li><p>If you know about and use <code>git</code>, clone this repository</p>
+<pre><code class="language-bash">git clone https://github.com/dschach/campaign-member-status.git
+cd campaign-member-status
+</code></pre>
+</li>
+<li><p>Set up your environment</p>
+<ul>
+<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></p>
+</li>
+<li><p>or <a href="https://www.npmjs.com/package/sfdx-cli">install from npm</a></p>
+<pre><code class="language-bash">npm install @salesforce/cli --global
+</code></pre>
+</li>
+</ul>
+</li>
+<li><p>Authorize your Salesforce org and provide it with an alias (<strong>myorg</strong> in the commands below)</p>
+<p>Connect your project to a Sandbox Org</p>
+<pre><code class="language-bash">sf org login web --set-default --alias myorg --instance-url https://test.salesforce.com
+</code></pre>
+<p>With orgs that require a specific MyDomain URL, use this slightly altered command, making the correct adjustments</p>
+<pre><code class="language-bash">sf org login web --set-default --alias myorg --instance-url https://mycustomdomain.my.salesforce.com
+</code></pre>
+</li>
+<li><p>Run a series of commands to deploy each of the three parts, or skip to the next item to push them all at once</p>
+<p>Run this command in a terminal to deploy just the main code</p>
+<pre><code class="language-bash">sf project deploy start --source-dir force-app
+</code></pre>
+<p>Run this command in the terminal to deploy the included sample triggers. You may wish to change them to fit with your trigger handler framework.</p>
+<pre><code class="language-bash">sf project deploy start --source-dir unpackaged/triggers-sample
+</code></pre>
+<p>Run this command in the terminal to deploy the bundled sample custom metadata</p>
+<pre><code class="language-bash">sf project deploy start --source-dir unpackaged/email-sample
+</code></pre>
+</li>
+<li><p>Or just run one command to push all three parts together</p>
+<pre><code class="language-bash">sf project deploy start
+</code></pre>
+</li>
+<li><p>You&#39;ll need a custom permission set to access the Campaign field, or just add it to an existing permission set and delete this one</p>
+<pre><code class="language-bash">sf org assign permset --name Campaign_Type_Member_Status_Admin
+</code></pre>
+</li>
+<li><p>Continue with <a href="#get-started">Post-Install Configuration</a></p>
+</li>
+</ol>
+<h2 id="installing-into-a-scratch-org">Installing into a Scratch Org</h2>
+<ol>
+<li><p>Set up your environment. The steps include:</p>
+<ul>
+<li>Enable Dev Hub in your main org</li>
+<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></li>
+</ul>
+</li>
+<li><p>If you haven&#39;t already done so, authorize your hub org and provide it with an alias (<strong>myhuborg</strong> in the command below):</p>
+<pre><code class="language-bash">sf login org --set-default-dev-hub --alias myhuborg
+</code></pre>
+</li>
+<li><p>If you know about and use git, clone this repository</p>
+<pre><code class="language-bash">git clone https://github.com/dschach/campaign-member-status.git
+cd campaign-member-status
+</code></pre>
+</li>
+<li><p>Run the included script to create a scratch org and push the metadata</p>
+<pre><code class="language-bash">. scripts/campaignmember-scratchorg.sh
+</code></pre>
+</li>
+<li><p>Continue with <a href="#get-started">Post-Install Configuration</a></p>
+</li>
+</ol>
 <h1 id="thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></h1>
-<p>To accomplish this, we leverage a few cool tools available to us:</p>
+<p>We leverage a few cool tools available to us:</p>
 <ul>
 <li>Custom Metadata Types: Allows the Protected Statuses to be treated like normal Salesforce metadata and can be deployed around like any other metadata (changesets, insert devops tool here)</li>
 <li>Campaign Custom Field: <code>Campaign.Has_Protected_Campaign_Member_Statuses__c</code> is automatically checked by the solution if a Campaign is created and there are Custom Metadata Type records that specify this Campaign&#39;s Type. It is also what allows the rest of the code to keep the statuses intact. You can clear the checkbox for this field to make changes to the statuses if you need to. However, you can&#39;t enable protection afterwards.</li>
 <li>Change Data Capture: We turn this on for CampaignMemberStatus so we can detect edits to statuses and then fix the records after-the-fact. Sadly we can&#39;t (yet?) put any triggers on CampaignMemberStatus (which would have been ideal).</li>
 <li>Triggers: We use them to kick off the automation that we&#39;ve built when a Campaign is created. We also use them to watch for Campaign Member Status edits (through the ChangeEvents from Change Data Capture) so we can set things right afterwardsd.</li>
 </ul>
-<p>If you want even more details, check out the <a href="https://github.com/sercante-llc/protected-campaign-statuses">original Github project</a> where you can see all the inner workings of what is going on.</p>
 <h1 id="how-it-works">How it Works</h1>
 <p>Once everything is set up, Campaigns should maintain a consistent set of Campaign Member Statuses. Here&#39;s how we accomplish that.</p>
 <h2 id="new-campaign-created">New Campaign Created</h2>
@@ -200,77 +302,5 @@
 <ol>
 <li>Use your trigger framework to bypass your Campaign Trigger Handler</li>
 <li>To actually see the records that Salesforce would create, you would need to have your test <code>@isTest(seeAllData=true)</code>. There are a lot of considerations with this approach, so please use wisely.</li>
-</ol>
-<h1 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h1>
-<p>Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to deploy into Production.</p>
-<ol>
-<li><p>If you know about and use <code>git</code>, clone this repository</p>
-<pre><code class="language-bash">git clone https://github.com/dschach/campaign-member-status.git
-cd campaign-member-status
-</code></pre>
-</li>
-<li><p>Set up your environment</p>
-<ul>
-<li><p><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></p>
-</li>
-<li><p>or <a href="https://www.npmjs.com/package/sfdx-cli">install from npm</a></p>
-<pre><code class="language-bash">npm install @salesforce/cli --global
-</code></pre>
-</li>
-</ul>
-</li>
-<li><p>Authorize your Salesforce org and provide it with an alias (<strong>myorg</strong> in the commands below)</p>
-<pre><code># Connect your project to a Sandbox Org
-sf org login web --set-default --alias myorg --instance-url https://test.salesforce.com
-
-# with orgs that require a specific MyDomain URL, use this slightly altered command, making the correct adjustments
-sf org login web --set-default --alias myorg --instance-url https://mucustomdomain.my.salesforce.com
-</code></pre>
-</li>
-<li><p>Run a series of commands to deploy each of the three parts, or skip to the next item to push them all at once</p>
-<p>Run this command in a terminal to deploy just the main code</p>
-<pre><code class="language-bash">sf project deploy start --source-dir force-app
-</code></pre>
-<p>Run this command in a terminal to deploy the included sample triggers</p>
-<pre><code class="language-bash">sf project deploy start --source-dir unpackaged/triggers-sample
-</code></pre>
-<p>Run this command in a terminal to deploy the bundled sample custom metadata</p>
-<pre><code class="language-bash">sf project deploy start --source-dir unpackaged/email-sample
-</code></pre>
-</li>
-<li><p>Or just run one command to push all three parts together</p>
-<pre><code class="language-bash">sf project deploy start
-</code></pre>
-</li>
-<li><p>You&#39;ll need a custom permission set to access the Campaign field, or just add it to an existing permission set and delete this one</p>
-<pre><code class="language-bash">sf org assign permset --name Campaign_Type_Member_Status_Admin
-</code></pre>
-</li>
-<li><p>Continue with <a href="#get-started">Post-Install Configuration</a></p>
-</li>
-</ol>
-<h1 id="installing-into-a-scratch-org">Installing into a Scratch Org</h1>
-<ol>
-<li><p>Set up your environment. The steps include:</p>
-<ul>
-<li>Enable Dev Hub in your main org</li>
-<li><a href="https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_install_cli.htm">Install Salesforce CLI</a></li>
-</ul>
-</li>
-<li><p>If you haven&#39;t already done so, authorize your hub org and provide it with an alias (<strong>myhuborg</strong> in the command below):</p>
-<pre><code class="language-bash">sf login org --set-default-dev-hub --alias myhuborg
-</code></pre>
-</li>
-<li><p>If you know about and use git, clone this repository</p>
-<pre><code class="language-bash">git clone https://github.com/dschach/campaign-member-status.git
-cd campaign-member-status
-</code></pre>
-</li>
-<li><p>Run the included script to create a scratch org and push the metadata</p>
-<pre><code class="language-bash">. scripts/campaignmember-scratchorg.sh
-</code></pre>
-</li>
-<li><p>Continue with <a href="#get-started">Post-Install Configuration</a></p>
-</li>
 </ol>
 
