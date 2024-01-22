@@ -4,7 +4,7 @@
 	"version": "1.2.0",
 	"description": "Protected Campaign Member Statuses",
 	"scripts": {
-		"apex:test": "rm testresults/* && sf apex run test --test-level RunLocalTests --output-dir testresults --result-format human --code-coverage",
+		"apex:test": "rmdir testresults && sf apex run test --test-level RunLocalTests --output-dir testresults --result-format human --code-coverage",
 		"audittrail": "sf data query --query \"SELECT Id,Action,Section,CreatedDate,CreatedBy.Name,Display FROM SetupAuditTrail ORDER BY CreatedDate DESC\" --resultformat csv > logs/SetupAuditTrail.csv",
 		"cpd": "$HOME/pmd/bin/pmd cpd --dir force-app --language apex --minimum-tokens 100 --format vs",
 		"devhub-x2od": "sf config set target-dev-hub=x2od",
@@ -30,7 +30,7 @@
 		"test:unit:watch": "sfdx-lwc-jest --watch --skipApiVersionCheck -- --passWithNoTests",
 		"test:unit": "sfdx-lwc-jest --skipApiVersionCheck -- --passWithNoTests",
 		"test": "npm run test:unit",
-		"updateHighlight": ". doc-assets/updateHighlight.sh"
+		"updateHighlight": ". scripts/updateHighlight.sh"
 	},
 	"devDependencies": {
 		"@prettier/plugin-xml": "^3.2.2",

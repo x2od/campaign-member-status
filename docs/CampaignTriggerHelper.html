@@ -102,21 +102,21 @@
 			<tr>
 				<td class="doc-page">
 					<div class="section">
-						<h2 class="class-title top-level-type" id="CampaignTriggerHandler">
+						<h2 class="class-title top-level-type" id="CampaignTriggerHelper">
 							<a
 								target="_blank"
 								rel="noopener noreferrer"
 								title="Go to source"
 								class="source-link"
-								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L10">
-								CampaignTriggerHandler
+								href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L11">
+								CampaignTriggerHelper
 							</a>
 						</h2>
 						<div class="class-container">
 							<div class="class-description">This class handles the automation required on Adding/Editing Campaign records</div>
 							<div class="class-subtitle">Signature</div>
 
-							<div class="class-signature">public without sharing class CampaignTriggerHandler extends TriggerHandler</div>
+							<div class="class-signature">public with sharing class CampaignTriggerHelper</div>
 							<div class="class-subtitle">Author</div>
 							<div class="class-subtitle-description">Sercante LLC</div>
 							<div class="class-subtitle">Since</div>
@@ -128,14 +128,17 @@
 							<div class="class-subtitle">Since</div>
 							<div class="class-subtitle-description">
 								<li>2022</li>
+								<li>2023 Helper class removes dependency on old required trigger handler</li>
 							</div>
 						</div>
-						<div class="subsection properties CampaignTriggerHandler">
-							<h3 class="subsection-title properties">CampaignTriggerHandler Properties</h3>
+						<div class="subsection properties CampaignTriggerHelper">
+							<h3 class="subsection-title properties">CampaignTriggerHelper Properties</h3>
 							<table class="attributes-table properties">
 								<tr>
 									<th>Name</th>
 									<th>Signature</th>
+
+									<th>Description</th>
 								</tr>
 								<tr class="property">
 									<td class="attribute-name">
@@ -144,13 +147,15 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L16">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L18">
 											cmService
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">private CampaignMemberService cmService</div>
 									</td>
+
+									<td class="attribute-description">Instantiate our central service class</td>
 								</tr>
 								<tr class="property">
 									<td class="attribute-name">
@@ -159,13 +164,15 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L11">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L12">
 											newRecords
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">private List&lt;Campaign&gt; newRecords</div>
 									</td>
+
+									<td class="attribute-description"></td>
 								</tr>
 								<tr class="property">
 									<td class="attribute-name">
@@ -174,147 +181,165 @@
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L13">
-											newRecordsMap
-										</a>
-									</td>
-									<td>
-										<div class="attribute-signature">private Map&lt;Id, Campaign&gt; newRecordsMap</div>
-									</td>
-								</tr>
-								<tr class="property">
-									<td class="attribute-name">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L12">
-											oldRecords
-										</a>
-									</td>
-									<td>
-										<div class="attribute-signature">private List&lt;Campaign&gt; oldRecords</div>
-									</td>
-								</tr>
-								<tr class="property">
-									<td class="attribute-name">
-										<a
-											target="_blank"
-											rel="noopener noreferrer"
-											title="Go to source"
-											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L14">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L13">
 											oldRecordsMap
 										</a>
 									</td>
 									<td>
 										<div class="attribute-signature">private Map&lt;Id, Campaign&gt; oldRecordsMap</div>
 									</td>
-								</tr>
-							</table>
-						</div>
-						<div class="subsection methods">
-							<h3 class="subsection-title methods">CampaignTriggerHandler Constructors</h3>
-							<div class="methods-container">
-								<ul class="methods-toc">
-									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.CampaignTriggerHandler"> CampaignTriggerHandler (handlerName) </a>
 
-										<div class="methods-toc__description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
-									</li>
-								</ul>
-								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.CampaignTriggerHandler">
+									<td class="attribute-description"></td>
+								</tr>
+								<tr class="property">
+									<td class="attribute-name">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L22">
-											CampaignTriggerHandler(handlerName)
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L14">
+											opType
+										</a>
+									</td>
+									<td>
+										<div class="attribute-signature">private System.TriggerOperation opType</div>
+									</td>
+
+									<td class="attribute-description"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="subsection methods">
+							<h3 class="subsection-title methods">CampaignTriggerHelper Constructors</h3>
+							<div class="methods-container">
+								<ul class="methods-toc">
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignTriggerHelper.CampaignTriggerHelper"> CampaignTriggerHelper (newRecords, oldRecordsMap, triggerEvent) </a>
+
+										<div class="methods-toc__description">Constructor for <code class="code-inline">CampaignMemberTriggerHelper</code></div>
+									</li>
+								</ul>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignTriggerHelper.CampaignTriggerHelper">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L27">
+											CampaignTriggerHelper(newRecords, oldRecordsMap, triggerEvent)
 										</a>
 									</h4>
-									<div class="method-description">Constructor for <code class="code-inline">CampaignMemberTriggerHandler</code></div>
+									<div class="method-description">Constructor for <code class="code-inline">CampaignMemberTriggerHelper</code></div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public CampaignTriggerHandler(String handlerName)</div>
+									<div class="method-signature">
+										public CampaignTriggerHelper(List&lt;Campaign&gt; newRecords, Map&lt;Id, Campaign&gt; oldRecordsMap, System.TriggerOperation triggerEvent)
+									</div>
 									<div class="method-subtitle">Parameters</div>
-									<div class="param-name">handlerName</div>
-									<div class="param-type">Type: <code class="code-inline">String</code></div>
-									<div class="param-description">Pass in the name of the handler for better performance</div>
+									<div class="param-name">newRecords</div>
+									<div class="param-type">Type: <code class="code-inline">List&lt;Campaign&gt;</code></div>
+									<div class="param-description">Trigger.new</div>
+									<div class="param-name">oldRecordsMap</div>
+									<div class="param-type">Type: <code class="code-inline">Map&lt;Id, Campaign&gt;</code></div>
+									<div class="param-description">Trigger.oldMap</div>
+									<div class="param-name">triggerEvent</div>
+									<div class="param-type">Type: <code class="code-inline">System.TriggerOperation</code></div>
+									<div class="param-description">Trigger context (BEFORE_UPDATE, etc)</div>
 								</div>
 							</div>
 						</div>
 						<div class="subsection methods">
-							<h3 class="subsection-title methods">CampaignTriggerHandler Methods</h3>
+							<h3 class="subsection-title methods">CampaignTriggerHelper Methods</h3>
 							<div class="methods-container">
 								<ul class="methods-toc">
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.afterInsert"> afterInsert () </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHelper.afterInsert"> afterInsert () </a>
 
 										<div class="methods-toc__description">Set up our new Campaign with the correct Statuses</div>
 									</li>
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.beforeInsert"> beforeInsert () </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHelper.beforeInsert"> beforeInsert () </a>
 
 										<div class="methods-toc__description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
 									</li>
 									<li class="method public">
-										<a class="methods-toc__entry" href="#CampaignTriggerHandler.beforeUpdate"> beforeUpdate () </a>
+										<a class="methods-toc__entry" href="#CampaignTriggerHelper.beforeUpdate"> beforeUpdate () </a>
 
 										<div class="methods-toc__description">
 											Make sure people aren&#39;t messing with our <code class="code-inline">Protect_Campaign_Member_Statuses__c</code> value.
 										</div>
 									</li>
+									<li class="method public">
+										<a class="methods-toc__entry" href="#CampaignTriggerHelper.run"> run () </a>
+
+										<div class="methods-toc__description">Central method that determines context and runs the appropraite method</div>
+									</li>
 								</ul>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.afterInsert">
+									<h4 class="method-title" id="CampaignTriggerHelper.afterInsert">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L61">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L83">
 											afterInsert()
 										</a>
 									</h4>
 									<div class="method-description">Set up our new Campaign with the correct Statuses</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public override void afterInsert()</div>
+									<div class="method-signature">public void afterInsert()</div>
 								</div>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.beforeInsert">
+									<h4 class="method-title" id="CampaignTriggerHelper.beforeInsert">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L35">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L57">
 											beforeInsert()
 										</a>
 									</h4>
 									<div class="method-description">Make sure people aren&#39;t trying to mess with the value of our Custom Field</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public override void beforeInsert()</div>
+									<div class="method-signature">public void beforeInsert()</div>
 								</div>
 								<div class="method public">
-									<h4 class="method-title" id="CampaignTriggerHandler.beforeUpdate">
+									<h4 class="method-title" id="CampaignTriggerHelper.beforeUpdate">
 										<a
 											target="_blank"
 											rel="noopener noreferrer"
 											title="Go to source"
 											class="source-link"
-											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHandler.cls#L191">
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L213">
 											beforeUpdate()
 										</a>
 									</h4>
 									<div class="method-description">Make sure people aren&#39;t messing with our <code class="code-inline">Protect_Campaign_Member_Statuses__c</code> value.</div>
 									<div class="method-subtitle">Signature</div>
 
-									<div class="method-signature">public override void beforeUpdate()</div>
+									<div class="method-signature">public void beforeUpdate()</div>
+								</div>
+								<div class="method public">
+									<h4 class="method-title" id="CampaignTriggerHelper.run">
+										<a
+											target="_blank"
+											rel="noopener noreferrer"
+											title="Go to source"
+											class="source-link"
+											href="https://github.com/dschach/campaign-member-status/blob/main/force-app/main/default/classes/CampaignTriggerHelper.cls#L37">
+											run()
+										</a>
+									</h4>
+									<div class="method-description">Central method that determines context and runs the appropraite method</div>
+									<div class="method-subtitle">Signature</div>
+
+									<div class="method-signature">public void run()</div>
 								</div>
 							</div>
 						</div>

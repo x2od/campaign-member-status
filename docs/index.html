@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<title>Project code documentation</title>
@@ -37,24 +37,27 @@
 						</summary>
 						<ul>
 							<!-- menu items -->
-							<li title="CampaignMemberRepository" id="item-CampaignMemberRepository" class="nav-item class public" onclick="goToLocation('CampaignMemberRepository.html');">
+							<li title="CampaignMemberRepository" id="item-CampaignMemberRepository" class="nav-item class" onclick="goToLocation('CampaignMemberRepository.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberRepository</a>
 							</li>
-							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class public" onclick="goToLocation('CampaignMemberService.html');">
+							<li title="CampaignMemberService" id="item-CampaignMemberService" class="nav-item class" onclick="goToLocation('CampaignMemberService.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberService</a>
 							</li>
 							<li
-								title="CampaignMemberStatusEventTriggerHandler"
-								id="item-CampaignMemberStatusEventTriggerHandler"
-								class="nav-item class public"
-								onclick="goToLocation('CampaignMemberStatusEventTriggerHandler.html');">
-								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusEventTriggerHandler</a>
+								title="CampaignMemberStatusEventHelper"
+								id="item-CampaignMemberStatusEventHelper"
+								class="nav-item class"
+								onclick="goToLocation('CampaignMemberStatusEventHelper.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusEventHelper</a>
 							</li>
-							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class public" onclick="goToLocation('CampaignMemberStatusJob.html');">
+							<li title="CampaignMemberStatusJob" id="item-CampaignMemberStatusJob" class="nav-item class" onclick="goToLocation('CampaignMemberStatusJob.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJob</a>
 							</li>
-							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class public" onclick="goToLocation('CampaignTriggerHandler.html');">
+							<li title="CampaignTriggerHandler" id="item-CampaignTriggerHandler" class="nav-item class" onclick="goToLocation('CampaignTriggerHandler.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHandler</a>
+							</li>
+							<li title="CampaignTriggerHelper" id="item-CampaignTriggerHelper" class="nav-item class" onclick="goToLocation('CampaignTriggerHelper.html');">
+								<a tabindex="1" href="javascript:void(0)">CampaignTriggerHelper</a>
 							</li>
 						</ul>
 					</details>
@@ -67,36 +70,18 @@
 							<li
 								title="CampaignMemberRepositoryMocks"
 								id="item-CampaignMemberRepositoryMocks"
-								class="nav-item class public"
+								class="nav-item class"
 								onclick="goToLocation('CampaignMemberRepositoryMocks.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberRepositoryMocks</a>
 							</li>
-							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class private" onclick="goToLocation('CampaignMemberServiceTest.html');">
+							<li title="CampaignMemberServiceTest" id="item-CampaignMemberServiceTest" class="nav-item class" onclick="goToLocation('CampaignMemberServiceTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberServiceTest</a>
 							</li>
-							<li
-								title="CampaignMemberStatusJobTest"
-								id="item-CampaignMemberStatusJobTest"
-								class="nav-item class private"
-								onclick="goToLocation('CampaignMemberStatusJobTest.html');">
+							<li title="CampaignMemberStatusJobTest" id="item-CampaignMemberStatusJobTest" class="nav-item class" onclick="goToLocation('CampaignMemberStatusJobTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignMemberStatusJobTest</a>
 							</li>
-							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class private" onclick="goToLocation('CampaignTriggerTest.html');">
+							<li title="CampaignTriggerTest" id="item-CampaignTriggerTest" class="nav-item class" onclick="goToLocation('CampaignTriggerTest.html');">
 								<a tabindex="1" href="javascript:void(0)">CampaignTriggerTest</a>
-							</li>
-						</ul>
-					</details>
-					<details id="Trigger_Handler" class="group-name">
-						<summary id="header-Trigger_Handler" class="nav-header">
-							<a href="javascript:void(0)" title="See Class Group info" onclick="goToLocation('triggerhandlerdocs.html');">Trigger Handler</a>
-						</summary>
-						<ul>
-							<!-- menu items -->
-							<li title="TriggerHandler" id="item-TriggerHandler" class="nav-item class public" onclick="goToLocation('TriggerHandler.html');">
-								<a tabindex="1" href="javascript:void(0)">TriggerHandler</a>
-							</li>
-							<li title="TriggerHandlerTest" id="item-TriggerHandlerTest" class="nav-item class private" onclick="goToLocation('TriggerHandlerTest.html');">
-								<a tabindex="1" href="javascript:void(0)">TriggerHandlerTest</a>
 							</li>
 						</ul>
 					</details>
@@ -130,7 +115,7 @@
 							><img src="https://github.com/dschach/campaign-member-status/actions/workflows/release-please.yml/badge.svg" alt="release-please"
 						/></a>
 					</p>
-					<h1 id="campaign-type-member-statuses">Campaign Type Member Statuses</h1>
+					<h1>Campaign Type Member Statuses</h1>
 					<p>
 						<strong><a href="changes.html">Changelog</a></strong>
 					</p>
@@ -187,10 +172,8 @@
 						<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
 						<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
 					</ul>
-					<h1 id="a-solution-for-protected-campaign-member-statuses-and-step-by-step-instructions-for-use">
-						A solution for Protected Campaign Member Statuses and step-by-step instructions for use.
-					</h1>
-					<h2 id="originally-written-by-adam-erstelle">Originally written by <a href="https://thespotforpardot.com/author/adamsercante-com/">Adam Erstelle</a></h2>
+					<h1>A solution for Protected Campaign Member Statuses and step-by-step instructions for use.</h1>
+					<h2>Originally written by <a href="https://thespotforpardot.com/author/adamsercante-com/">Adam Erstelle</a></h2>
 					<p>
 						We go through all the effort of setting up beautiful Salesforce Campaigns, naming standards and maybe even a hierarchy. The next challenge in completing your beautiful
 						work of campaign art is getting a hold on your Campaign Member Statuses for each campaign.
@@ -214,7 +197,7 @@
 						This code was developed for Marketing Admins who want to automate and enforce the Campaign Member Status options for Campaigns of certain types. It was originally
 						written by Sercante LLC (<a href="https://github.com/sercante-llc/campaign-member-status">https://github.com/sercante-llc/campaign-member-status</a>).
 					</p>
-					<h2 id="protected-campaign-member-statuses"><strong>Protected Campaign Member Statuses</strong></h2>
+					<h2><strong>Protected Campaign Member Statuses</strong></h2>
 					<p>Protected Campaign Member Statuses is a solution to solve this problem of automating (and enforcing) Campaign Member Statuses by Type. It allows you to:</p>
 					<ol>
 						<li>Define the Campaign Member Statuses that should always be present on given Campaign Types.</li>
@@ -222,12 +205,12 @@
 						<li>Create additional Statuses for specific reasons.</li>
 						<li>Override by authorized users on a per-Campaign basis.</li>
 					</ol>
-					<h1 id="installation-instructions">Installation Instructions</h1>
+					<h1>Installation Instructions</h1>
 					<ul>
 						<li><a href="#pushing-code-to-a-sandbox">Pushing Code to a Sandbox</a></li>
 						<li><a href="#installing-into-a-scratch-org">Installing into a Scratch Org</a></li>
 					</ul>
-					<h2 id="what-you-get">What You Get</h2>
+					<h2>What You Get</h2>
 					<p>When deploying this package to your org, you will get:</p>
 					<ul>
 						<li>1 Custom Metadata Type (and page layout)</li>
@@ -237,7 +220,7 @@
 						<li>5 Production Apex Classes</li>
 						<li>3 Apex Test Classes</li>
 					</ul>
-					<h2 id="get-started">Get started</h2>
+					<h2>Get started</h2>
 					<p>Once installed, you need to define your Protected Statuses. This is done with Custom Metadata Types.</p>
 					<ol>
 						<li>Login to Salesforce Lightning, and go to Setup.</li>
@@ -303,7 +286,7 @@
 						already created.
 					</p>
 					<p>Campaigns with Types not already set up will keep the default two statuses that Salesforce creates.</p>
-					<h1 id="thats-cool-whats-behind-the-curtain"><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></h1>
+					<h1><strong>That&#39;s cool.</strong> <strong>What&#39;s behind the curtain?</strong></h1>
 					<p>To accomplish this, we leverage a few cool tools available to us:</p>
 					<ul>
 						<li>
@@ -328,9 +311,9 @@
 						If you want even more details, check out the <a href="https://github.com/sercante-llc/protected-campaign-statuses">original Github project</a> where you can see all the
 						inner workings of what is going on.
 					</p>
-					<h1 id="how-it-works">How it Works</h1>
+					<h1>How it Works</h1>
 					<p>Once everything is set up, Campaigns should maintain a consistent set of Campaign Member Statuses. Here&#39;s how we accomplish that.</p>
-					<h2 id="new-campaign-created">New Campaign Created</h2>
+					<h2>New Campaign Created</h2>
 					<p>
 						When a new Campaign is created, we check to see if the Type of Campaign is defined in any of the Protected Campaign Member Status records (the Custom Metadata Type that
 						was set up earlier). If there is a match, the solution will:
@@ -339,29 +322,27 @@
 						<li>Automatically add a checkbox to the Campaign Custom Field &quot;Has Campaign Type Member Statuses&quot;.</li>
 						<li>Automatically adjust the CampaignMemberStatus records to match all Protected Campaign Member Statuses expected</li>
 					</ol>
-					<h2 id="editing-a-campaign-type-member-status">Editing a Campaign Type Member Status</h2>
+					<h2>Editing a Campaign Type Member Status</h2>
 					<p>
 						For a Campaign that &quot;Has Campaign Type Member Statuses&quot;, when one of the CampaignMemberStatus records is edited we will double check all statuses of that
 						Campaign to make sure that all Protected ones still exist. If there are any missing, they will be recreated almost instantly (you may need to refresh the page for them
 						to show up if there&#39;s a delay).
 					</p>
-					<h2 id="removing-a-campaign-type-member-status">Removing a Campaign Type Member Status</h2>
+					<h2>Removing a Campaign Type Member Status</h2>
 					<p>
 						If a user removes a Campaign Type Member Status, the Scheduled Job (that was created as part of <a href="#installation-instructions">Post-Install Configuration</a>)
 						will search for Campaigns missing a Status and recreate it.
 					</p>
-					<h1 id="faq">FAQ</h1>
-					<h2 id="do-you-have-any-suggested-statuses">Do you have any suggested statuses?</h2>
+					<h1>FAQ</h1>
+					<h2>Do you have any suggested statuses?</h2>
 					<p>Of course! Here are a few to get your creative juices flowing.</p>
 					<p><img class="readmeimage" src="./assets/CMStatuses.png" alt="Suggested Campaign Member Statuses" /></p>
-					<h2 id="why-dont-you-just-prevent-people-from-messing-around-with-protected-statuses">
-						Why Don&#39;t you just prevent people from messing around with Protected Statuses?
-					</h2>
+					<h2>Why Don&#39;t you just prevent people from messing around with Protected Statuses?</h2>
 					<p>
 						We really wish we could. A &quot;before update&quot; and &quot;before delete&quot; Apex Trigger would be the simplest way to handle this. Unfortunately, Apex Triggers
 						are not (yet) possible on CampaignMemberStatus records, so we end up having to fix it after-the-fact.
 					</p>
-					<h2 id="i-get-apex-test-errors-after-deploying-the-code-how-can-i-fix-them">I get Apex test errors after deploying the code. How can I fix them?</h2>
+					<h2>I get Apex test errors after deploying the code. How can I fix them?</h2>
 					<p>
 						If you have Apex tests which set up a Campaign record as part of the test, the functionality in this package will get called and might blow up. This is because how
 						Salesforce internally treats the automatic generation of Campaign Member Status records when a new Campaign is created (it&#39;s weird).
@@ -377,7 +358,7 @@
 							with this approach, so please use wisely.
 						</li>
 					</ol>
-					<h1 id="pushing-code-to-a-sandbox">Pushing Code to a Sandbox</h1>
+					<h1>Pushing Code to a Sandbox</h1>
 					<p>
 						Follow this set of instructions if you want to deploy the solution into your org without using an Unlocked Package. This will require a Sandbox, and then a ChangeSet to
 						deploy into Production.
@@ -443,7 +424,7 @@ sf org login web --set-default --alias myorg --instance-url https://mucustomdoma
 							<p>Continue with <a href="#get-started">Post-Install Configuration</a>)</p>
 						</li>
 					</ol>
-					<h1 id="installing-into-a-scratch-org">Installing into a Scratch Org</h1>
+					<h1>Installing into a Scratch Org</h1>
 					<ol>
 						<li>
 							<p>Set up your environment. The steps include:</p>
