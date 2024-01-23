@@ -12,7 +12,6 @@ public without sharing class CampaignMemberStatusEventHelper {
 
 	/**
 	 * @description Constructor for trigger handler
-	 * @param handlerName Pass in the name of the handler for better performance
 	 */
 	public CampaignMemberStatusEventHelper() {
 		this.newRecords = Trigger.new;
