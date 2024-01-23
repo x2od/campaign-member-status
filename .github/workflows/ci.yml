@@ -85,6 +85,7 @@ jobs:
           rulesets: 'pmd/deployRules.xml'
           analyzeModifiedFilesOnly: false
           createGitHubAnnotations: true
+          uploadSarifReport: false
         # Check for PMD violations
       - name: 'Check for PMD violations'
         if: steps.pmd-action.outputs.violations != 0
