@@ -77,7 +77,7 @@ jobs:
           java-version: '11'
 
       - name: 'Perform PMD scan with PMD action'
-        uses: pmd/pmd-github-action@v1
+        uses: pmd/pmd-github-action@v2
         id: pmd-action
         with:
           version: 'latest'
