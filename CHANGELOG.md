@@ -1,5 +1,111 @@
 # Changelog
 
+## [1.3.1](https://github.com/x2od/campaign-member-status/compare/v1.3.0...v1.3.1) (2025-03-18)
+
+
+### Bug Fixes
+
+* **ci:** Update PR workflow to deploy proper metadata ([ef79d43](https://github.com/x2od/campaign-member-status/commit/ef79d43cd8f40b09c3880a5a403781073e4203a9))
+
+
+### Dependencies
+
+* **axios, wait-on:** Bump axios and wait-on ([#137](https://github.com/x2od/campaign-member-status/issues/137)) ([7b1a339](https://github.com/x2od/campaign-member-status/commit/7b1a3397252d30d208cbf0a706ace37e2bb912a2))
+
+
+### Build System
+
+* **@prettier/plugin-xml:** Bump @prettier/plugin-xml from 3.2.2 to 3.3.1 ([#158](https://github.com/x2od/campaign-member-status/issues/158)) ([5fa75c2](https://github.com/x2od/campaign-member-status/commit/5fa75c205200a8f7d64e52ff6f9278c57595b1cb))
+* **@prettier/plugin-xml:** Bump @prettier/plugin-xml from 3.3.1 to 3.4.1 ([#165](https://github.com/x2od/campaign-member-status/issues/165)) ([b718066](https://github.com/x2od/campaign-member-status/commit/b71806685c091d26c7ef6f91672f62470641766e))
+* **axios:** Bump axios from 1.6.2 to 1.7.4 ([#192](https://github.com/x2od/campaign-member-status/issues/192)) ([79dfa1f](https://github.com/x2od/campaign-member-status/commit/79dfa1f0e471054055387d49766e0f643dd1a29b))
+* **axios:** Bump axios from 1.7.7 to 1.8.2 ([#231](https://github.com/x2od/campaign-member-status/issues/231)) ([99e8deb](https://github.com/x2od/campaign-member-status/commit/99e8deb06f055f7dadb13af86f4640cfe3fc6bac))
+* **follow-redirects:** Bump follow-redirects from 1.15.3 to 1.15.4 ([#143](https://github.com/x2od/campaign-member-status/issues/143)) ([dcf6473](https://github.com/x2od/campaign-member-status/commit/dcf64737642856a11349966ab838fc4423c81dbb))
+* **follow-redirects:** Bump follow-redirects from 1.15.4 to 1.15.6 ([#162](https://github.com/x2od/campaign-member-status/issues/162)) ([12955f1](https://github.com/x2od/campaign-member-status/commit/12955f1f392ac2d3c3a6d500af1b8c1d42303287))
+* **husky:** Bump husky from 8.0.3 to 9.0.6 ([#149](https://github.com/x2od/campaign-member-status/issues/149)) ([5386d78](https://github.com/x2od/campaign-member-status/commit/5386d78e3985be2203e34ccc620c0b688d967724))
+* **husky:** Bump husky from 9.0.10 to 9.0.11 ([#159](https://github.com/x2od/campaign-member-status/issues/159)) ([bcdd5f5](https://github.com/x2od/campaign-member-status/commit/bcdd5f555acea99b2a53923bf2734b681191188b))
+* **husky:** Bump husky from 9.0.11 to 9.1.0 ([#182](https://github.com/x2od/campaign-member-status/issues/182)) ([43c6bfb](https://github.com/x2od/campaign-member-status/commit/43c6bfb17d16e25ec751b7a5275bd1008fae7a3f))
+* **husky:** Bump husky from 9.0.6 to 9.0.7 ([#151](https://github.com/x2od/campaign-member-status/issues/151)) ([d6e12e7](https://github.com/x2od/campaign-member-status/commit/d6e12e7c4be98eaba7e60cfe93e75175f93d8ab2))
+* **husky:** Bump husky from 9.0.7 to 9.0.10 ([#154](https://github.com/x2od/campaign-member-status/issues/154)) ([f38a906](https://github.com/x2od/campaign-member-status/commit/f38a9063d1f63c13514bb685d309ce83fca37780))
+* **husky:** Bump husky from 9.1.0 to 9.1.1 ([#183](https://github.com/x2od/campaign-member-status/issues/183)) ([d038f70](https://github.com/x2od/campaign-member-status/commit/d038f70d2264e62c049f75b8e317d37cb832b134))
+* **husky:** Bump husky from 9.1.1 to 9.1.2 ([#184](https://github.com/x2od/campaign-member-status/issues/184)) ([8097dd8](https://github.com/x2od/campaign-member-status/commit/8097dd8ef9e91c99081e872cf13be2d2ec428063))
+* **husky:** Bump husky from 9.1.2 to 9.1.3 ([#186](https://github.com/x2od/campaign-member-status/issues/186)) ([f1384ad](https://github.com/x2od/campaign-member-status/commit/f1384adfdc0484755c21f8ba9666752775a5bb7a))
+* **husky:** Bump husky from 9.1.3 to 9.1.4 ([#187](https://github.com/x2od/campaign-member-status/issues/187)) ([80672ee](https://github.com/x2od/campaign-member-status/commit/80672ee78851cabbddbd9de18b24303ddbed70cb))
+* **husky:** Bump husky from 9.1.4 to 9.1.5 ([#191](https://github.com/x2od/campaign-member-status/issues/191)) ([cb8556f](https://github.com/x2od/campaign-member-status/commit/cb8556f6f52c01adfbe504964cb2858a7775a901))
+* **husky:** Bump husky from 9.1.5 to 9.1.6 ([#197](https://github.com/x2od/campaign-member-status/issues/197)) ([1bb72d2](https://github.com/x2od/campaign-member-status/commit/1bb72d230d37360bef74cc5746d9642810a98f9f))
+* **husky:** Bump husky from 9.1.6 to 9.1.7 ([#207](https://github.com/x2od/campaign-member-status/issues/207)) ([9a4e890](https://github.com/x2od/campaign-member-status/commit/9a4e890413e10d89cbc348d59aff8c51af0e0b11))
+* **lint-staged:** Bump lint-staged from 15.2.0 to 15.2.1 ([#153](https://github.com/x2od/campaign-member-status/issues/153)) ([217a562](https://github.com/x2od/campaign-member-status/commit/217a562dedaaeb7d9dda116779c6bf1f883834e1))
+* **lint-staged:** Bump lint-staged from 15.2.1 to 15.2.2 ([#157](https://github.com/x2od/campaign-member-status/issues/157)) ([21ec09b](https://github.com/x2od/campaign-member-status/commit/21ec09b233b8b4c11f5d29b149daed51d0addb39))
+* **lint-staged:** Bump lint-staged from 15.2.10 to 15.2.11 ([#213](https://github.com/x2od/campaign-member-status/issues/213)) ([430095d](https://github.com/x2od/campaign-member-status/commit/430095d4fd8910b08436b96d3573272ee546bab5))
+* **lint-staged:** Bump lint-staged from 15.2.11 to 15.3.0 ([#215](https://github.com/x2od/campaign-member-status/issues/215)) ([d397492](https://github.com/x2od/campaign-member-status/commit/d397492ea9328df721bfa98f7677e7f6f6a7186a))
+* **lint-staged:** Bump lint-staged from 15.2.2 to 15.2.4 ([#171](https://github.com/x2od/campaign-member-status/issues/171)) ([2ccddef](https://github.com/x2od/campaign-member-status/commit/2ccddef4fafd2ca6797be533c02bea0d469abd52))
+* **lint-staged:** Bump lint-staged from 15.2.4 to 15.2.5 ([#172](https://github.com/x2od/campaign-member-status/issues/172)) ([d04b013](https://github.com/x2od/campaign-member-status/commit/d04b0131618fb64081fbdec649d1f1d4331c4c22))
+* **lint-staged:** Bump lint-staged from 15.2.5 to 15.2.6 ([#176](https://github.com/x2od/campaign-member-status/issues/176)) ([362e6c7](https://github.com/x2od/campaign-member-status/commit/362e6c7e5dfa578a109192994e2b073c3c07a3ee))
+* **lint-staged:** Bump lint-staged from 15.2.6 to 15.2.7 ([#178](https://github.com/x2od/campaign-member-status/issues/178)) ([93bff62](https://github.com/x2od/campaign-member-status/commit/93bff62924bc21de5787ff2638b210d25712d2fa))
+* **lint-staged:** Bump lint-staged from 15.2.7 to 15.2.8 ([#188](https://github.com/x2od/campaign-member-status/issues/188)) ([3978b88](https://github.com/x2od/campaign-member-status/commit/3978b8839c03f4526641cec5743e0e90dcb7f1c5))
+* **lint-staged:** Bump lint-staged from 15.2.8 to 15.2.9 ([#190](https://github.com/x2od/campaign-member-status/issues/190)) ([ba62ebe](https://github.com/x2od/campaign-member-status/commit/ba62ebe8b2c55599417c7232b9cb20538e0d6213))
+* **lint-staged:** Bump lint-staged from 15.2.9 to 15.2.10 ([#194](https://github.com/x2od/campaign-member-status/issues/194)) ([9276596](https://github.com/x2od/campaign-member-status/commit/927659602a13a8638117012e2c8503004083b0be))
+* **lint-staged:** Bump lint-staged from 15.3.0 to 15.4.0 ([#218](https://github.com/x2od/campaign-member-status/issues/218)) ([2eb1000](https://github.com/x2od/campaign-member-status/commit/2eb1000c1ec1236e2e627da2d781cfec8db86062))
+* **lint-staged:** Bump lint-staged from 15.4.0 to 15.4.1 ([#219](https://github.com/x2od/campaign-member-status/issues/219)) ([97b4f28](https://github.com/x2od/campaign-member-status/commit/97b4f287b62d0b437f2463bdd428adc8610db357))
+* **lint-staged:** Bump lint-staged from 15.4.1 to 15.4.2 ([#220](https://github.com/x2od/campaign-member-status/issues/220)) ([3c1f2e6](https://github.com/x2od/campaign-member-status/commit/3c1f2e66c0107fa531cbed2a50286590e9d33f41))
+* **lint-staged:** Bump lint-staged from 15.4.2 to 15.4.3 ([#221](https://github.com/x2od/campaign-member-status/issues/221)) ([61ef58d](https://github.com/x2od/campaign-member-status/commit/61ef58d27a69c04663b73ffcab585b88573e3c90))
+* **lint-staged:** Bump lint-staged from 15.4.3 to 15.5.0 ([#232](https://github.com/x2od/campaign-member-status/issues/232)) ([143a95e](https://github.com/x2od/campaign-member-status/commit/143a95e76e6c4d3107f5640fd1917764ef953021))
+* **marked:** Bump marked from 11.0.0 to 11.0.1 ([#140](https://github.com/x2od/campaign-member-status/issues/140)) ([0a616ca](https://github.com/x2od/campaign-member-status/commit/0a616cac95dcd05d4d1b7145c4eb870ebb04a26a))
+* **marked:** Bump marked from 11.0.1 to 11.1.0 ([#141](https://github.com/x2od/campaign-member-status/issues/141)) ([77ec242](https://github.com/x2od/campaign-member-status/commit/77ec2423bc2abd65d948ab2e8f7f8bc0ae2de7c3))
+* **marked:** Bump marked from 11.1.0 to 11.1.1 ([#142](https://github.com/x2od/campaign-member-status/issues/142)) ([9223b2b](https://github.com/x2od/campaign-member-status/commit/9223b2bab656b146366bdb6bb1933431bc03812c))
+* **marked:** Bump marked from 11.1.1 to 11.2.0 ([#150](https://github.com/x2od/campaign-member-status/issues/150)) ([580e3d4](https://github.com/x2od/campaign-member-status/commit/580e3d4dfd459e80eca5756e7922cb94b4bd997a))
+* **marked:** Bump marked from 11.2.0 to 12.0.1 ([#161](https://github.com/x2od/campaign-member-status/issues/161)) ([05f0e45](https://github.com/x2od/campaign-member-status/commit/05f0e45b3aadc1e8b99af6f1a6b2facb9c7de4fb))
+* **marked:** Bump marked from 12.0.1 to 12.0.2 ([#166](https://github.com/x2od/campaign-member-status/issues/166)) ([00a4fa9](https://github.com/x2od/campaign-member-status/commit/00a4fa999d85e379d2babd29ed8e7ae6251dd3af))
+* **marked:** Bump marked from 12.0.2 to 13.0.0 ([#177](https://github.com/x2od/campaign-member-status/issues/177)) ([8ae300b](https://github.com/x2od/campaign-member-status/commit/8ae300b95cbfe4f6231d356c3d3a90a82625b545))
+* **marked:** Bump marked from 13.0.0 to 13.0.1 ([#179](https://github.com/x2od/campaign-member-status/issues/179)) ([a4d96aa](https://github.com/x2od/campaign-member-status/commit/a4d96aaa5ff8fbff70462c9aa915c2798449f2d6))
+* **marked:** Bump marked from 13.0.1 to 13.0.2 ([#180](https://github.com/x2od/campaign-member-status/issues/180)) ([11c5e38](https://github.com/x2od/campaign-member-status/commit/11c5e38187b152d6c5a7a6e4bfb271c8f2cb22fc))
+* **marked:** Bump marked from 13.0.2 to 13.0.3 ([#185](https://github.com/x2od/campaign-member-status/issues/185)) ([8561986](https://github.com/x2od/campaign-member-status/commit/8561986b2747818a02f70062c101d825ec00ecc3))
+* **marked:** Bump marked from 13.0.3 to 14.1.0 ([#193](https://github.com/x2od/campaign-member-status/issues/193)) ([01af674](https://github.com/x2od/campaign-member-status/commit/01af674ea9c7f7163bbc52e5a8a1dd545ba01e66))
+* **marked:** Bump marked from 14.1.0 to 14.1.1 ([#195](https://github.com/x2od/campaign-member-status/issues/195)) ([0da79f3](https://github.com/x2od/campaign-member-status/commit/0da79f35935281709756d0b811d05a1f969f94ee))
+* **marked:** Bump marked from 14.1.1 to 14.1.2 ([#196](https://github.com/x2od/campaign-member-status/issues/196)) ([ef142da](https://github.com/x2od/campaign-member-status/commit/ef142da42ad994e73a67688f852f27dc264298e9))
+* **marked:** Bump marked from 14.1.2 to 14.1.3 ([#199](https://github.com/x2od/campaign-member-status/issues/199)) ([b1deb2d](https://github.com/x2od/campaign-member-status/commit/b1deb2d2b1e9000620d140b4899e9102f6cca9e8))
+* **marked:** Bump marked from 14.1.3 to 14.1.4 ([#201](https://github.com/x2od/campaign-member-status/issues/201)) ([99406b6](https://github.com/x2od/campaign-member-status/commit/99406b64b51a967f31c337f798be7781e24ad450))
+* **marked:** Bump marked from 14.1.4 to 15.0.5 ([#216](https://github.com/x2od/campaign-member-status/issues/216)) ([2fa4e18](https://github.com/x2od/campaign-member-status/commit/2fa4e18c136faf85067872f2873df3ec87b37e4d))
+* **marked:** Bump marked from 15.0.5 to 15.0.6 ([#217](https://github.com/x2od/campaign-member-status/issues/217)) ([6da4029](https://github.com/x2od/campaign-member-status/commit/6da4029d8b3ed1f3e8afc5a2af7efabe294fec11))
+* **marked:** Bump marked from 15.0.6 to 15.0.7 ([#224](https://github.com/x2od/campaign-member-status/issues/224)) ([131b14f](https://github.com/x2od/campaign-member-status/commit/131b14f537c18e42d5ee140a6831e56de042d645))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.0.1 to 2.1.0 ([#160](https://github.com/x2od/campaign-member-status/issues/160)) ([8f6b6bc](https://github.com/x2od/campaign-member-status/commit/8f6b6bc1bd741e6af2598502320dd2b77fae1c6a))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.0 to 2.1.1 ([#167](https://github.com/x2od/campaign-member-status/issues/167)) ([e14e71c](https://github.com/x2od/campaign-member-status/commit/e14e71c54a004dc02568ee7b7405fb430028ce6f))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.1 to 2.1.2 ([#168](https://github.com/x2od/campaign-member-status/issues/168)) ([54fe228](https://github.com/x2od/campaign-member-status/commit/54fe2287aab37ba6690f7475b720ec1c47c8a9ef))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.2 to 2.1.3 ([#169](https://github.com/x2od/campaign-member-status/issues/169)) ([4a29fad](https://github.com/x2od/campaign-member-status/commit/4a29fad05bb55994ada95c9969a8ec68d2714b9e))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.3 to 2.1.4 ([#170](https://github.com/x2od/campaign-member-status/issues/170)) ([6aa47de](https://github.com/x2od/campaign-member-status/commit/6aa47de5bc540f0cd4d879579f8a992e63ee5a60))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.4 to 2.1.5 ([#198](https://github.com/x2od/campaign-member-status/issues/198)) ([bbbb587](https://github.com/x2od/campaign-member-status/commit/bbbb58741e8f006194ad8fea57ec2258aa023c25))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.1.5 to 2.2.0 ([#200](https://github.com/x2od/campaign-member-status/issues/200)) ([f529048](https://github.com/x2od/campaign-member-status/commit/f529048aa8b26ce17ec15e8aacd9d7e250da2e21))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.2.0 to 2.2.1 ([#202](https://github.com/x2od/campaign-member-status/issues/202)) ([9d8d33a](https://github.com/x2od/campaign-member-status/commit/9d8d33a56e63feb627b3c1a8f3e99009cb5c7431))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.2.1 to 2.2.2 ([#204](https://github.com/x2od/campaign-member-status/issues/204)) ([ccbf62f](https://github.com/x2od/campaign-member-status/commit/ccbf62fc7858de4a15720bbff3e74dc79db72096))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.2.2 to 2.2.3 ([#222](https://github.com/x2od/campaign-member-status/issues/222)) ([49a9d19](https://github.com/x2od/campaign-member-status/commit/49a9d19878ab13dcc6138ee624fc5f625c7a05bc))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.2.3 to 2.2.4 ([#223](https://github.com/x2od/campaign-member-status/issues/223)) ([2d75eeb](https://github.com/x2od/campaign-member-status/commit/2d75eebe1aa362edbbafc07449deaf7db4286759))
+* **prettier-plugin-apex:** Bump prettier-plugin-apex from 2.2.4 to 2.2.5 ([#230](https://github.com/x2od/campaign-member-status/issues/230)) ([4093833](https://github.com/x2od/campaign-member-status/commit/409383340dd6b1a35894cbea179acfca4bc3b676))
+* **prettier:** Bump prettier from 3.1.0 to 3.1.1 ([#139](https://github.com/x2od/campaign-member-status/issues/139)) ([39cbe35](https://github.com/x2od/campaign-member-status/commit/39cbe35de814fddfd605ade9f712a884f5a9a76b))
+* **prettier:** Bump prettier from 3.1.1 to 3.2.2 ([#144](https://github.com/x2od/campaign-member-status/issues/144)) ([1dc0b67](https://github.com/x2od/campaign-member-status/commit/1dc0b67c6da6d0e285bca1f12624ac1c4fbf95bc))
+* **prettier:** Bump prettier from 3.2.2 to 3.2.3 ([#145](https://github.com/x2od/campaign-member-status/issues/145)) ([824174b](https://github.com/x2od/campaign-member-status/commit/824174bd51ee8f8456b4c2f03fab988cb986e770))
+* **prettier:** Bump prettier from 3.2.3 to 3.2.4 ([#146](https://github.com/x2od/campaign-member-status/issues/146)) ([a83f233](https://github.com/x2od/campaign-member-status/commit/a83f233315786c9dcfcbd18688b6aeb3e45f6bf3))
+* **prettier:** Bump prettier from 3.2.4 to 3.2.5 ([#156](https://github.com/x2od/campaign-member-status/issues/156)) ([f2be3da](https://github.com/x2od/campaign-member-status/commit/f2be3da38eb061ffdffcf7a0e48b4a3bc9e2eac9))
+* **prettier:** Bump prettier from 3.2.5 to 3.3.0 ([#173](https://github.com/x2od/campaign-member-status/issues/173)) ([9d57391](https://github.com/x2od/campaign-member-status/commit/9d573919d36792f31b2cb2bd85cd0dc73c3d43dd))
+* **prettier:** Bump prettier from 3.3.0 to 3.3.1 ([#174](https://github.com/x2od/campaign-member-status/issues/174)) ([8ff7104](https://github.com/x2od/campaign-member-status/commit/8ff7104e1da4638b6311b7e26fa1307166a2e60f))
+* **prettier:** Bump prettier from 3.3.1 to 3.3.2 ([#175](https://github.com/x2od/campaign-member-status/issues/175)) ([c6e1512](https://github.com/x2od/campaign-member-status/commit/c6e151243884bc111c4530c5be2fe70f80850b3c))
+* **prettier:** Bump prettier from 3.3.2 to 3.3.3 ([#181](https://github.com/x2od/campaign-member-status/issues/181)) ([0d06106](https://github.com/x2od/campaign-member-status/commit/0d06106152406e00d8c7a8a4e6f510c46a41d71a))
+* **prettier:** Bump prettier from 3.3.3 to 3.4.0 ([#209](https://github.com/x2od/campaign-member-status/issues/209)) ([46a3b5a](https://github.com/x2od/campaign-member-status/commit/46a3b5a4cff50fe04a9bb202f5742ce12919b932))
+* **prettier:** Bump prettier from 3.4.0 to 3.4.1 ([#210](https://github.com/x2od/campaign-member-status/issues/210)) ([055cdcd](https://github.com/x2od/campaign-member-status/commit/055cdcd703505f251a3e8ff5158eb39a359f5e6d))
+* **prettier:** Bump prettier from 3.4.1 to 3.4.2 ([#212](https://github.com/x2od/campaign-member-status/issues/212)) ([7be73bb](https://github.com/x2od/campaign-member-status/commit/7be73bbdf5d72a8e03e37a142018b0358bff902c))
+* **prettier:** Bump prettier from 3.4.2 to 3.5.0 ([#225](https://github.com/x2od/campaign-member-status/issues/225)) ([db229d6](https://github.com/x2od/campaign-member-status/commit/db229d64353f344dbc8a23fc061d94e396e6bee1))
+* **prettier:** Bump prettier from 3.5.0 to 3.5.1 ([#226](https://github.com/x2od/campaign-member-status/issues/226)) ([1f01d3c](https://github.com/x2od/campaign-member-status/commit/1f01d3c57330e9acae653e4224f7d1bef7331374))
+* **prettier:** Bump prettier from 3.5.1 to 3.5.2 ([#227](https://github.com/x2od/campaign-member-status/issues/227)) ([3bf03f8](https://github.com/x2od/campaign-member-status/commit/3bf03f8c39c8ab69c73ac387b44ea5731e9e6b9c))
+* **prettier:** Bump prettier from 3.5.2 to 3.5.3 ([#229](https://github.com/x2od/campaign-member-status/issues/229)) ([0e2e981](https://github.com/x2od/campaign-member-status/commit/0e2e9817809b5ae47fdc50327080253c641ad679))
+
+
+### Continuous Integration
+
+* **actions/cache:** Bump actions/cache from 3 to 4 ([#147](https://github.com/x2od/campaign-member-status/issues/147)) ([53549df](https://github.com/x2od/campaign-member-status/commit/53549df8594018d0758c787db4f6b48c7055631c))
+* **codecov/codecov-action:** Bump codecov/codecov-action from 3 to 4 ([#152](https://github.com/x2od/campaign-member-status/issues/152)) ([840166a](https://github.com/x2od/campaign-member-status/commit/840166a4aad9a7c576cb22fca9e8c5af41ace4fd))
+* **codecov/codecov-action:** Bump codecov/codecov-action from 4 to 5 ([#205](https://github.com/x2od/campaign-member-status/issues/205)) ([a1c884c](https://github.com/x2od/campaign-member-status/commit/a1c884cbb1f3f16b3f404173360381daf54534aa))
+* **dependabot/fetch-metadata:** Bump dependabot/fetch-metadata from 1 to 2 ([#164](https://github.com/x2od/campaign-member-status/issues/164)) ([2d08ea1](https://github.com/x2od/campaign-member-status/commit/2d08ea1904be7974e1cdf4fd145dfd5f103e83c4))
+* **dependabot:** Stop auto-merging dependabot ([#228](https://github.com/x2od/campaign-member-status/issues/228)) ([09a2dd0](https://github.com/x2od/campaign-member-status/commit/09a2dd0fc30b7831b8e8f505f59bb37074604de9))
+* **pmd/pmd-github-action:** Bump pmd/pmd-github-action from 1 to 2 ([#163](https://github.com/x2od/campaign-member-status/issues/163)) ([7afe3d1](https://github.com/x2od/campaign-member-status/commit/7afe3d1e9e62757b567bed0ef6f8ed59a95a5450))
+
 ## [1.3.0](https://github.com/dschach/campaign-member-status/compare/v1.2.0...v1.3.0) (2023-12-10)
 
 
