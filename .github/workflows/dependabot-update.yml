@@ -20,9 +20,10 @@ on:
   # workflow never checks out code from the PR.
   #
   # From 2026-11-02, GitHub blocks pull_request_target in public repositories unless an
-  # Actions event policy allows it. The x2od organization policy "Allow
-  # pull_request_target for the Dependabot workflow" allows the event for this file in
-  # every x2od repository, so keep the file name dependabot-update.yml.
+  # Actions event policy allows it. This repository has the policy "Allow
+  # pull_request_target for the Dependabot workflow" (Settings > Actions > Policies).
+  # The policy allows the event for this file only, so keep the file name
+  # dependabot-update.yml.
   # Keep all 5 types. "closed" adds the labels after the merge.
   pull_request_target:
     types: [opened, reopened, synchronize, edited, closed]
