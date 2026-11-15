@@ -39,7 +39,7 @@
 		"lint-staged": "^15.5.2",
 		"marked": "^15.0.12",
 		"prettier": "^3.9.10",
-		"prettier-plugin-apex": "^2.3.0"
+		"prettier-plugin-apex": "^2.4.0"
 	},
 	"lint-staged": {
 		"force-app/**/*.{cls,cmp,component,css,html,js,json,md,page,trigger,yaml,yml}": [
